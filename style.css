@@ -8,7 +8,7 @@ body{
 .framed{
     display: grid;    
     grid-template-columns: repeat(12, 1fr);
-    grid-template-rows: 200px 200px 20%;
+    grid-template-rows: 150px 100% 150px;
     grid-gap: 5px;
     grid-template-areas:
         ". h h h h h h h h h h ."
@@ -81,10 +81,11 @@ body{
 /* End of MENU */
 #c{
     grid-area: c;
-    background-color: yellowgreen;
+    /*background-color: yellowgreen;*/
     overflow: hidden;
 }
 #f{
     grid-area: f;
     background-color: steelblue;
 }
+
