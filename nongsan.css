@@ -41,30 +41,22 @@ body{
 /* END HEADER */
 
 /* MENU */
-ul{
+#m{
     grid-area: m; 
     display: flex;
-    list-style: none;
 }
 .menu-active{
 }
-
-ul  li {
+#m > a {
     color: black;
     text-decoration: none;
     text-align: center;
     cursor: pointer;
     flex: 1;
 }
+#m > a:hover{
 
-ul li ul li  {
-	display: none;
 }
-
-ul li:hover ul li {
-	display: flex;
-}
-
 #search-account{
     display: flex;
     margin-bottom: 10px;
@@ -86,4 +78,20 @@ ul li:hover ul li {
     font-size: 1.5rem;
     margin-left: 15px;
 }
-/* End of MENU */
+
+/* END MENU */
+
+/* LIST NEWS*/
+
+.list_news{
+	padding: 5px;
+	margin: 15px;
+	height: 160px;
+	width: 600px
+}
+
+.art {
+	float:left ;
+	border: 1px solid grey;
+	padding: 2px;
+}
