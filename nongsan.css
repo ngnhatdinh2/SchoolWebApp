@@ -1,0 +1,97 @@
+/*  SHOULDNT TOUCH DOUCHEBAGS*/
+body{
+    margin: 0;
+}
+*{
+    box-sizing: border-box;
+}
+.framed{
+    display: grid;    
+    grid-template-columns: repeat(12, 1fr);
+    grid-template-rows: 150px 100% 150px;
+    grid-gap: 5px;
+    grid-template-areas:
+        ". h h h h h h h h h h ."
+        "c c c c c c c c c c c c"
+        "f f f f f f f f f f f f";
+}
+
+/* HEADER */
+#h{
+    grid-area: h;
+    height: 100px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+#a{
+    display: flex;
+    justify-content: space-between;
+}
+#logo{
+    font-family: 'Dokdo', cursive;
+    font-size: 3.5rem;
+    letter-spacing: 1px;
+    user-select: none;
+    cursor: pointer;
+    font-weight: 400;
+    margin: 
+
+}
+/* END HEADER */
+
+/* MENU */
+#m{
+    grid-area: m; 
+    display: flex;
+}
+.menu-active{
+}
+#m > a {
+    color: black;
+    text-decoration: none;
+    text-align: center;
+    cursor: pointer;
+    flex: 1;
+}
+#m > a:hover{
+
+}
+#search-account{
+    display: flex;
+    margin-bottom: 10px;
+    justify-content: space-between;
+    padding: 0 5px;
+    align-items: flex-end;  
+}
+#search-box{
+    all: unset;
+    align-self: flex-end;
+    border-bottom: 1px solid black;
+    padding: 10px 5px;
+}
+#search-icon{
+    margin-bottom: 10px;
+}
+#account-icon{
+    align-self: flex-end;
+    font-size: 1.5rem;
+    margin-left: 15px;
+}
+
+/* END MENU */
+
+/* LIST NEWS*/
+
+.list_news{
+	padding: 5px;
+	margin: 15px;
+	height: 160px;
+	width: 600px
+}
+
+.art {
+	float:left ;
+	border: 1px solid grey;
+	padding: 2px;
+}
