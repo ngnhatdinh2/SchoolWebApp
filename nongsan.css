@@ -27,6 +27,7 @@ body{
 #a{
     display: flex;
     justify-content: space-between;
+    background-color: #fff;
 }
 #logo{
     font-family: 'Dokdo', cursive;
@@ -60,7 +61,7 @@ body{
 #search-account{
     display: flex;
     margin-bottom: 10px;
-    justify-content: space-between;
+    justify-content: flex-end;
     padding: 0 5px;
     align-items: flex-end;  
 }
@@ -91,7 +92,63 @@ body{
 }
 
 .art {
-	float:left ;
 	border: 1px solid grey;
 	padding: 2px;
+}
+
+a {
+	color: #000;
+	transition: all 0.15s;
+
+}
+
+a:hover {
+	color: #C5B5D3FF;
+	text-decoration: none;
+
+}
+
+/* END LIST NEWS */
+
+body{
+	background-color: #eee;
+}
+
+.dropdown:hover>.dropdown-menu {
+  display: block;
+}
+
+.dropdown-toggle::after{
+	display: none;
+}
+
+.navbar-nav .nav-item{
+	margin-left: 25px;
+}
+
+.nongsan-container .row{
+	margin-top: 15px;
+	border-bottom: 1px dotted #e2e2e3;
+
+}
+
+.breadcrumb{
+	background-color: transparent;
+}
+
+.category{
+	background-color: #fff;
+	padding-top: 15px;
+	padding-bottom: 15px;
+	box-shadow:  0px 2px 2px 0px rgba(0, 0, 0, 0.08);
+}
+
+.category-list{
+	list-style: none;
+	padding:0;
+	margin: 0;
+}
+
+.category-list li{
+	margin-bottom: 15px;
 }
