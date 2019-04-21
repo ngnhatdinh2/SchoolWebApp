@@ -8,10 +8,10 @@ body{
 .framed{
     display: grid;    
     grid-template-columns: repeat(12, 1fr);
-    grid-template-rows: 150px 100% 150px;
+    grid-template-rows: 100px 100% 150px;
     grid-gap: 5px;
     grid-template-areas:
-        ". h h h h h h h h h h ."
+        "h h h h h h h h h h h h"
         "c c c c c c c c c c c c"
         "f f f f f f f f f f f f";
 }
@@ -23,6 +23,7 @@ body{
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    padding: 0px;
 }
 #a{
     display: flex;
@@ -39,22 +40,6 @@ body{
 /* END HEADER */
 
 /* MENU */
-#m{
-    grid-area: m; 
-    display: flex;
-}
-.menu-active{
-}
-#m > a {
-    color: black;
-    text-decoration: none;
-    text-align: center;
-    cursor: pointer;
-    flex: 1;
-}
-#m > a:hover{
-
-}
 #search-account{
     display: flex;
     margin-bottom: 10px;
@@ -76,6 +61,20 @@ body{
     font-size: 1.5rem;
     margin-left: 15px;
 }
+
+.dropdown:hover>.dropdown-menu {
+  display: block;
+}
+
+.dropdown-toggle::after{
+    display: none;
+}
+
+.navbar-nav .nav-item{
+    margin-left: 25px;
+}
+
+
 /* End of MENU */
 #c{
     grid-area: c;
@@ -87,6 +86,7 @@ body{
     background-color: steelblue;
 }
 
+<<<<<<< HEAD
 /* ARTICLE - PAGE */
 #article{
 
@@ -132,3 +132,8 @@ body{
 #right-comment{
     flex: 4;
 }
+=======
+.container {
+    margin-top: 15px;
+}
+>>>>>>> 45e4e5c4ae131f6a810717062d6c5ec1e7551f63

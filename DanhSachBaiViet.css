@@ -126,7 +126,7 @@ body{
 	margin-left: 25px;
 }
 
-.nongsan-container .row{
+.danhsach-container .row{
 	margin-top: 15px;
 	border-bottom: 1px dotted #e2e2e3;
 
@@ -152,3 +152,4 @@ body{
 .category-list li{
 	margin-bottom: 15px;
 }
+
