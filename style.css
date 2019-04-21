@@ -38,7 +38,23 @@ body{
     font-weight: 400;
 }
 /* END HEADER */
+/* Nav-bar*/
+#m{	
+    grid-area: m; 	
+    display: flex;	
+}	
+.menu-active{	
+}	
+#m > a {	
+    color: black;	
+    text-decoration: none;	
+    text-align: center;	
+    cursor: pointer;	
+    flex: 1;	
+}	
+#m > a:hover{	
 
+ }
 /* MENU */
 #search-account{
     display: flex;
@@ -86,7 +102,6 @@ body{
     background-color: steelblue;
 }
 
-<<<<<<< HEAD
 /* ARTICLE - PAGE */
 #article{
 
@@ -132,8 +147,3 @@ body{
 #right-comment{
     flex: 4;
 }
-=======
-.container {
-    margin-top: 15px;
-}
->>>>>>> 45e4e5c4ae131f6a810717062d6c5ec1e7551f63
