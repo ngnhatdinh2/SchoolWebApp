@@ -122,6 +122,21 @@ body{
 	display: none;
 }
 
+.dropdown-menu {
+    top: 44px;
+    background-color: #343a40;
+    border: none;
+    border-radius: 0 0 5px 5px;
+}
+
+.dropdown-item {
+    color: #fff;
+}
+
+.navbar-nav {
+    width: 70%;
+    justify-content: space-around;
+}
 .navbar-nav .nav-item{
 	margin-left: 25px;
 }
