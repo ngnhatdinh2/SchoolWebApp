@@ -11,9 +11,9 @@ body{
     grid-template-rows: 150px 100% 150px;
     grid-gap: 5px;
     grid-template-areas:
-        ". h h h h h h h h h h ."
-        "c c c c c c c c c c c c"
-        "f f f f f f f f f f f f";
+    ". h h h h h h h h h h ."
+    "c c c c c c c c c c c c"
+    "f f f f f f f f f f f f";
 }
 
 /* HEADER */
@@ -110,6 +110,8 @@ a:hover {
 
 /* END LIST NEWS */
 
+
+
 body{
 	background-color: #eee;
 }
@@ -167,4 +169,55 @@ body{
 .category-list li{
 	margin-bottom: 15px;
 }
+@media only screen and (max-width: 1920px) {
+    #img1 {
+        height: 386px;
+    }
+}
+@media only screen and (min-width: 1440px) {
+    #img1 {
+        height: 385.3px;
+    }
+}
+@media only screen and (max-width: 1024px) {
+    #img1 {
+        height: 320px;
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    #img1 {
+        height: 235px;
+    }
+}
+@media only screen and (max-width: 425px) {
+    #img1 {
+        height: 128px;
+    }
+}
+
+.card-img-overlay {
+    background: #564d4d6b;
+    height: 50%;
+    bottom: 0;  
+    margin: 0 20px 0 15px;
+    top: auto;
+    transition: 0.3s;
+}
+
+.highlight:hover .card-img-overlay  { 
+    background: #000;
+}
+
+
+
+.card-title {
+    color: #FFF;
+}
+
+.card-text {
+    color: #FFF;
+}
+
+
 
