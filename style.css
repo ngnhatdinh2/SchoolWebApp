@@ -9,7 +9,7 @@ body{
     display: grid;    
     grid-template-columns: repeat(12, 1fr);
     grid-template-rows: 100px 100% 150px;
-    grid-gap: 5px;
+    grid-gap: 2%;
     grid-template-areas:
         "h h h h h h h h h h h h"
         "c c c c c c c c c c c c"
@@ -36,11 +36,25 @@ body{
     user-select: none;
     cursor: pointer;
     font-weight: 400;
-    margin: 
-
 }
 /* END HEADER */
+/* Nav-bar*/
+#m{	
+    grid-area: m; 	
+    display: flex;	
+}	
+.menu-active{	
+}	
+#m > a {	
+    color: black;	
+    text-decoration: none;	
+    text-align: center;	
+    cursor: pointer;	
+    flex: 1;	
+}	
+#m > a:hover{	
 
+ }
 /* MENU */
 #search-account{
     display: flex;
@@ -88,6 +102,58 @@ body{
     background-color: steelblue;
 }
 
-.container {
-    margin-top: 15px;
+/* ARTICLE - PAGE */
+#article{
+
+}
+.md-width{
+    width: 70%;
+    margin: auto;
+}
+.sm-width{
+    width: 50%;
+    margin: auto;
+}
+#article-img{
+    width: 100%;
+}
+#author-container{
+    display: flex;
+    margin-top: 2vw;
+}
+.circle-img{
+    border-radius: 50%;
+}
+.info{
+    margin-left: 1vw;
+}
+#article-img{
+    margin-top: 3vw;
+}
+#article-body{
+    margin-top: 6vw;
+}
+#comment{
+    margin-top: 6vw;
+}
+.pb-cmnt-container {
+    font-family: Lato;
+    margin-top: 100px;
+}
+.pb-cmnt-textarea {
+    resize: none;
+    padding: 20px;
+    height: 130px;
+    width: 100%;
+    border: 1px solid #F2F2F2;
+}
+.author-info{
+    padding: 1vw;
+}
+#left-comment{
+    flex: 6;
+    border-right: 1px solid black;
+}
+#right-comment{
+    flex: 4;
 }
