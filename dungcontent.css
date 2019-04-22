@@ -22,13 +22,43 @@
 .img-overflow img {
     width: 100%;
 }
-.img-overflow,.display-new,.display-new1,.display-new2,.display-new3,.display-new4,.display-new5,.display-new6,.display-new7{
+.img-overflow,.img-overflow1,.img-overflow2,.img-overflow3,.img-overflow4,.img-overflow5,.img-overflow6,.img-overflow7{
   min-height:350px;
   position:relative;
   overflow: hidden;
 }
 .img-overflow {
   background:url(images/1.jpg) no-repeat 0px 0px;
+  display:block;
+      transition: all 1s ease-out;
+}
+.img-overflow1 {
+  background:url(images/2.jpg) no-repeat 0px 0px;
+  display:block;
+      transition: all 1s ease-out;
+}
+.img-overflow2 {
+  background:url(images/3.jpg) no-repeat 0px 0px;
+  display:block;
+      transition: all 1s ease-out;
+}
+.img-overflow3 {
+  background:url(images/4.jpg) no-repeat 0px 0px;
+  display:block;
+      transition: all 1s ease-out;
+}
+.img-overflow4 {
+  background:url(images/5.jpg) no-repeat 0px 0px;
+  display:block;
+      transition: all 1s ease-out;
+}
+.img-overflow6 {
+  background:url(images/7.jpg) no-repeat 0px 0px;
+  display:block;
+      transition: all 1s ease-out;
+}
+.img-overflow7 {
+  background:url(images/8.jpg) no-repeat 0px 0px;
   display:block;
       transition: all 1s ease-out;
 }
@@ -111,11 +141,6 @@
 .display-new:hover .title-pos h3 a{
     color: #1ABC9C;
     transition: all 1s ease-out;
-}
-
-.img-overflow{
-    /*filter: blur(4px);*/
-
 }
 .title ul li a:link{
   color: #fff;
