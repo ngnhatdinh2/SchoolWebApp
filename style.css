@@ -9,7 +9,7 @@ body{
     display: grid;    
     grid-template-columns: repeat(12, 1fr);
     grid-template-rows: 100px 100% 150px;
-    grid-gap: 5px;
+    grid-gap: 2%;
     grid-template-areas:
         "h h h h h h h h h h h h"
         "c c c c c c c c c c c c"
@@ -136,9 +136,19 @@ body{
 #comment{
     margin-top: 6vw;
 }
-#comment-items{
-    display: flex;
-    flex-direction: row;
+.pb-cmnt-container {
+    font-family: Lato;
+    margin-top: 100px;
+}
+.pb-cmnt-textarea {
+    resize: none;
+    padding: 20px;
+    height: 130px;
+    width: 100%;
+    border: 1px solid #F2F2F2;
+}
+.author-info{
+    padding: 1vw;
 }
 #left-comment{
     flex: 6;
