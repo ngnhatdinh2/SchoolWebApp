@@ -132,6 +132,9 @@
 /*---End part 1---*/
 
 /*---part 2---*/
+#part2{
+  padding-top: 15px;
+}
 .clearfix:before,
 .clearfix:after{
   display: table;
