@@ -8,7 +8,7 @@ body{
 .framed{
     display: grid;    
     grid-template-columns: repeat(12, 1fr);
-    grid-template-rows: 100px 100% 150px;
+    grid-template-rows: 100px auto 200px;
     grid-gap: 2%;
     grid-template-areas:
         "h h h h h h h h h h h h"
@@ -29,7 +29,7 @@ body{
     display: flex;
     justify-content: space-between;
 }
-#logo{
+.logo{
     font-family: 'Dokdo', cursive;
     font-size: 3.5rem;
     letter-spacing: 1px;
@@ -97,10 +97,6 @@ body{
     /*background-color: yellowgreen;*/
     overflow: hidden;
 }
-#f{
-    grid-area: f;
-    background-color: steelblue;
-}
 
 /* ARTICLE - PAGE */
 #article{
@@ -132,13 +128,17 @@ body{
 }
 #article-body{
     margin-top: 6vw;
+    font-size: 1.5rem;
 }
 #comment{
-    margin-top: 6vw;
+    margin-top: 3vw;
+}
+#comment-items{
+    display: flex;
 }
 .pb-cmnt-container {
-    font-family: Lato;
-    margin-top: 100px;
+    /* font-family: Lato;
+    margin-top: 100px; */
 }
 .pb-cmnt-textarea {
     resize: none;
@@ -151,9 +151,29 @@ body{
     padding: 1vw;
 }
 #left-comment{
-    flex: 6;
+    flex: 7;
     border-right: 1px solid black;
 }
 #right-comment{
-    flex: 4;
+    flex: 3;
+}
+
+
+/* Footer */
+#f{
+    grid-area: f;
+    background-color: #e6e6e6;
+    opacity: 0.9;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.sm-logo{
+    font-size: 2.5rem;
+}
+.des-info{
+    letter-spacing: 1px;
+}
+#footer-btn-group{
+    display: flex;
 }

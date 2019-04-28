@@ -8,6 +8,7 @@
     <link rel="stylesheet" type="text/css" href="./dungcontent.css">
     <!-- FONT dokdo -->
     <link href="https://fonts.googleapis.com/css?family=Dokdo" rel="stylesheet">
+    
     <!-- FONT AWESOME -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
@@ -21,21 +22,51 @@
         <!-- header -->
         <div id="h">
             <div id="a">
-                <span id="logo">@titom?</span>
+                <span class="logo">@titom?</span>
                  <div id="search-account">
                      <i id="search-icon"class="fas fa-search"></i>
                      <input id="search-box" type="text" placeholder="search"></input>
                      <i id="account-icon" class="fas fa-user"></i>  
                 </div>
             </div>
-            <div id="m">
+            <!-- <div id="m">
                     <a href="#" class="menu-active">Thời sự</a>
                     <a href="#">Pháp luật</a>
                     <a href="#">Kinh doanh</a>
                     <a href="#">Công nghệ</a>
                     <a href="#">Thể thao</a>
                     <a href="#">Sức khỏe</a>
-                </div>
+                </div> -->
+                <nav class="navbar navbar-expand-sm bg-dark navbar-dark sticky-top justify-content-center">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Thời sự</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Pháp luật</a>
+                        </li>
+                        <!-- Dropdown -->
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+                                Kinh doanh
+                            </a>
+                            <div class="dropdown-menu">
+                                <a class="dropdown-item" href="#">Link 1</a>
+                                <a class="dropdown-item" href="#">Link 2</a>
+                                <a class="dropdown-item" href="#">Link 3</a>
+                            </div>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Công nghệ</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Thể thao</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Sức khỏe</a>
+                        </li>
+                    </ul>
+                </nav>
         </div>
         <div id="c">
             <h1 id="title" class="md-width">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ut distinctio numquam est neque omnis ullam quos, culpa maxime, sed, aut fugiat esse necessitatibus expedita eligendi temporibus sapiente iste placeat alias.</h1>
@@ -99,62 +130,114 @@
             <div id="comment" class="md-width">
                     <h5 class="">Comments</h5>
                     <div id="comment-items">
-                        <div id="left-comment" class="container pb-cmnt-container">
-                            <div class="row">
-                                <div class="col-md-6">
+                        <div id="left-comment" class="container pb-cmnt-container overflow-auto" style="height: 30vw">
+                            <div class="row px-3">
+                                <div class="col-md-12">
                                     <div class="card card-info">
                                         <div class="card-block">
                                             <div class="author-info">
                                                 <img class="circle-img"src="https://loremflickr.com/40/40" alt="avatar">
-                                                <span>Author</span>
+                                                <span class="ml-3">Author</span>
                                             </div>
                                             <textarea placeholder="Write your comment here!" class="pb-cmnt-textarea"></textarea>
-                                            <form class="form-inline">
-                                                <button class="btn btn-primary" type="button">Share</button>
-                                            </form>
+                                            <button class="btn btn-primary float-right " type="button">Share</button>
                                         </div>
                                     </div>
                                 </div>
                             </div>                              
-                            <div id="comments-container">
-                                    <div>
-                                        <img class="circle-img"src="https://loremflickr.com/40/40" alt="avatar">
-                                        <span>Author</span>
-                                    </div>
-                                        <p placeholder="Type your comment"></p>
-                                    <div>
-                                        <button type="button" class="btn btn-light">Push</button>
-                                        <button type="button" class="btn btn-light">Report</button>
-                                    </div>
+                            <div class="row mt-5 p-2 border-top border-secondary">
+                                <div>
+                                    <img class="circle-img"src="https://loremflickr.com/40/40" alt="avatar">
+                                    <span class="ml-3">Author</span>
+                                </div>
+                                <span class="mt-3">Aliqua pariatur non ut est id cupidatat consectetur aliquip Lorem consequat nulla. Nisi mollit labore tempor et consectetur in reprehenderit laboris excepteur. Voluptate eu officia incididunt Lorem magna officia dolor est nostrud reprehenderit exercitation. Nostrud culpa enim deserunt et proident duis excepteur aliqua. Amet sit ipsum consequat aute. Deserunt eu ad qui fugiat.</span>
+                                <div>
+                                    <button type="button" class="btn btn-light">Push</button>
+                                    <button type="button" class="btn btn-light">Report</button>
+                                </div>
+                            </div>
+                            <div class="row mt-5 p-2 border-top border-secondary">
+                                <div>
+                                    <img class="circle-img"src="https://loremflickr.com/40/40" alt="avatar">
+                                    <span class="ml-3">Author</span>
+                                </div>
+                                <span class="mt-3">Aliqua pariatur non ut est id cupidatat consectetur aliquip Lorem consequat nulla. Nisi mollit labore tempor et consectetur in reprehenderit laboris excepteur. Voluptate eu officia incididunt Lorem magna officia dolor est nostrud reprehenderit exercitation. Nostrud culpa enim deserunt et proident duis excepteur aliqua. Amet sit ipsum consequat aute. Deserunt eu ad qui fugiat.</span>
+                                <div>
+                                    <button type="button" class="btn btn-light">Push</button>
+                                    <button type="button" class="btn btn-light">Report</button>
+                                </div>
+                            </div>
+                            <div class="row mt-5 p-2 border-top border-secondary">
+                                <div>
+                                    <img class="circle-img"src="https://loremflickr.com/40/40" alt="avatar">
+                                    <span class="ml-3">Author</span>
+                                </div>
+                                <span class="mt-3">Aliqua pariatur non ut est id cupidatat consectetur aliquip Lorem consequat nulla. Nisi mollit labore tempor et consectetur in reprehenderit laboris excepteur. Voluptate eu officia incididunt Lorem magna officia dolor est nostrud reprehenderit exercitation. Nostrud culpa enim deserunt et proident duis excepteur aliqua. Amet sit ipsum consequat aute. Deserunt eu ad qui fugiat.</span>
+                                <div>
+                                    <button type="button" class="btn btn-light">Push</button>
+                                    <button type="button" class="btn btn-light">Report</button>
+                                </div>
                             </div>
                         </div>
                         <div id="right-comment">
-                            <div id="comment-iput">
-                                <div>
-                                    <img class="circle-img" src="https://loremflickr.com/40/40" alt="avatar">
-                                    <span>Author</span>
+                            <p class="text-lg-right" style="font-size: 1.5rem">Related Posts</p>
+                            <div class="facts">
+                                <div class="tab_img">
+                                    <img src="images/10.jpg" alt=" " class="img-responsive">
                                 </div>
-                                <textarea placeholder="Type your comment"></textarea>
-                                <div>
-                                    <button type="button" class="btn btn-light">Push</button>
+                                <div class="tab_list">
+                                    <span><a href="#">Bất động sản</a><br>17/04/2019
+                                    </span>
+                                    <p><a href="#">Khối bất động sản khổng lồ của ông chủ Amazon.</a></p>
                                 </div>
+                                <div class="clearfix"> </div>
                             </div>
-                                <div id="comments-container">
-                                    <div>
-                                        <img class="circle-img"src="https://loremflickr.com/40/40" alt="avatar">
-                                        <span>Author</span>
-                                    </div>
-                                        <p placeholder="Type your comment"></p>
-                                    <div>
-                                        <button type="button" class="btn btn-light">Push</button>
-                                        <button type="button" class="btn btn-light">Report</button>
-                                    </div>
+                            <div class="facts">
+                                <div class="tab_img">
+                                    <img src="images/10.jpg" alt=" " class="img-responsive">
                                 </div>
+                                <div class="tab_list">
+                                    <span><a href="#">Bất động sản</a><br>17/04/2019
+                                    </span>
+                                    <p><a href="#">Khối bất động sản khổng lồ của ông chủ Amazon.</a></p>
+                                </div>
+                                <div class="clearfix"> </div>
+                            </div>
+                            <div class="facts">
+                                <div class="tab_img">
+                                    <img src="images/10.jpg" alt=" " class="img-responsive">
+                                </div>
+                                <div class="tab_list">
+                                    <span><a href="#">Bất động sản</a><br>17/04/2019
+                                    </span>
+                                    <p><a href="#">Khối bất động sản khổng lồ của ông chủ Amazon.</a></p>
+                                </div>
+                                <div class="clearfix"> </div>
+                            </div>
+                            <div class="facts">
+                                <div class="tab_img">
+                                    <img src="images/10.jpg" alt=" " class="img-responsive">
+                                </div>
+                                <div class="tab_list">
+                                    <span><a href="#">Bất động sản</a><br>17/04/2019
+                                    </span>
+                                    <p><a href="#">Khối bất động sản khổng lồ của ông chủ Amazon.</a></p>
+                                </div>
+                                <div class="clearfix"> </div>
+                            </div>
                         </div>
                     </div>  
                 </div>
         </div>
-       
+        <div id="f" >
+            <span class="logo sm-logo">@titom?</span>
+            <span class="text-md des-info">@develope by team titom?</span>
+            <div id="footer-btn-group">
+                <button type="button" class="btn btn-light btn-lg">Giới Thiệu</button>
+                <button type="button" class="btn btn-light btn-lg">Liên Hệ</button>
+                <button type="button" class="btn btn-light btn-lg">Quảng Cáo</button>
+            </div>
+        </div>
     <div>
-</body>
+</body> 
 </html>
