@@ -15,27 +15,24 @@ body{
         "c c c c c c c c c c c c"
         "f f f f f f f f f f f f";
 }
-/* width */
+
 /* Scroll bar */
 ::-webkit-scrollbar {
     width: 10px;
 }
-
-/* Track */
 ::-webkit-scrollbar-track {
     background: #f1f1f1; 
 }
 
-/* Handle */
 ::-webkit-scrollbar-thumb {
     background: #888; 
 }
 
-/* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
     background: #555; 
 }
  /* End of Scroll bar  */
+
 /* HEADER */
 #h{
     grid-area: h;
@@ -58,6 +55,7 @@ body{
     font-weight: 400;
 }
 /* END HEADER */
+
 /* Nav-bar*/
 #m{	
     grid-area: m; 	
@@ -76,23 +74,23 @@ body{
 
  }
 /* MENU */
-#search-account{
+.search-account{
     display: flex;
     margin-bottom: 10px;
     justify-content: space-between;
     padding: 0 5px;
     align-items: flex-end;  
 }
-#search-box{
+.search-box{
     all: unset;
     align-self: flex-end;
     border-bottom: 1px solid black;
     padding: 10px 5px;
 }
-#search-icon{
+.search-icon{
     margin-bottom: 10px;
 }
-#account-icon{
+.account-icon{
     align-self: flex-end;
     font-size: 1.5rem;
     margin-left: 15px;
@@ -109,78 +107,17 @@ body{
 .navbar-nav .nav-item{
     margin-left: 25px;
 }
-
-
 /* End of MENU */
+
 #c{
     grid-area: c;
-    /*background-color: yellowgreen;*/
     overflow: hidden;
 }
 
-/* ARTICLE - PAGE */
-#article{
-
-}
-.md-width{
-    width: 70%;
-    margin: auto;
-}
-.sm-width{
-    width: 50%;
-    margin: auto;
-}
-#article-img{
-    width: 100%;
-}
-#author-container{
-    display: flex;
-    margin-top: 2vw;
-}
-.circle-img{
-    border-radius: 50%;
-}
-.info{
-    margin-left: 1vw;
-}
-#article-img{
-    margin-top: 3vw;
-}
-#article-body{
-    margin-top: 6vw;
-    font-size: 1.5rem;
-}
-#comment{
-    margin-top: 3vw;
-}
-#comment-items{
-    display: flex;
-}
-.pb-cmnt-container {
-    /* font-family: Lato;
-    margin-top: 100px; */
-}
-.pb-cmnt-textarea {
-    resize: none;
-    padding: 20px;
-    height: 130px;
-    width: 100%;
-    border: 1px solid #F2F2F2;
-}
-.author-info{
-    padding: 1vw;
-}
-#left-comment{
-    flex: 7;
-    border-right: 1px solid black;
-}
-#right-comment{
-    flex: 3;
-}
 
 
 /* Footer */
-#f{
+.f{
     grid-area: f;
     background-color: #e6e6e6;
     opacity: 0.9;
@@ -197,3 +134,4 @@ body{
 #footer-btn-group{
     display: flex;
 }
+/* End Of Footer */

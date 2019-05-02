@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" type="text/css" href="./style.css">
     <link rel="stylesheet" type="text/css" href="./dungcontent.css">
+    <link rel="stylesheet" type="text/css" href="./article.css">
     <!-- FONT dokdo -->
     <link href="https://fonts.googleapis.com/css?family=Dokdo" rel="stylesheet">
     
@@ -15,7 +16,7 @@
     <!-- <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script> -->
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-    <title>Document</title>
+    <title>titom news</title>
 </head>
 <body>
     <div class="framed">
@@ -23,47 +24,65 @@
         <div id="h">
             <div id="a">
                 <span class="logo">@titom?</span>
-                 <div id="search-account">
-                     <i id="search-icon"class="fas fa-search"></i>
-                     <input id="search-box" type="text" placeholder="search"></input>
-                     <i id="account-icon" class="fas fa-user"></i>  
+                 <div class="search-account">
+                     <i class="search-icon fas fa-search"></i>
+                     <input class="search-box" type="text" placeholder="search"></input>
+                     <i class="account-icon fas fa-user"></i>  
                 </div>
             </div>
-            <!-- <div id="m">
-                    <a href="#" class="menu-active">Thời sự</a>
-                    <a href="#">Pháp luật</a>
-                    <a href="#">Kinh doanh</a>
-                    <a href="#">Công nghệ</a>
-                    <a href="#">Thể thao</a>
-                    <a href="#">Sức khỏe</a>
-                </div> -->
                 <nav class="navbar navbar-expand-sm bg-dark navbar-dark sticky-top justify-content-center">
                     <ul class="navbar-nav">
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Thời sự</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Pháp luật</a>
-                        </li>
-                        <!-- Dropdown -->
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
-                                Kinh doanh
-                            </a>
+                            <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">Thời sự</a>
                             <div class="dropdown-menu">
-                                <a class="dropdown-item" href="#">Link 1</a>
-                                <a class="dropdown-item" href="#">Link 2</a>
-                                <a class="dropdown-item" href="#">Link 3</a>
+                                <a class="dropdown-item" href="#">Giao thông</a>
+                                <a class="dropdown-item" href="#">Tài liệu</a>
                             </div>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Công nghệ</a>
+            
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">Pháp luật</a>
+                            <div class="dropdown-menu">
+                                <a class="dropdown-item" href="#">Hồ sơ phá án</a>
+                                <a class="dropdown-item" href="#">Tư vấn</a>
+                            </div>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Thể thao</a>
+            
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">Kinh doanh</a>
+                            <div class="dropdown-menu">
+                                <a class="dropdown-item" href="#">Bất động sản</a>
+                                <a class="dropdown-item" href="#">Ebank</a>
+                                <a class="dropdown-item" href="#">Thương mại điện tử</a>
+                            </div>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Sức khỏe</a>
+            
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">Công nghệ</a>
+                            <div class="dropdown-menu">
+                                <a class="dropdown-item" href="#">Đời sống số</a>
+                                <a class="dropdown-item" href="#">Sản phầm</a>
+                            </div>
+                        </li>
+            
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">Giải trí</a>
+                            <div class="dropdown-menu">
+                                <a class="dropdown-item" href="#">Phim</a>
+                                <a class="dropdown-item" href="#">Nhạc</a>
+                                <a class="dropdown-item" href="#">Giải thưởng</a>
+                                <a class="dropdown-item" href="#">Thời trang</a>
+                            </div>
+                        </li>
+                        
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">Sức khỏe</a>
+                            <div class="dropdown-menu">
+                                <a class="dropdown-item" href="#">Dinh dưỡng</a>
+                                <a class="dropdown-item" href="#">Bệnh</a>
+                                <a class="dropdown-item" href="#">Ung thư</a>
+                                <a class="dropdown-item" href="#">Khỏe đẹp</a>
+                            </div>
                         </li>
                     </ul>
                 </nav>
@@ -229,7 +248,7 @@
                     </div>  
                 </div>
         </div>
-        <div id="f" >
+        <div class="f" >
             <span class="logo sm-logo">@titom?</span>
             <span class="text-md des-info">@develope by team titom?</span>
             <div id="footer-btn-group">
