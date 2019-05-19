@@ -10,58 +10,83 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+
     <link rel="stylesheet" type="text/css" href="./dungcontent.css">
     <link rel="stylesheet" type="text/css" href="./style.css">
-    <title>Document</title>
+    <title>titom news</title>
 </head>
 <body>
     <div class="framed">
         <!-- header -->
         <div id="h" class="container-fluid ">
             <div id="a">
-                <span id="logo">@titom?</span>
-                <div id="search-account">
-                 <i id="search-icon"class="fas fa-search"></i>
-                 <input id="search-box" type="text" placeholder="search"></input>
-                 <i id="account-icon" class="fas fa-user"></i>  
-             </div>
-         </div>
-
-    </div>
+                <span class="logo">@titom?</span>
+                <div class="search-account">
+                    <i  class="search-icon fas fa-search"></i>
+                    <input class="search-box" type="text" placeholder="search"></input>
+                    <i  class="account-icon fas fa-user"></i>  
+               </div>
+            </div>
+            <nav class="navbar navbar-expand-sm bg-dark navbar-dark sticky-top justify-content-center">
+                <ul class="navbar-nav">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">Thời sự</a>
+                        <div class="dropdown-menu">
+                            <a class="dropdown-item" href="#">Giao thông</a>
+                            <a class="dropdown-item" href="#">Tài liệu</a>
+                        </div>
+                    </li>
+        
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">Pháp luật</a>
+                        <div class="dropdown-menu">
+                            <a class="dropdown-item" href="#">Hồ sơ phá án</a>
+                            <a class="dropdown-item" href="#">Tư vấn</a>
+                        </div>
+                    </li>
+        
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">Kinh doanh</a>
+                        <div class="dropdown-menu">
+                            <a class="dropdown-item" href="#">Bất động sản</a>
+                            <a class="dropdown-item" href="#">Ebank</a>
+                            <a class="dropdown-item" href="#">Thương mại điện tử</a>
+                        </div>
+                    </li>
+        
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">Công nghệ</a>
+                        <div class="dropdown-menu">
+                            <a class="dropdown-item" href="#">Đời sống số</a>
+                            <a class="dropdown-item" href="#">Sản phầm</a>
+                        </div>
+                    </li>
+        
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">Giải trí</a>
+                        <div class="dropdown-menu">
+                            <a class="dropdown-item" href="#">Phim</a>
+                            <a class="dropdown-item" href="#">Nhạc</a>
+                            <a class="dropdown-item" href="#">Giải thưởng</a>
+                            <a class="dropdown-item" href="#">Thời trang</a>
+                        </div>
+                    </li>
+                    
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">Sức khỏe</a>
+                        <div class="dropdown-menu">
+                            <a class="dropdown-item" href="#">Dinh dưỡng</a>
+                            <a class="dropdown-item" href="#">Bệnh</a>
+                            <a class="dropdown-item" href="#">Ung thư</a>
+                            <a class="dropdown-item" href="#">Khỏe đẹp</a>
+                        </div>
+                    </li>
+                </ul>
+            </nav>
+        </div>
 
     <!-- content -->
-    <div id="c">
-        <nav class="navbar navbar-expand-sm bg-dark navbar-dark sticky-top justify-content-center">
-            <ul class="navbar-nav">
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Thời sự</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Pháp luật</a>
-                </li>
-                <!-- Dropdown -->
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
-                        Kinh doanh
-                    </a>
-                    <div class="dropdown-menu">
-                        <a class="dropdown-item" href="#">Link 1</a>
-                        <a class="dropdown-item" href="#">Link 2</a>
-                        <a class="dropdown-item" href="#">Link 3</a>
-                    </div>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Công nghệ</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Thể thao</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Sức khỏe</a>
-                </li>
-            </ul>
-        </nav>
-        <div>
+    <div id="c">    
             <div class="container">
                 <!-- Breaking new -->
                 <div id="part2">
@@ -219,305 +244,315 @@
                     </div>
                     <div class="clearfix"> </div>
                 </div>
-            <!-- Flexisel -->
-            <div id="part3">
-                <div class="col-left new-grids-left">
-                    <div class="new-grids-left1">
-                        <img src="images/9.jpg" alt=" " class="img-responsive" />
+                <!-- Flexisel -->
+                <div id="part3">
+                    <div class="col-left new-grids-left">
+                        <div class="new-grids-left1">
+                            <img src="images/9.jpg" alt=" " class="img-responsive" />
 
-                        <div class="new-grid-pos">
-                            <a href="#">
-                                <h3>3 phương án nghìn tỷ di dời trụ sở các bộ, ngành khỏi nội đô</h3>
-                            </a>
-                            <ul>
-                                <li>Quang Huy<label>|</label></li>
-                                <li><i>27 Mar 2019</i> <label>|</label></li>
-                                <li><span>Đô thị</span></li>
-                            </ul>
+                            <div class="new-grid-pos">
+                                <a href="#">
+                                    <h3>3 phương án nghìn tỷ di dời trụ sở các bộ, ngành khỏi nội đô</h3>
+                                </a>
+                                <ul>
+                                    <li>Quang Huy<label>|</label></li>
+                                    <li><i>27 Mar 2019</i> <label>|</label></li>
+                                    <li><span>Đô thị</span></li>
+                                </ul>
+                            </div>
                         </div>
-                    </div>
 
-                    <div class="new-grids-left2">
-                        <div class="group-news">
-                            <ul id="flexisel1"> 
-                                <li>
-                                    <div class="item">
-                                        <img src="images/10.jpg" alt=" " class="img-responsive" />
+                        <div class="new-grids-left2">
+                            <div class="group-news">
+                                <ul id="flexisel1"> 
+                                    <li>
+                                        <div class="item">
+                                            <img src="images/10.jpg" alt=" " class="img-responsive" />
 
-                                        <div class="title-text">
-                                            <h3><a href="#">Trắc nghiệm: Cách học nói tiếng Anh như người bản ngữ</a> <span>Giáo dục <label>|</label> <i>Nguyễn Sương</i></span></h3>
-                                            <p>14/07/2018</p>
+                                            <div class="title-text">
+                                                <h3><a href="#">Trắc nghiệm: Cách học nói tiếng Anh như người bản ngữ</a> <span>Giáo dục <label>|</label> <i>Nguyễn Sương</i></span></h3>
+                                                <p>14/07/2018</p>
+                                            </div>
                                         </div>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="item">
-                                        <img src="images/11.jpg" alt=" " class="img-responsive" />
+                                    </li>
+                                    <li>
+                                        <div class="item">
+                                            <img src="images/11.jpg" alt=" " class="img-responsive" />
 
-                                        <div class="title-text">
-                                            <h3><a href="#">Tuyển dụng OCB - trao cơ hội, hút nhân tài</a> <span>Tài chính <label>|</label> <i>Quốc Hoàng</i></span></h3>
-                                            <p>17/04/2019</p>
+                                            <div class="title-text">
+                                                <h3><a href="#">Tuyển dụng OCB - trao cơ hội, hút nhân tài</a> <span>Tài chính <label>|</label> <i>Quốc Hoàng</i></span></h3>
+                                                <p>17/04/2019</p>
+                                            </div>
                                         </div>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="item">
-                                        <img src="images/12.jpg" alt=" " class="img-responsive" />
+                                    </li>
+                                    <li>
+                                        <div class="item">
+                                            <img src="images/12.jpg" alt=" " class="img-responsive" />
 
-                                        <div class="title-text">
-                                            <h3><a href="#">Khối bất động sản khổng lồ của ông chủ Amazon</a><span>Bất động sản <label>|</label> <i>Minh Đức</i></span></h3>
-                                            <p>17/04/2019</p>
+                                            <div class="title-text">
+                                                <h3><a href="#">Khối bất động sản khổng lồ của ông chủ Amazon</a><span>Bất động sản <label>|</label> <i>Minh Đức</i></span></h3>
+                                                <p>17/04/2019</p>
+                                            </div>
                                         </div>
-                                    </div>
-                                </li>
-                            </ul>
-                        </div>
-                        <script type="text/javascript" src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
-                        <script type="text/javascript" src="./jquery.flexisel.js"></script>
-                        <script type="text/javascript">
-                         $(window).load(function() {
-                            $("#flexisel1").flexisel({
-                                visibleItems: 3,
-                                itemsToScroll: 1,         
-                                autoPlay: {
-                                    enable: true,
-                                    interval: 3000,
-                                    pauseOnHover: true
-                                }        
+                                    </li>
+                                </ul>
+                            </div>
+                            <script type="text/javascript" src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+                            <script type="text/javascript" src="./jquery.flexisel.js"></script>
+                            <script type="text/javascript">
+                            $(window).load(function() {
+                                $("#flexisel1").flexisel({
+                                    visibleItems: 3,
+                                    itemsToScroll: 1,         
+                                    autoPlay: {
+                                        enable: true,
+                                        interval: 3000,
+                                        pauseOnHover: true
+                                    }        
+                                });
                             });
-                        });
-                    </script>
-                </div>
-            </div>
-            <!-- End col-left -->
-            <div class="col-right new-grids-right">
-                <div>
-                    <div id="horizontalTab">
-                        <div class="tab-most-view heading">Xem nhiều nhất</div>
+                        </script>
                     </div>
-                    <div class="tabs-container">
-                        <div class="tab-content">
-                            <div class="facts">
-                                <div class="tab_img">
-                                    <img src="images/10.jpg" alt=" " class="img-responsive" />
+                    </div>
+                <!-- End col-left -->
+                    <div class="col-right new-grids-right">
+                        <div>
+                            <div id="horizontalTab">
+                                <div class="tab-most-view heading">Xem nhiều nhất</div>
+                            </div>
+                            <div class="tabs-container">
+                                <div class="tab-content">
+                                    <div class="facts">
+                                        <div class="tab_img">
+                                            <img src="images/10.jpg" alt=" " class="img-responsive" />
+                                        </div>
+                                        <div class="tab_list">
+                                            <span><a href="#">Bất động sản</a><br/>17/04/2019
+                                            </span>
+                                            <p><a href="#">Khối bất động sản khổng lồ của ông chủ Amazon.</a></p>
+                                        </div>
+                                        <div class="clearfix"> </div>
+                                    </div>
+                                    <div class="facts">
+                                        <div class="tab_img">
+                                            <img src="images/10.jpg" alt=" " class="img-responsive" />
+                                        </div>
+                                        <div class="tab_list">
+                                            <span><a href="#">Bất động sản</a><br/>17/04/2019
+                                            </span>
+                                            <p><a href="#">Khối bất động sản khổng lồ của ông chủ Amazon.</a></p>
+                                        </div>
+                                        <div class="clearfix"> </div>
+                                    </div>
+                                    <div class="facts">
+                                        <div class="tab_img">
+                                            <img src="images/10.jpg" alt=" " class="img-responsive" />
+                                        </div>
+                                        <div class="tab_list">
+                                            <span><a href="#">Bất động sản</a><br/>17/04/2019
+                                            </span>
+                                            <p><a href="#">Khối bất động sản khổng lồ của ông chủ Amazon.</a></p>
+                                        </div>
+                                        <div class="clearfix"> </div>
+                                    </div>
+                                    <div class="facts">
+                                        <div class="tab_img">
+                                            <img src="images/10.jpg" alt=" " class="img-responsive" />
+                                        </div>
+                                        <div class="tab_list">
+                                            <span><a href="#">Bất động sản</a><br/>17/04/2019
+                                            </span>
+                                            <p><a href="#">Khối bất động sản khổng lồ của ông chủ Amazon.</a></p>
+                                        </div>
+                                        <div class="clearfix"> </div>
+                                    </div>
+                                    <div class="facts">
+                                        <div class="tab_img">
+                                            <img src="images/10.jpg" alt=" " class="img-responsive" />
+                                        </div>
+                                        <div class="tab_list">
+                                            <span><a href="#">Bất động sản</a><br/>17/04/2019
+                                            </span>
+                                            <p><a href="#">Khối bất động sản khổng lồ của ông chủ Amazon.</a></p>
+                                        </div>
+                                        <div class="clearfix"> </div>
+                                    </div>
                                 </div>
-                                <div class="tab_list">
-                                    <span><a href="#">Bất động sản</a><br/>17/04/2019
-                                    </span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+            
+                <div id="part4">
+                    <div class="list-by-title">
+                        <div class="arrange-news">
+                            <div class="grid-title">
+                                <div class="grid-title-before">
+                                    <img src="images/11.jpg" alt=" " class="img-responsive" />
+                                    <div class="grid-title-pos">
+                                        <p>Kinh tế</p>
+                                    </div>
+                                </div>
+                                <div class="grid-title-news">
                                     <p><a href="#">Khối bất động sản khổng lồ của ông chủ Amazon.</a></p>
-                                </div>
-                                <div class="clearfix"> </div>
-                            </div>
-                            <div class="facts">
-                                <div class="tab_img">
-                                    <img src="images/10.jpg" alt=" " class="img-responsive" />
-                                </div>
-                                <div class="tab_list">
-                                    <span><a href="#">Bất động sản</a><br/>17/04/2019
-                                    </span>
                                     <p><a href="#">Khối bất động sản khổng lồ của ông chủ Amazon.</a></p>
-                                </div>
-                                <div class="clearfix"> </div>
-                            </div>
-                            <div class="facts">
-                                <div class="tab_img">
-                                    <img src="images/10.jpg" alt=" " class="img-responsive" />
-                                </div>
-                                <div class="tab_list">
-                                    <span><a href="#">Bất động sản</a><br/>17/04/2019
-                                    </span>
                                     <p><a href="#">Khối bất động sản khổng lồ của ông chủ Amazon.</a></p>
+                                    <p><a href="#">BKhối bất động sản khổng lồ của ông chủ Amazon.</a></p>
                                 </div>
-                                <div class="clearfix"> </div>
+                                <div class="read-more">
+                                    <a href="single.html">Xem thêm về kinh tế</a>
+                                </div>
                             </div>
-                            <div class="facts">
-                                <div class="tab_img">
-                                    <img src="images/10.jpg" alt=" " class="img-responsive" />
+                        </div>
+                        <div class="arrange-news">
+                            <div class="grid-title">
+                                <div class="grid-title-before">
+                                    <img src="images/11.jpg" alt=" " class="img-responsive" />
+                                    <div class="grid-title-pos">
+                                        <p>Kinh tế</p>
+                                    </div>
                                 </div>
-                                <div class="tab_list">
-                                    <span><a href="#">Bất động sản</a><br/>17/04/2019
-                                    </span>
+                                <div class="grid-title-news">
                                     <p><a href="#">Khối bất động sản khổng lồ của ông chủ Amazon.</a></p>
-                                </div>
-                                <div class="clearfix"> </div>
-                            </div>
-                            <div class="facts">
-                                <div class="tab_img">
-                                    <img src="images/10.jpg" alt=" " class="img-responsive" />
-                                </div>
-                                <div class="tab_list">
-                                    <span><a href="#">Bất động sản</a><br/>17/04/2019
-                                    </span>
                                     <p><a href="#">Khối bất động sản khổng lồ của ông chủ Amazon.</a></p>
+                                    <p><a href="#">Khối bất động sản khổng lồ của ông chủ Amazon.</a></p>
+                                    <p><a href="#">BKhối bất động sản khổng lồ của ông chủ Amazon.</a></p>
                                 </div>
-                                <div class="clearfix"> </div>
+                                <div class="read-more">
+                                    <a href="single.html">Xem thêm về kinh tế</a>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                </div>
-            </div>
-            <div class="clearfix"></div>
-        </div>
-        
-        <div id="part4">
-            <div class="list-by-title">
-                <div class="arrange-news">
-                    <div class="grid-title">
-                        <div class="grid-title-before">
-                            <img src="images/11.jpg" alt=" " class="img-responsive" />
-                            <div class="grid-title-pos">
-                                <p>Kinh tế</p>
+                        <div class="arrange-news">
+                            <div class="grid-title">
+                                <div class="grid-title-before">
+                                    <img src="images/11.jpg" alt=" " class="img-responsive" />
+                                    <div class="grid-title-pos">
+                                        <p>Kinh tế</p>
+                                    </div>
+                                </div>
+                                <div class="grid-title-news">
+                                    <p><a href="#">Khối bất động sản khổng lồ của ông chủ Amazon.</a></p>
+                                    <p><a href="#">Khối bất động sản khổng lồ của ông chủ Amazon.</a></p>
+                                    <p><a href="#">Khối bất động sản khổng lồ của ông chủ Amazon.</a></p>
+                                    <p><a href="#">BKhối bất động sản khổng lồ của ông chủ Amazon.</a></p>
+                                </div>
+                                <div class="read-more">
+                                    <a href="single.html">Xem thêm về kinh tế</a>
+                                </div>
                             </div>
                         </div>
-                        <div class="grid-title-news">
-                            <p><a href="#">Khối bất động sản khổng lồ của ông chủ Amazon.</a></p>
-                            <p><a href="#">Khối bất động sản khổng lồ của ông chủ Amazon.</a></p>
-                            <p><a href="#">Khối bất động sản khổng lồ của ông chủ Amazon.</a></p>
-                            <p><a href="#">BKhối bất động sản khổng lồ của ông chủ Amazon.</a></p>
-                        </div>
-                        <div class="read-more">
-                            <a href="single.html">Xem thêm về kinh tế</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="arrange-news">
-                    <div class="grid-title">
-                        <div class="grid-title-before">
-                            <img src="images/11.jpg" alt=" " class="img-responsive" />
-                            <div class="grid-title-pos">
-                                <p>Kinh tế</p>
+                        <div class="arrange-news">
+                            <div class="grid-title">
+                                <div class="grid-title-before">
+                                    <img src="images/11.jpg" alt=" " class="img-responsive" />
+                                    <div class="grid-title-pos">
+                                        <p>Kinh tế</p>
+                                    </div>
+                                </div>
+                                <div class="grid-title-news">
+                                    <p><a href="#">Khối bất động sản khổng lồ của ông chủ Amazon.</a></p>
+                                    <p><a href="#">Khối bất động sản khổng lồ của ông chủ Amazon.</a></p>
+                                    <p><a href="#">Khối bất động sản khổng lồ của ông chủ Amazon.</a></p>
+                                    <p><a href="#">BKhối bất động sản khổng lồ của ông chủ Amazon.</a></p>
+                                </div>
+                                <div class="read-more">
+                                    <a href="single.html">Xem thêm về kinh tế</a>
+                                </div>
                             </div>
                         </div>
-                        <div class="grid-title-news">
-                            <p><a href="#">Khối bất động sản khổng lồ của ông chủ Amazon.</a></p>
-                            <p><a href="#">Khối bất động sản khổng lồ của ông chủ Amazon.</a></p>
-                            <p><a href="#">Khối bất động sản khổng lồ của ông chủ Amazon.</a></p>
-                            <p><a href="#">BKhối bất động sản khổng lồ của ông chủ Amazon.</a></p>
-                        </div>
-                        <div class="read-more">
-                            <a href="single.html">Xem thêm về kinh tế</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="arrange-news">
-                    <div class="grid-title">
-                        <div class="grid-title-before">
-                            <img src="images/11.jpg" alt=" " class="img-responsive" />
-                            <div class="grid-title-pos">
-                                <p>Kinh tế</p>
+                        <div class="arrange-news">
+                            <div class="grid-title">
+                                <div class="grid-title-before">
+                                    <img src="images/11.jpg" alt=" " class="img-responsive" />
+                                    <div class="grid-title-pos">
+                                        <p>Kinh tế</p>
+                                    </div>
+                                </div>
+                                <div class="grid-title-news">
+                                    <p><a href="#">Khối bất động sản khổng lồ của ông chủ Amazon.</a></p>
+                                    <p><a href="#">Khối bất động sản khổng lồ của ông chủ Amazon.</a></p>
+                                    <p><a href="#">Khối bất động sản khổng lồ của ông chủ Amazon.</a></p>
+                                    <p><a href="#">BKhối bất động sản khổng lồ của ông chủ Amazon.</a></p>
+                                </div>
+                                <div class="read-more">
+                                    <a href="single.html">Xem thêm về kinh tế</a>
+                                </div>
                             </div>
                         </div>
-                        <div class="grid-title-news">
-                            <p><a href="#">Khối bất động sản khổng lồ của ông chủ Amazon.</a></p>
-                            <p><a href="#">Khối bất động sản khổng lồ của ông chủ Amazon.</a></p>
-                            <p><a href="#">Khối bất động sản khổng lồ của ông chủ Amazon.</a></p>
-                            <p><a href="#">BKhối bất động sản khổng lồ của ông chủ Amazon.</a></p>
-                        </div>
-                        <div class="read-more">
-                            <a href="single.html">Xem thêm về kinh tế</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="arrange-news">
-                    <div class="grid-title">
-                        <div class="grid-title-before">
-                            <img src="images/11.jpg" alt=" " class="img-responsive" />
-                            <div class="grid-title-pos">
-                                <p>Kinh tế</p>
+                        <div class="arrange-news">
+                            <div class="grid-title">
+                                <div class="grid-title-before">
+                                    <img src="images/11.jpg" alt=" " class="img-responsive" />
+                                    <div class="grid-title-pos">
+                                        <p>Kinh tế</p>
+                                    </div>
+                                </div>
+                                <div class="grid-title-news">
+                                    <p><a href="#">Khối bất động sản khổng lồ của ông chủ Amazon.</a></p>
+                                    <p><a href="#">Khối bất động sản khổng lồ của ông chủ Amazon.</a></p>
+                                    <p><a href="#">Khối bất động sản khổng lồ của ông chủ Amazon.</a></p>
+                                    <p><a href="#">BKhối bất động sản khổng lồ của ông chủ Amazon.</a></p>
+                                </div>
+                                <div class="read-more">
+                                    <a href="single.html">Xem thêm về kinh tế</a>
+                                </div>
                             </div>
                         </div>
-                        <div class="grid-title-news">
-                            <p><a href="#">Khối bất động sản khổng lồ của ông chủ Amazon.</a></p>
-                            <p><a href="#">Khối bất động sản khổng lồ của ông chủ Amazon.</a></p>
-                            <p><a href="#">Khối bất động sản khổng lồ của ông chủ Amazon.</a></p>
-                            <p><a href="#">BKhối bất động sản khổng lồ của ông chủ Amazon.</a></p>
-                        </div>
-                        <div class="read-more">
-                            <a href="single.html">Xem thêm về kinh tế</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="arrange-news">
-                    <div class="grid-title">
-                        <div class="grid-title-before">
-                            <img src="images/11.jpg" alt=" " class="img-responsive" />
-                            <div class="grid-title-pos">
-                                <p>Kinh tế</p>
+                        <div class="arrange-news">
+                            <div class="grid-title">
+                                <div class="grid-title-before">
+                                    <img src="images/11.jpg" alt=" " class="img-responsive" />
+                                    <div class="grid-title-pos">
+                                        <p>Kinh tế</p>
+                                    </div>
+                                </div>
+                                <div class="grid-title-news">
+                                    <p><a href="#">Khối bất động sản khổng lồ của ông chủ Amazon.</a></p>
+                                    <p><a href="#">Khối bất động sản khổng lồ của ông chủ Amazon.</a></p>
+                                    <p><a href="#">Khối bất động sản khổng lồ của ông chủ Amazon.</a></p>
+                                    <p><a href="#">BKhối bất động sản khổng lồ của ông chủ Amazon.</a></p>
+                                </div>
+                                <div class="read-more">
+                                    <a href="single.html">Xem thêm về kinh tế</a>
+                                </div>
                             </div>
                         </div>
-                        <div class="grid-title-news">
-                            <p><a href="#">Khối bất động sản khổng lồ của ông chủ Amazon.</a></p>
-                            <p><a href="#">Khối bất động sản khổng lồ của ông chủ Amazon.</a></p>
-                            <p><a href="#">Khối bất động sản khổng lồ của ông chủ Amazon.</a></p>
-                            <p><a href="#">BKhối bất động sản khổng lồ của ông chủ Amazon.</a></p>
-                        </div>
-                        <div class="read-more">
-                            <a href="single.html">Xem thêm về kinh tế</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="arrange-news">
-                    <div class="grid-title">
-                        <div class="grid-title-before">
-                            <img src="images/11.jpg" alt=" " class="img-responsive" />
-                            <div class="grid-title-pos">
-                                <p>Kinh tế</p>
+                        <div class="arrange-news">
+                            <div class="grid-title">
+                                <div class="grid-title-before">
+                                    <img src="images/11.jpg" alt=" " class="img-responsive" />
+                                    <div class="grid-title-pos">
+                                        <p>Kinh tế</p>
+                                    </div>
+                                </div>
+                                <div class="grid-title-news">
+                                    <p><a href="#">Khối bất động sản khổng lồ của ông chủ Amazon.</a></p>
+                                    <p><a href="#">Khối bất động sản khổng lồ của ông chủ Amazon.</a></p>
+                                    <p><a href="#">Khối bất động sản khổng lồ của ông chủ Amazon.</a></p>
+                                    <p><a href="#">BKhối bất động sản khổng lồ của ông chủ Amazon.</a></p>
+                                </div>
+                                <div class="read-more">
+                                    <a href="single.html">Xem thêm về kinh tế</a>
+                                </div>
                             </div>
                         </div>
-                        <div class="grid-title-news">
-                            <p><a href="#">Khối bất động sản khổng lồ của ông chủ Amazon.</a></p>
-                            <p><a href="#">Khối bất động sản khổng lồ của ông chủ Amazon.</a></p>
-                            <p><a href="#">Khối bất động sản khổng lồ của ông chủ Amazon.</a></p>
-                            <p><a href="#">BKhối bất động sản khổng lồ của ông chủ Amazon.</a></p>
-                        </div>
-                        <div class="read-more">
-                            <a href="single.html">Xem thêm về kinh tế</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="arrange-news">
-                    <div class="grid-title">
-                        <div class="grid-title-before">
-                            <img src="images/11.jpg" alt=" " class="img-responsive" />
-                            <div class="grid-title-pos">
-                                <p>Kinh tế</p>
-                            </div>
-                        </div>
-                        <div class="grid-title-news">
-                            <p><a href="#">Khối bất động sản khổng lồ của ông chủ Amazon.</a></p>
-                            <p><a href="#">Khối bất động sản khổng lồ của ông chủ Amazon.</a></p>
-                            <p><a href="#">Khối bất động sản khổng lồ của ông chủ Amazon.</a></p>
-                            <p><a href="#">BKhối bất động sản khổng lồ của ông chủ Amazon.</a></p>
-                        </div>
-                        <div class="read-more">
-                            <a href="single.html">Xem thêm về kinh tế</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="arrange-news">
-                    <div class="grid-title">
-                        <div class="grid-title-before">
-                            <img src="images/11.jpg" alt=" " class="img-responsive" />
-                            <div class="grid-title-pos">
-                                <p>Kinh tế</p>
-                            </div>
-                        </div>
-                        <div class="grid-title-news">
-                            <p><a href="#">Khối bất động sản khổng lồ của ông chủ Amazon.</a></p>
-                            <p><a href="#">Khối bất động sản khổng lồ của ông chủ Amazon.</a></p>
-                            <p><a href="#">Khối bất động sản khổng lồ của ông chủ Amazon.</a></p>
-                            <p><a href="#">BKhối bất động sản khổng lồ của ông chủ Amazon.</a></p>
-                        </div>
-                        <div class="read-more">
-                            <a href="single.html">Xem thêm về kinh tế</a>
-                        </div>
-                    </div>
-                </div>
 
+                    </div>
+                </div>
+            </div>
+    </div>
+    <div class="f" >
+        <span class="logo sm-logo">@titom?</span>
+        <span class="text-md des-info">@develope by team titom?</span>
+        <div id="footer-btn-group">
+            <button type="button" class="btn btn-light btn-lg">Giới Thiệu</button>
+            <button type="button" class="btn btn-light btn-lg">Liên Hệ</button>
+            <button type="button" class="btn btn-light btn-lg">Quảng Cáo</button>
+        </div>
     </div>
 </div>
-</div>
-<!-- menu -->
-</div>
+    
 </body>       
 </html>
