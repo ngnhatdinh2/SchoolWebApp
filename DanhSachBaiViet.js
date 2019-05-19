@@ -1,4 +1,4 @@
-function setHeigh() {
-	var h1 = document.getElementById('bigest-news');
-	var h2 = document.getElementById('big-news');
-}
+$(".nav-item").click(function(){
+	console.log("test");
+	$(this).children(".dropdown-menu").slideToggle(600);
+  });

@@ -116,17 +116,17 @@ body{
 	background-color: #eee;
 }
 
-.dropdown:hover>.dropdown-menu {
+/* .dropdown:hover>.dropdown-menu {
   display: block;
-}
+} */
 
 .dropdown-toggle::after{
 	display: none;
 }
 
 .dropdown-menu {
-    top: 44px;
-    background-color: #343a40;
+    background: #7a8086;
+    top: 46px;
     border: none;
     border-radius: 0 0 5px 5px;
 }
