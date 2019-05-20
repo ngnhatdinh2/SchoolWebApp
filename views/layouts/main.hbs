@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- FONT dokdo -->
+    <link href="https://fonts.googleapis.com/css?family=Dokdo" rel="stylesheet">
+    <!-- FONT AWESOME -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="css/dungcontent.css">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <title>titom news</title>
+</head>
+
+<body>
+
+    <!-- header -->
+    {{> header}}
+    
+    <div class="frame">
+        <!-- content -->
+        <div id="c">
+            {{{body}}}
+        </div>
+
+        <!-- footer -->
+        <div class="f">
+            {{> footer}}
+        </div>
+    </div>
+</body>
+
+</html>

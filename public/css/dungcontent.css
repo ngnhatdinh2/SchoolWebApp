@@ -28,37 +28,6 @@
   overflow: hidden;
 }
 .img-overflow {
-  background:url(images/1.jpg) no-repeat 0px 0px;
-  display:block;
-      transition: all 1s ease-out;
-}
-.img-overflow1 {
-  background:url(images/2.jpg) no-repeat 0px 0px;
-  display:block;
-      transition: all 1s ease-out;
-}
-.img-overflow2 {
-  background:url(images/3.jpg) no-repeat 0px 0px;
-  display:block;
-      transition: all 1s ease-out;
-}
-.img-overflow3 {
-  background:url(images/4.jpg) no-repeat 0px 0px;
-  display:block;
-      transition: all 1s ease-out;
-}
-.img-overflow4 {
-  background:url(images/5.jpg) no-repeat 0px 0px;
-  display:block;
-      transition: all 1s ease-out;
-}
-.img-overflow6 {
-  background:url(images/7.jpg) no-repeat 0px 0px;
-  display:block;
-      transition: all 1s ease-out;
-}
-.img-overflow7 {
-  background:url(images/8.jpg) no-repeat 0px 0px;
   display:block;
       transition: all 1s ease-out;
 }
@@ -209,7 +178,7 @@ a.breaking {
 }
 .breaking_news:after {
     content: '';
-    background: url(images/dott1.png) no-repeat 0px 0px;
+    background: url(/index/dott1.png) no-repeat 0px 0px;
     display: block;
     width: 27px;
     height: 60px;
@@ -372,12 +341,12 @@ position:relative;
 .nbs-flexisel-nav-left {
   left: 0%;
     top: 33% !important;
-    background:#111 url(images/leftw.png) no-repeat 6px 28px;
+    background:#111 url(/index/leftw.png) no-repeat 6px 28px;
 }
 .nbs-flexisel-nav-right {
   right: 0%;
   top: 33% !important;
-  background:#111 url(images/rightw.png) no-repeat 8px 28px;
+  background:#111 url(/index/rightw.png) no-repeat 8px 28px;
 }
 /*--//flexisel--*/
 .item img{

@@ -1,0 +1,28 @@
+{
+  "name": "schoolwebapp",
+  "version": "1.0.0",
+  "main": "DanhSachBaiViet.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ngnhatdinh2/SchoolWebApp.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ngnhatdinh2/SchoolWebApp/issues"
+  },
+  "homepage": "https://github.com/ngnhatdinh2/SchoolWebApp#readme",
+  "keywords": [],
+  "description": "",
+  "dependencies": {
+    "express": "^4.17.0",
+    "express-handlebars": "^3.1.0",
+    "handlebars-helpers": "^0.10.0",
+    "md5": "^2.2.1",
+    "morgan": "^1.9.1",
+    "nodemon": "^1.19.0"
+  }
+}
