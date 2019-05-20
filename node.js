@@ -1,8 +1,6 @@
-const orm = require('orm')
+const orm = require("orm");
 
-orm.connect("mysql://username:password@host/database", function (err, db) {
-  if (err) throw err;
- 
+orm.connect("mysql://username:password@host/database", function (err, db) { 
   var Person = db.define("person", {
     name      : String,
     surname   : String,
