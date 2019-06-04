@@ -8,9 +8,22 @@ app.use(express.static('images'));
 app.engine('hbs', exphbs({
     extname: '.hbs',
     defaultLayout: 'main.hbs',
-    layoutsDir: 'views/layouts'
+    layoutsDir: 'views/layouts',
+    helpers: {
+        forCate: function (arg1, arg2, options) {
+            var rs = '';
+            arg2.forEach(item => {
+                if (item.danh_muc_cha === arg1.ma_danh_muc)
+                    rs += '<a class="dropdown-item" href="#">' + options.fn(item.ten_danh_muc) + '</a>';
+            });
+            return rs;
+        }
+    }
 }));
 app.set('view engine', 'hbs');
+
+app.use(require('./middlewares/localCateBig.mdw'));
+app.use(require('./middlewares/localCateSmall.mdw'));
 
 app.get('/partials/', function (req, res) {
     res.render('header.hbs');

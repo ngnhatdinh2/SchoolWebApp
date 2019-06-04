@@ -8,13 +8,16 @@
 </div>
 <nav class="navbar navbar-expand-sm bg-dark navbar-dark sticky-top justify-content-center">
     <ul class="navbar-nav">
+        {{#each lcCateBig as |big|}}
         <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">Thời sự</a>
+            <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">{{big.ma_danh_muc}}</a>
             <div class="dropdown-menu">
-                <a class="dropdown-item" href="#">Giao thông</a>
-                <a class="dropdown-item" href="#">Tài liệu</a>
+                {{#forCate big lcCateSmall}}
+                {{this}}
+                {{/forCate}}
             </div>
         </li>
+        {{/each}}
 
         <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">Pháp luật</a>
