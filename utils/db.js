@@ -12,7 +12,10 @@ module.exports = {
     load: (sql) => {//xử lý đồng bộ - promise
         return new Promise((resolve, reject) => {
             var connection = createConnection();
-            connection.connect();
+            connection.connect(err=>{
+                console.log(err);
+            });
+            
 
             connection.query(sql, (error, results, fields) => {
                 if (error) throw reject(error);
@@ -50,12 +53,27 @@ module.exports = {
         });
     },
 
-    delete: (tableName, idField, id) => {
+
+    temporaryDelete: (tableName, idField, contentField) => {
+        return new Promise((resolve,reject) => {
+            var connection = createConnection();
+            connection.connect();
+            var sql = `update ${tableName} set isdeleted=1 where ${idField}=${contentField}`;
+            connection.query(sql,(error,value)=>{
+                if (error) reject(error);
+                else resolve(value.changedRows);
+                connection.end();
+            });
+        });
+    },
+
+
+    delete: (tableName, idField, contentField) => {
         return new Promise((resolve, reject) => {
             var connection = createConnection();
             connection.connect();
             var sql = `delete from ${tableName} where ${idField} = ?`;
-            connection.query(sql, id, (error, value) => {
+            connection.query(sql, contentField, (error, value) => {
                 if (error) throw reject(error);
                 else resolve(value.affectedRows);//resolve(value.insertID) tự động tăng ID
                 connection.end();
