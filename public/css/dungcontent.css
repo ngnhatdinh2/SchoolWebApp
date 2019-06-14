@@ -192,7 +192,7 @@ a.breaking {
     color: #fff;
     margin: 0;
 }
-@keyframes marquee {
+/* @keyframes marquee {
   0% { 
     left: 100%;
   }
@@ -208,7 +208,7 @@ a.breaking {
   -moz-animation-duration: 10s;
   -webkit-animation-delay: 0s; 
   animation-delay: 0s;
-}
+} */
 /*---End part 2*/
 
 /*---part 3*/
