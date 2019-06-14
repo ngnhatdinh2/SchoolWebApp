@@ -1,28 +1,28 @@
 var db = require('../utils/db');
 
 module.exports = {
-    allCateBig: () => {
-        return db.load('select * from category where danh_muc_cha = null');
+    allCateGroup: () => {
+        return db.load('select * from categorygroup');
     },
 
     allCateSmall: () => {
-        return db.load('select * from category where danh_muc_cha != null');
-    },
-
-    all: () => {
         return db.load('select * from category');
     },
 
-    single: (id) =>{
+    cateLimit: (limit) => {
+        return db.load(`select * from category limit ${limit}`);
+    },
+
+    single: (id) => {
         return db.load(`select * from category where id = '${id}'`);
     },
 
     add: (entity) => {
-        return db.add('category',entity);
+        return db.add('category', entity);
     },
 
     update: (entity) => {
-        return db.update('category','id',entity);
+        return db.update('category', 'id', entity);
     },
 
     temporaryDelete: (id) => {
@@ -31,6 +31,6 @@ module.exports = {
 
 
     delete: (id) => {
-        return db.delete('category','id',id);
+        return db.delete('category', 'id', id);
     }
 }

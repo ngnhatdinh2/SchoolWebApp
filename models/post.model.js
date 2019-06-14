@@ -29,13 +29,22 @@ module.exports = {
         return db.add('post', entity);
     },
 
-    update: (entity) => {
-        return db.update('post', 'id', entity);
-    },
+    
 
     temporaryDelete: (id) => {
         return db.temporaryDelete('post', 'id', id);
     },
+    
+    postLimit: (offset, limit) => {
+        return db.load(`select * from posts limit ${offset},${limit} order by id DESC` );
+    },
+
+
+    update: (entity) => {
+        return db.update('posts', 'id', entity);
+    },
+
+   
 
 
     delete: (id) => {

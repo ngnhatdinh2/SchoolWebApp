@@ -8,60 +8,8 @@
 </div>
 <nav class="navbar navbar-expand-sm bg-dark navbar-dark sticky-top justify-content-center">
     <ul class="navbar-nav">
-        {{#each lcCateBig as |big|}}
-        <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">{{big.ma_danh_muc}}</a>
-            <div class="dropdown-menu">
-                {{#forCate big lcCateSmall}}
-                {{this}}
-                {{/forCate}}
-            </div>
-        </li>
-        {{/each}}
-
-        <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">Pháp luật</a>
-            <div class="dropdown-menu">
-                <a class="dropdown-item" href="#">Hồ sơ phá án</a>
-                <a class="dropdown-item" href="#">Tư vấn</a>
-            </div>
-        </li>
-
-        <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">Kinh doanh</a>
-            <div class="dropdown-menu">
-                <a class="dropdown-item" href="#">Bất động sản</a>
-                <a class="dropdown-item" href="#">Ebank</a>
-                <a class="dropdown-item" href="#">Thương mại điện tử</a>
-            </div>
-        </li>
-
-        <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">Công nghệ</a>
-            <div class="dropdown-menu">
-                <a class="dropdown-item" href="#">Đời sống số</a>
-                <a class="dropdown-item" href="#">Sản phầm</a>
-            </div>
-        </li>
-
-        <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">Giải trí</a>
-            <div class="dropdown-menu">
-                <a class="dropdown-item" href="#">Phim</a>
-                <a class="dropdown-item" href="#">Nhạc</a>
-                <a class="dropdown-item" href="#">Giải thưởng</a>
-                <a class="dropdown-item" href="#">Thời trang</a>
-            </div>
-        </li>
-
-        <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">Sức khỏe</a>
-            <div class="dropdown-menu">
-                <a class="dropdown-item" href="#">Dinh dưỡng</a>
-                <a class="dropdown-item" href="#">Bệnh</a>
-                <a class="dropdown-item" href="#">Ung thư</a>
-                <a class="dropdown-item" href="#">Khỏe đẹp</a>
-            </div>
-        </li>
+        {{#forCate lcCateGroup lcCateSmall}}
+        {{this}}
+        {{/forCate}}
     </ul>
 </nav>
