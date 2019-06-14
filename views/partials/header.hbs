@@ -8,15 +8,8 @@
 </div>
 <nav class="navbar navbar-expand-sm bg-dark navbar-dark sticky-top justify-content-center">
     <ul class="navbar-nav">
-        {{#each lcCateGroup as |gr|}}
-        <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">{{gr.name}}</a>
-            <div class="dropdown-menu">
-                {{#forCate gr lcCateSmall}}
-                {{this}}
-                {{/forCate}}
-            </div>
-        </li>
-        {{/each}}
+        {{#forCate lcCateGroup lcCateSmall}}
+        {{this}}
+        {{/forCate}}
     </ul>
 </nav>

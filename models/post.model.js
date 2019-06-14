@@ -2,32 +2,32 @@ var db = require('../utils/db');
 
 module.exports = {
     all: () => {
-        return db.load('select * from post order by id DESC');
+        return db.load('select * from posts order by id DESC');
     },
 
     allByCate: (idCate) => {
-        return db.load(`select * from post where category_id = ${idCate} order by id DESC`);
+        return db.load(`select * from posts where category_id = ${idCate} order by id DESC`);
     },
 
     postLimit: (offset, limit) => {
-        return db.load(`select * from post limit ${offset},${limit}`);
+        return db.load(`select * from posts limit ${offset},${limit} order by id DESC` );
     },
 
     add: (entity) => {
-        return db.add('post', entity);
+        return db.add('posts', entity);
     },
 
     update: (entity) => {
-        return db.update('post', 'id', entity);
+        return db.update('posts', 'id', entity);
     },
 
     temporaryDelete: (id) => {
-        return db.temporaryDelete('post', 'id', id);
+        return db.temporaryDelete('posts', 'id', id);
     },
 
 
     delete: (id) => {
-        return db.delete('post', 'id', id);
+        return db.delete('posts', 'id', id);
     }
 
 }
