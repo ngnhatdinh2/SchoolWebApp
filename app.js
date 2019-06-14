@@ -3,7 +3,7 @@ var exphbs = require('express-handlebars');
 
 var app = express();
 app.use(express.static('public'));
-app.use(express.static('images'));
+
 
 app.engine('hbs', exphbs({
     extname: '.hbs',
@@ -17,11 +17,16 @@ app.engine('hbs', exphbs({
                     rs += '<a class="dropdown-item" href="#">' + options.fn(item.ten_danh_muc) + '</a>';
             });
             return rs;
-        }
+        },
+        //định dạng lại ng
+        formatDate: date => {
+            var dateWithOffset = new Date(date);
+            var dateWithoutOffset = new Date(dateWithOffset.getTime() + dateWithOffset.getTimezoneOffset() * 1000 * 60);
+            return dateWithoutOffset.toLocaleDateString();
+        },
     }
 }));
 app.set('view engine', 'hbs');
-
 // app.use(require('./middlewares/localCateBig.mdw'));
 // app.use(require('./middlewares/localCateSmall.mdw'));
 app.use(require('./middlewares/localCategory.mdw'));
@@ -39,6 +44,8 @@ app.get('/', (req, res) => {
     res.render('index.hbs');
     
 });
+
+app.use('/tin-tuc', require('./routes/postlist.route'));
 
 
 
