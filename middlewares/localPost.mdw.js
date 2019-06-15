@@ -4,29 +4,9 @@ var userModel = require('../models/user.model');
 
 module.exports = (req, res, next) => {
     Promise.all([
-        postModel.all(),
-        userModel.all(),
-        cateModel.allCateSmall(),
+        postModel.allWithDetails(),
         cateModel.cateLimit(8),
-    ]).then(([rows, users, allCates, cate]) => {
-        rows.forEach(item => {
-            //thêm tên tác giả vào post
-            for (let i = 0; i < users.length; i++) {
-                if (item.user_id === users[i].id) {
-                    item.author = users[i].name;
-                    break;
-                }
-            }
-
-            //thêm chủ đề vào post
-            for (let i = 0; i < allCates.length; i++) {
-                if (item.category_id === allCates[i].id) {
-                    item.topic = allCates[i].name;
-                    break;
-                }
-            }
-        });
-
+    ]).then(([rows, cate]) => {
         //tách các phần trong index
         //part1, part3_left1, part3_left2, part3_right, part5
         var part1 = [];
@@ -75,7 +55,5 @@ module.exports = (req, res, next) => {
         res.locals.lcPart4 = cate;
         res.locals.lcPart5 = part5;
         next();
-    }).catch(err => {
-        console.log(err)
-    });
+    }).catch(next);
 }

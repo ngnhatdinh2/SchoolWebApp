@@ -6,8 +6,7 @@
                 <h2>Breaking News</h2>
             </div>
             <div class="newrun">
-                <div class="newrun1"><a class="breaking" href="#">Chuyên gia Nhật Bản hứa hẹn đem đến công
-                        nghệ làm sạch sông Tô Lịch.Tìm hiểu du học Australia</a></div>
+                <div class="newrun1"><a class="breaking" href="/categories/{{lcLeft1.category_id}}/posts/{{lcLeft1.id}}">{{lcLeft1.title}}</a></div>
                 <div class="clearfix"></div>
             </div>
             <div class="clearfix"></div>
@@ -28,10 +27,10 @@
                     <div class="title">
                         <ul>
                             <li><a href="#">{{topic}}</a></li>
-                            <li>{{publish_date}}</li>
+                            <li>{{formatDate publish_date}}</li>
                         </ul>
                     </div>
-                    <h3><a href="#">{{title}}</a></h3>
+                    <h3><a href="/categories/{{category_id}}/posts/{{id}}">{{title}}</a></h3>
                     <div class="author">
                         <p>Tác giả: <i>{{author}}</i></p>
                     </div>
@@ -50,12 +49,12 @@
                 <img src="{{lcLeft1.image_url}}" alt=" " class="img-responsive" />
 
                 <div class="new-grid-pos">
-                    <a href="#">
+                    <a href="/categories/{{lcLeft1.category_id}}/posts/{{lcLeft1.id}}">
                         <h3>{{lcLeft1.title}}</h3>
                     </a>
                     <ul>
                         <li>{{lcLeft1.author}}<label>|</label></li>
-                        <li><i>{{lcLeft1.publish_date}}</i> <label>|</label></li>
+                        <li><i>{{formatDate lcLeft1.publish_date}}</i> <label>|</label></li>
                         <li><span>{{lcLeft1.topic}}</span></li>
                     </ul>
                 </div>
@@ -70,9 +69,9 @@
                                 <img src="{{thumbnail_url}}" alt=" " class="img-responsive" />
 
                                 <div class="title-text">
-                                    <h3><a href="#">{{title}}</a> <span>{{topic}} <label>|</label>
+                                    <h3><a href="/categories/{{category_id}}/posts/{{id}}">{{title}}</a> <span>{{topic}} <label>|</label>
                                             <i>{{author}}</i></span></h3>
-                                    <p>{{publish_date}}</p>
+                                    <p>{{formatDate publish_date}}</p>
                                 </div>
                             </div>
                         </li>
@@ -110,9 +109,9 @@
                                 <img src="{{thumbnail_url}}" alt=" " class="img-responsive" />
                             </div>
                             <div class="tab_list">
-                                <span><a href="#">{{topic}}</a><br />{{publish_date}}
+                                <span><a href="#">{{topic}}</a><br />{{formatDate publish_date}}
                                 </span>
-                                <p><a href="#">{{title}}</a></p>
+                                <p><a href="/categories/{{category_id}}/posts/{{id}}">{{title}}</a></p>
                             </div>
                             <div class="clearfix"> </div>
                         </div>
@@ -137,7 +136,7 @@
                     </div>
                     <div class="grid-title-news">
                         {{#each posts as |item|}}
-                        <p><a href="#">{{title}}</a></p>
+                        <p><a href="/categories/{{category_id}}/posts/{{id}}">{{title}}</a></p>
                         {{/each}}
                     </div>
                 </div>
@@ -159,8 +158,8 @@
                             <img src="{{image_url}}" alt=" " class="img-responsive" />
                         </div>
                         <div class="news-grid-right1">
-                            <h4><a href="#">{{title}}</a></h4>
-                            <h5>By <a href="#">{{author}}</a> <label>|</label> <i>{{publish_date}}</i></h5>
+                            <h4><a href="/categories/{{category_id}}/posts/{{id}}">{{title}}</a></h4>
+                            <h5>By <a>{{author}}</a> <label>|</label> <i>{{formatDate publish_date}}</i></h5>
                             <p>{{abstract_body}}</p>
                         </div>
                         <div class="clearfix"> </div>

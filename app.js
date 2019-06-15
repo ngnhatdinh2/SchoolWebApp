@@ -3,8 +3,9 @@ var morgan = require('morgan');
 
 var exphbs = require('express-handlebars');
 
-var app = express(); 0
+var app = express();
 app.use(morgan('dev'));
+app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static('public'));
 
@@ -42,21 +43,21 @@ app.use(require('./middlewares/localCateSmall.mdw'));
 app.use(require('./middlewares/localCategoryGroup.mdw'));
 app.use(require('./middlewares/localPost.mdw'));
 
-app.get('/partials/', function (req, res) {
-    res.render('header.hbs');
-});
+// app.get('/partials/', function (req, res) {
+//     res.render('header.hbs');
+// });
 
-app.get('/partials/', function (req, res) {
-    res.render('footer.hbs');
-});
+// app.get('/partials/', function (req, res) {
+//     res.render('footer.hbs');
+// });
 
 app.get('/', (req, res) => {
     res.render('index.hbs');
-
 });
 
 app.use('/tin-tuc', require('./routes/postlist.route'));
 
+app.use('/categories', require('./routes/category.route'));
 
 
 app.listen(4000, () => {
