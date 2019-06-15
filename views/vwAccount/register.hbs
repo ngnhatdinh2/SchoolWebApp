@@ -1,0 +1,129 @@
+{{#section 'css'}}
+<link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/jquery-datetimepicker/2.5.20/jquery.datetimepicker.min.css">
+{{/section}}
+
+{{#section 'js'}}
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<script
+    type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+<script
+    src="https://cdnjs.cloudflare.com/ajax/libs/jquery-datetimepicker/2.5.20/jquery.datetimepicker.full.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.1/jquery.validate.min.js"></script>
+<script>
+    $(function () {
+
+        $('#txtDOB').datetimepicker({
+            format: 'd/m/Y',
+            timepicker: false,
+            mask: true,
+        });
+
+        $('#registerForm').validate({
+            rules: {
+                username: {
+                    required: true,
+                    remote: {
+                        url: '/account/is-available'
+                    }
+                },
+                password: {
+                    required: true,
+                    minlength: 6
+                },
+                confirm: {
+                    required: true,
+                    equalTo: $('[name="password"]')
+                },
+                name: {
+                    required: true,
+                },
+                email: {
+                    required: true,
+                    email: true
+                },
+                dob: {
+                    required: true,
+                },
+            },
+            messages: {
+                username: {
+                    required: 'Please enter a valid username.',
+                    remote: 'Your username has been taken, please take another.'
+                },
+                password: {
+                    required: 'Please enter a valid password.',
+                    minlength: 'Your password must have at least 6 characters.'
+                },
+                confirm: {
+                    required: 'Please try again! Your password does not match.',
+                    equalTo: 'Your password does not match. Please try again!'
+                },
+                name: {
+                    required: 'Please enter a valid fullname.',
+                },
+                email: {
+                    required: 'Please enter a valid email address.',
+                    email: 'Please enter a valid email address.'
+                },
+                dob: {
+                    required: 'Please enter a valid date of birth.',
+                },
+            },
+            errorElement: 'small',
+            errorClass: 'help-block text-danger',
+            highlight: function (e) {
+                $(e).removeClass('is-valid').addClass('is-invalid');
+            },
+            unhighlight: function (e) {
+                $(e).removeClass('is-invalid').addClass('is-valid');
+            }
+        });
+    })
+</script>
+{{/section}}
+
+
+<div class="body_main">
+    <div class="wrap">
+        <div class="header-main">
+            <h2>Register</h2>
+            <div class="header-bottom">
+                <div class="header-right w3agile">
+                    <div class="header-left-bottom agileinfo">
+                        <form novalidate action="" method="POST" id="registerForm">
+                            <div class="icon1">
+                                <i class="fa fa-user" aria-hidden="true"></i>
+                                <input type="text" placeholder="Username" id="txtUsername" name="username" autofocus>
+                            </div>
+                            <div class="icon1">
+                                <i class="fa fa-key" aria-hidden="true"></i>
+                                <input type="password" placeholder="Password" id="txtPassword" name="password">
+                            </div>
+                            <div class="icon1">
+                                <i class="fa fa-check" aria-hidden="true"></i>
+                                <input type="password" placeholder="Confirm" id="txtConfirm" name="confirm">
+                            </div>
+                            <div class="icon1">
+                                <i class="fa fa-info" aria-hidden="true"></i>
+                                <input type="text" placeholder="Full name" id="txtName" name="name">
+                            </div>
+                            <div class="icon1">
+                                <i class="fa fa-envelope" aria-hidden="true"></i>
+                                <input type="email" placeholder="Email@gmail.com" id="txtEmail" name="email">
+                            </div>
+                            <div class="icon1">
+                                <i class="fa fa-calendar" aria-hidden="true"></i>
+                                <input type="text" placeholder="Date of birth" id="txtDOB" name="dob">
+                            </div>
+
+                            <div class="bottom">
+                                <input type="submit" value="Register" />
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -12,6 +12,7 @@
 					{{else}}
 					<div class="blog-leftl">
 						<h6>{{formatDate post.publish_date}}</h6>
+						<a href="#"><h6>{{post.topic}}</h6></a>
 					</div>
 					<div class="blog-leftr">
 						<img src="{{post.image_url}}" alt=" " class="img-responsive" />
@@ -21,11 +22,9 @@
 
 						<p>{{post.full_body}}</p>
 						<ul>
-							<li><a href="#"><i class="fa fa-pencil" aria-hidden="true"></i>&nbsp;{{post.author}}</a>
+							<li><a><i class="fa fa-pencil" aria-hidden="true"></i>&nbsp;{{post.author}}</a>
 							</li>
-							<li><a href="#"><i class="fa fa-th-list" aria-hidden="true"></i>&nbsp;{{post.topic}}</a>
-							</li>
-							<li><a href="#"><i class="fa fa-eye" aria-hidden="true"></i>&nbsp;{{post.view}}
+							<li><a><i class="fa fa-eye" aria-hidden="true"></i>&nbsp;{{post.view}}
 									views</a></li>
 						</ul>
 					</div>
@@ -38,12 +37,12 @@
 								<a href="#">
 									<img class="media-object" src="images/icon1.png" alt="" />
 								</a>
-								<h5><a href="#">{{reader}}</a></h5>
+								<h5><a>{{reader}}</a></h5>
 							</div>
 							<div class="media-body response-text-right">
 								<p>{{content}}</p>
 								<ul>
-									<li>October 25, 2016</li>
+									<li>{{date}}</li>
 								</ul>
 							</div>
 							<div class="clearfix"> </div>
@@ -96,7 +95,7 @@
 										<div class="tab_list">
 											<span><a href="#">{{topic}}</a><br />{{formatDate publish_date}}
 											</span>
-											<p><a href="#">{{title}}</a></p>
+											<p><a href="/categories/{{category_id}}/posts/{{id}}">{{title}}</a></p>
 										</div>
 										<div class="clearfix"> </div>
 									</div>

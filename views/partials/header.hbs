@@ -3,13 +3,47 @@
     <div class="search-account">
         <i class="search-icon fas fa-search"></i>
         <input class="search-box" type="text" placeholder="search"></input>
-        <i class="account-icon fas fa-user"></i>
     </div>
 </div>
 <nav class="navbar navbar-expand-sm bg-dark navbar-dark sticky-top justify-content-center">
-    <ul class="navbar-nav">
+    <ul class="col-md-10 navbar-nav justify-content-center">
         {{#forCate lcCateGroup lcCateSmall}}
         {{this}}
         {{/forCate}}
+    </ul>
+    <form id="frmSignout" action="/account/logout" method="POST"></form>
+    <ul class="col-md-2 navbar-nav justify-content-center">
+        {{#if isAuthenticated}}
+        <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+                aria-haspopup="true" aria-expanded="false">
+                Hi, <b>{{user.name}}</b>
+            </a>
+            <div class="dropdown-menu dropdown-menu-left" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" href="/account/profile">
+                    <i class="fa fa-user" aria-hidden="true"></i>
+                    Profile
+                </a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="javascript: $('#frmSignout').submit();">
+                    <i class="fa fa-sign-out" aria-hidden="true"></i>
+                    Sign Out
+                </a>
+            </div>
+        </li>
+        {{else}}
+        <li class="nav-item">
+            <a class="nav-link" href="/account/register">
+                <i class="fa fa-user-plus" aria-hidden="true"></i>
+                Regiter
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="/account/login">
+                <i class="fa fa-sign-in" aria-hidden="true"></i>
+                Sign In
+            </a>
+        </li>
+        {{/if}}
     </ul>
 </nav>

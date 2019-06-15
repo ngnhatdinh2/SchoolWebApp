@@ -6,10 +6,12 @@
                 <h2>Breaking News</h2>
             </div>
             <div class="newrun">
-                <div class="newrun1"><a class="breaking" href="/categories/{{lcLeft1.category_id}}/posts/{{lcLeft1.id}}">{{lcLeft1.title}}</a></div>
+                <div class="newrun1"><a class="breaking"
+                        href="/categories/{{lcLeft1.category_id}}/posts/{{lcLeft1.id}}">{{lcLeft1.title}}</a></div>
                 <div class="clearfix"></div>
             </div>
             <div class="clearfix"></div>
+            <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
             <script type="text/javascript" src="/js/jquery.marquee.js"></script>
             <script>
                 $('.newrun').marquee({ pauseOnHover: true });
@@ -69,7 +71,8 @@
                                 <img src="{{thumbnail_url}}" alt=" " class="img-responsive" />
 
                                 <div class="title-text">
-                                    <h3><a href="/categories/{{category_id}}/posts/{{id}}">{{title}}</a> <span>{{topic}} <label>|</label>
+                                    <h3><a href="/categories/{{category_id}}/posts/{{id}}">{{title}}</a> <span>{{topic}}
+                                            <label>|</label>
                                             <i>{{author}}</i></span></h3>
                                     <p>{{formatDate publish_date}}</p>
                                 </div>

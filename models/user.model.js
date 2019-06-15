@@ -9,6 +9,10 @@ module.exports = {
         return db.load(`select * from user where id = '${id}'`);
     },
 
+    singleByUsername: (username) => {
+        return db.load(`select * from user where username = '${username}'`);
+    },
+
     add: (entity) => {
         return db.add('user', entity);
     },
