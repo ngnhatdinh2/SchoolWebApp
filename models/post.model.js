@@ -21,6 +21,7 @@ module.exports = {
         return db.load(`select p.* , c.name as category_name from (select * from posts limit ${offset},${limit}) p, category c where p.category_id = c.id`)
     },
 
+
     postLimit: (offset, limit) => {
         return db.load(`select * from posts limit ${offset},${limit}`);
     },
@@ -29,7 +30,11 @@ module.exports = {
         return db.add('post', entity);
     },
 
-    
+    countPost: (cateID=null) => {
+        var sql = `select count(*) as numb_of_posts from posts`;
+        sql += cateID != null ? ` where posts.id = ${cateID}`: `` ;
+        return db.load(sql);
+    },    
 
     temporaryDelete: (id) => {
         return db.temporaryDelete('post', 'id', id);

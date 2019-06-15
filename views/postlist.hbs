@@ -74,11 +74,11 @@
 
 
     <ul class="pagination justify-content-end">
-        <li class="page-item"><a class="page-link" href="#">
-                <</a> </li> <li class="page-item"><a class="page-link" href="#">1</a></li>
-        <li class="page-item"><a class="page-link" href="#">2</a></li>
-        <li class="page-item"><a class="page-link" href="#">3</a></li>
-        <li class="page-item"><a class="page-link" href="#">></a></li>
+        <li class="page-item"><a class="page-link" href="#">&lt</a></li>
+        {{#each page}}
+        <li class="page-item {{#if isActive}}active{{/if}}"><a class="page-link" href="?page={{value}}">{{value}}</a></li>
+        {{/each}}
+        <li class="page-item"><a class="page-link" href="#">&gt</a></li>
     </ul>
 
     <div class="col-12 category">
