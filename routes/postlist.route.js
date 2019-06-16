@@ -10,16 +10,16 @@ router.use(require('../middlewares/localMostViewPost.mdw'));
 
 router.get('/', (req, res, next) => {
     var postmodel = require('../models/post.model');
-    var page = req.query.page < 1 ? 1 : req.query.page;
-    var offset = (page - 1) * 10 + 1;
+    var page = (req.query.page < 1 || req.query.page == null) ? 1 : req.query.page;
+    var offset = (page - 1) * 10;
     var limit = 10;
     Promise.all([
         postmodel.postLimitWittCategoryName(offset, limit),
-        postmodel.countPost(),
+        postmodel.countPostByCate(),
     ]).then(([posts, totalPost]) => {
         var pages = []; // tạo đối tượng pages
         var numbOfPage = Math.ceil(totalPost[0].numb_of_posts / limit); // tính số lượng pages
-        for (var i = 1; i <= numbOfPage; i++) {
+        for (var i = 1; i <= numbOfPage; i++) {yield
             var obj = { value: i, isActive: +page === i }; // tạo obj child của pages
             pages.push(obj);
 
@@ -34,14 +34,14 @@ router.get('/', (req, res, next) => {
 
 
 router.get('/:category_id', (req, res, next) => {
-    var cate_id = req.params.category_id;
     var postmodel = require('../models/post.model');
-    var page = req.query.page < 1 ? 1 : req.query.page;
-    var offset = (page - 1) * 10 + 1;
+    var cate_id = req.params.category_id;
+    var page = (req.query.page < 1 || req.query.page == null) ? 1 : req.query.page;
+    var offset = (page - 1) * 10;
     var limit = 10;
     Promise.all([
-        postmodel.allByCate(cate_id, offset,limit),
-        postmodel.countPost(cate_id)
+        postmodel.allByCate(cate_id, offset, limit),
+        postmodel.countPostByCate(cate_id)
     ]).then(([posts, totalPost]) => {
         var pages = []; // tạo đối tượng pages
         var numbOfPage = Math.ceil(totalPost[0].numb_of_posts / limit); // tính số lượng pages
@@ -53,10 +53,35 @@ router.get('/:category_id', (req, res, next) => {
 
         res.render('postlist', {
             post: posts,
-            page:pages,
+            page: pages,
         })
     }).catch(next);
 })
+
+router.get('/tags/:tag_id', (req, res, next) => {
+    var postmodel = require('../models/post.model');
+    var tag_id = req.params.tag_id;
+    var page = (req.query.page < 1 || req.query.page == null) ? 1 : req.query.page;
+    var offset = (page - 1) * 10;
+    var limit = 10;
+    console.log(offset);
+    Promise.all([
+        postmodel.allByTag(tag_id, offset, limit),
+        postmodel.countPostByTag(tag_id)
+    ]).then(([posts, totalPost]) => {
+        var pages = []; // tạo đối tượng pages
+        var numbOfPage = Math.ceil(totalPost[0].numb_of_posts / limit); // tính số lượng pages
+        for (var i = 1; i <= numbOfPage; i++) {
+            var obj = { value: i, isActive: +page === i }; // tạo obj child của pages
+            pages.push(obj);
+        }
+        res.render('postlist', {
+            post: posts,
+            page: pages,
+        })
+    }).catch(next);
+})
+
 
 
 

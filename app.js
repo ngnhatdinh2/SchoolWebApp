@@ -32,7 +32,8 @@ app.engine('hbs', exphbs({
         formatDate: date => {
             var dateWithOffset = new Date(date);
             var dateWithoutOffset = new Date(dateWithOffset.getTime() + dateWithOffset.getTimezoneOffset() * 1000 * 60);
-            return dateWithoutOffset.toLocaleDateString();
+            var options = {day: '2-digit', month: '2-digit', year: 'numeric'}
+            return dateWithoutOffset.toLocaleDateString('en-US', options);
         },
     }
 }));

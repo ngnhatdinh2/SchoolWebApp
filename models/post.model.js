@@ -18,7 +18,7 @@ module.exports = {
     },
 
     postLimitWittCategoryName: (offset,limit) => {
-        return db.load(`select p.* , c.name as category_name from (select * from posts limit ${offset},${limit}) p, category c where p.category_id = c.id`)
+        return db.load(`select p.* , c.name as category_name from (select * from posts order by posts.publish_date desc limit ${offset},${limit}) p, category c where p.category_id = c.id`)
     },
 
 
@@ -30,11 +30,21 @@ module.exports = {
         return db.add('post', entity);
     },
 
-    countPost: (cateID=null) => {
+    allByTag: (tagId, offset, limit) => {
+        return db.load(`select p.*, t.id as tag_id, t.name as tag_name from posts p, tag t, post_tag WHERE p.id = post_tag.post_id and t.id = post_tag.tag_id and post_tag.tag_id = ${tagId} limit ${offset},${limit}`);
+    },
+
+    countPostByCate: (cateID=null) => {
         var sql = `select count(*) as numb_of_posts from posts`;
-        sql += cateID != null ? ` where posts.id = ${cateID}`: `` ;
+        sql += cateID != null ? ` where posts.category_id = ${cateID}`: `` ;
         return db.load(sql);
-    },    
+    }, 
+    
+    countPostByTag: (tagID=null)=> {
+        var sql = `SELECT count(post_id) as numb_of_posts from post_tag`;
+        sql += tagID != null ? ` WHERE post_tag.tag_id=${tagID}`: `` ;
+        return db.load(sql);    
+    },
 
     temporaryDelete: (id) => {
         return db.temporaryDelete('post', 'id', id);

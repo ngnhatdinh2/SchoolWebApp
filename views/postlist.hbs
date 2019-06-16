@@ -3,14 +3,15 @@
         <li class="breadcrumb-item"><a href="#">Home</a></li>
         <li class="breadcrumb-item active">Library</li>
     </ol>
-    <div class="row mb-4">
-        <div class="col-6">
+    {{!-- <div class="row mb-5">
+        <div class="col-6 highlight">
             {{#each lcMost1}}
-            <div class="row highlight" style="padding-left: 15px;">
+            <div class="row " style="padding-left: 15px;">
                 <img id="img1" class="art img-fluid" src="{{image_url}}" alt="{{tittle}}">
-                <div class="card-img-overlay" style="height: 33%">
-                    <h4 class="card-title">{{tittle}}</h4>
-                    <p class="card-text">{{abstract_body}}</p>
+                <div class="card-img-overlay " style="height: 33%">
+                    <h6 class="card-title">{{category_name}}</h6>
+                    <p class="card-title">{{title}}</p>
+                    <a href="" class="btn link-btn btn-outline btn-rounded">Xem thêm ⇾</a>
                 </div>
             </div>
             {{/each}}
@@ -21,14 +22,65 @@
                 <div class="col-6 mb-4 highlight">
                     <img class="art img-fluid img1" src="{{image_url}}" alt="{{title}}">
                     <div class="card-img-overlay">
-                        <h4 class="card-title">{{tittle}}</h4>
-                        <p class="card-text">{{abstract_body}}</p>
+                        <h6 class="card-title">{{category_name}}</h5>
+                        <p class="card-title">{{title}}</p>
+                        <a href="" class="btn link-btn btn-outline btn-rounded">Xem thêm ⇾</a>
+
                     </div>
                 </div>
                 {{/each}}
             </div>
         </div>
+    </div> --}}
+
+    <div id="hot-post" class="row hot-post">
+        <div class="col-md-8 hot-post-left">
+            <!-- post -->
+            {{#each lcMost1}}
+            <div class="post post-thumb">
+                <a class="post-img" href=""><img src="{{image_url}}" alt=""></a>
+                <div class="post-body">
+                    <div class="post-category">
+                        <a href="">{{category_name}}</a>
+                    </div>
+                    <p class="post-title title-lg"><a href="">{{title}}</a></p>
+                    <div class="entry-meta post-meta">
+                        <span class="entry-date"><i class="fa fa-calendar"
+                                aria-hidden="true">&nbsp</i>{{formatDate publish_date}}</span>
+                        &nbsp
+                        <span class="comment-link"><i class="fa fa-eye" aria-hidden="true">&nbsp</i>{{view}} lượt
+                            xem</span>
+                    </div>
+
+                </div>
+            </div>
+            {{/each}}
+            <!-- /post -->
+        </div>
+        <div class="col-md-4 hot-post-right">
+            <!-- post -->
+            {{#each lcMost2}}
+            <div class="post post-thumb">
+                <a class="post-img" href=""><img src="{{image_url}}" alt=""></a>
+                <div class="post-body">
+                    <div class="post-category">
+                        <a href="">{{category_name}}</a>
+                    </div>
+                    <p class="post-title title-lg"><a href="">{{title}}</a></p>
+                    <div class="entry-meta post-meta">
+                        <span class="entry-date"><i class="fa fa-calendar"
+                                aria-hidden="true">&nbsp</i>{{formatDate publish_date}}</span>
+                        &nbsp
+                        <span class="comment-link"><i class="fa fa-eye" aria-hidden="true">&nbsp</i>{{view}} lượt
+                            xem</span>
+                    </div>
+                </div>
+            </div>
+            {{/each}}
+            <!-- /post -->
+        </div>
     </div>
+    <!-- /row -->
 
     {{#each post}}
     <div class="row mb-4 news">
@@ -76,7 +128,8 @@
     <ul class="pagination justify-content-end">
         <li class="page-item"><a class="page-link" href="#">&lt</a></li>
         {{#each page}}
-        <li class="page-item {{#if isActive}}active{{/if}}"><a class="page-link" href="?page={{value}}">{{value}}</a></li>
+        <li class="page-item {{#if isActive}}active{{/if}}"><a class="page-link" href="?page={{value}}">{{value}}</a>
+        </li>
         {{/each}}
         <li class="page-item"><a class="page-link" href="#">&gt</a></li>
     </ul>
