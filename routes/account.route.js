@@ -68,21 +68,21 @@ router.get('/profile/:id', auth, (req, res, next) => {
     var id = req.params.id;
     if (isNaN(id)) {
         res.render('vwAccount/profile', {
-            layout: false,
             error: true
         });
     }
 
-    userModel.singleById(id).then(rows => {
+    userModel.single(id).then(rows => {
         if (rows.length > 0) {
+            var cus = rows[0];
+            cus.DOB = moment(cus.DOB, 'YYYY-MM-DD').format('DD/MM/YYYY');
+
             res.render('vwAccount/profile', {
                 error: false,
-                layout: false,
-                cus: rows[0]
+                cus: cus
             });
         } else {
             res.render('vwAccount/profile', {
-                layout: false,
                 error: true
             });
         }
@@ -90,6 +90,8 @@ router.get('/profile/:id', auth, (req, res, next) => {
 })
 
 router.post('/update', auth, (req, res, next) => {
+    var dob = moment(req.body.dob, 'DD/MM/YYYY').format('YYYY-MM-DD');
+
     var entity = {
         id: req.body.id,
         name: req.body.name,
@@ -115,7 +117,7 @@ router.get('/history/:id', auth, (req, res, next) => {
         var rooms = [];
         rows.forEach(item => {
             for (let index = 0; index < res.locals.lcRooms.length; index++) {
-                if (item.idPhong === res.locals.lcRooms[index].idPhong){
+                if (item.idPhong === res.locals.lcRooms[index].idPhong) {
                     res.locals.lcRooms[index].TenNguoiGD = item.TenNguoiGD;
                     rooms.push(res.locals.lcRooms[index]);
                     break;

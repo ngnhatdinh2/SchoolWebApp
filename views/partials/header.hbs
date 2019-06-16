@@ -1,5 +1,7 @@
 <div id="a" class="container-fluid">
-    <span class="logo">@titom?</span>
+    <div class="logo pull-left">
+        <a href="/"><span class="logo">@titom?</span></a>
+    </div>
     <div class="search-account">
         <i class="search-icon fas fa-search"></i>
         <input class="search-box" type="text" placeholder="search"></input>
@@ -20,7 +22,7 @@
                 Hi, <b>{{user.name}}</b>
             </a>
             <div class="dropdown-menu dropdown-menu-left" aria-labelledby="navbarDropdown">
-                <a class="dropdown-item" href="/account/profile">
+                <a class="dropdown-item" href="/account/profile/{{user.id}}">
                     <i class="fa fa-user" aria-hidden="true"></i>
                     Profile
                 </a>
