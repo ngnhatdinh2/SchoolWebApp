@@ -5,6 +5,8 @@ var postTagModel = require('../models/post_tag.model');
 
 var router = express.Router();
 
+router.use(require('../middlewares/localMostViewPost.mdw'));
+
 router.get('/:idCate/posts/:idPost', (req, res, next) => {
     var id = req.params.idPost;
     var idCate = req.params.idCate;
@@ -54,8 +56,8 @@ router.post('/search', (req, res, next) => {
     var page = req.query.page || 1; //lấy dữ liệu trên URL sau '?'
     if (page < 1) page = 1;
 
-    var limit = 6;
-    var offset = (page - 1) * limit;
+    var offset = (page - 1) * 10;
+    var limit = 10;
 
     Promise.all([
         postModel.search(entity, limit, offset),
@@ -64,21 +66,20 @@ router.post('/search', (req, res, next) => {
         if (rows.length > 0) {
 
             var total = count_rows[0].total;
-            var nPages = Math.floor(total / limit);//lấy giá trị nhỏ hơn gần nhất
-            if (total % limit > 0) nPages++;
+            var nPages = Math.ceil(total / limit);//lấy giá trị nhỏ hơn gần nhất
             var pages = [];
             for (let i = 1; i <= nPages; i++) {
                 var obj = { value: i, active: i === +page }; //+page = page.parseInt()
                 pages.push(obj);
             }
 
-            res.render('vwPosts/search', {
-                posts: rows,
-                pages: pages,
+            res.render('postlist', {
+                post: rows,
+                page: pages,
                 error: false
             });
         } else {
-            res.render('vwPosts/search', {
+            res.render('postlist', {
                 error: true
             });
         }

@@ -4,6 +4,7 @@ module.exports = (req, res, next) => {
         res.locals.user = req.user;
         res.locals.pass = req.user.password;
         res.locals.id = req.user.id;
+        res.locals.avatar = req.user.avatar;
     }
 
     next();

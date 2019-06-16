@@ -28,5 +28,9 @@ module.exports = {
 
     delete: (id) => {
         return db.delete('user', 'id', id);
-    }
+    },
+
+    nextId: () => {
+        return db.nextId('user');
+    },
 }

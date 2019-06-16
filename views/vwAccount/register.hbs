@@ -97,7 +97,7 @@
             <div class="header-bottom">
                 <div class="header-right w3agile">
                     <div class="header-left-bottom agileinfo">
-                        <form novalidate action="" method="POST" id="registerForm">
+                        <form novalidate action="" method="POST" id="registerForm" enctype="multipart/form-data">
                             <div class="icon1">
                                 <i class="fa fa-user" aria-hidden="true"></i>
                                 <input type="text" placeholder="Username" id="txtUsername" name="username" autofocus>
@@ -126,7 +126,9 @@
                                 <i class="fa fa-calendar" aria-hidden="true"></i>
                                 <input type="text" placeholder="Date of birth" id="txtDOB" name="dob">
                             </div>
-
+                            <div class="icon1">
+                                <input type="file" id="avatar" name="avatar">
+                            </div>
                             <div class="bottom">
                                 <input type="submit" value="Register" />
                             </div>

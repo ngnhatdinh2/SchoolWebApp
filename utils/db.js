@@ -13,10 +13,24 @@ module.exports = {
         return new Promise((resolve, reject) => {
             var connection = createConnection();
             connection.connect(err=>{
-                console.log(err);
+                // console.log(err);
             });
             
 
+            connection.query(sql, (error, results, fields) => {
+                if (error) throw reject(error);
+                else resolve(results);
+                connection.end();
+            });
+        });
+    },
+
+    nextId: (tableName) => {//xử lý đồng bộ - promise
+        return new Promise((resolve, reject) => {
+            var connection = createConnection();
+            connection.connect();
+
+            var sql = `SELECT AUTO_INCREMENT FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_SCHEMA = 'newsdb' AND TABLE_NAME = '${tableName}'`;
             connection.query(sql, (error, results, fields) => {
                 if (error) throw reject(error);
                 else resolve(results);

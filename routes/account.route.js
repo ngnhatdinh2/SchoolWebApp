@@ -5,6 +5,7 @@ var userModel = require('../models/user.model');
 var passport = require('passport');
 var auth = require('../middlewares/auth');
 var login = require('../middlewares/login');
+var upload = require('../middlewares/upload');
 
 var router = express.Router();
 
@@ -24,21 +25,37 @@ router.get('/register', login, (req, res, next) => {
 })
 
 router.post('/register', login, (req, res, next) => {
-    var saltRounds = 10; //tạo key ảo để nối vào password => hash
-    var hash = bcrypt.hashSync(req.body.password, saltRounds);
-    var dob = moment(req.body.dob, 'DD/MM/YYYY').format('YYYY-MM-DD');
+    upload.single('avatar')(req, res, err => {
+        if (err) {
+            return res.json({
+                error: err.message
+            });
+        }
 
-    var entity = {
-        name: req.body.name,
-        nickname: req.body.nickname,
-        email: req.body.email,
-        DOB: dob,
-        username: req.body.username,
-        password: hash,
-        Role: 1,
-    };
-    userModel.add(entity).then(id => {
-        res.redirect('/account/login');
+        var saltRounds = 10; //tạo key ảo để nối vào password => hash
+        var hash = bcrypt.hashSync(req.body.password, saltRounds);
+        var dob = moment(req.body.dob, 'DD/MM/YYYY').format('YYYY-MM-DD');
+
+        var avatar;
+        if (req.file) {
+            avatar = '/images/avatar/' + req.file.filename;
+        } else {
+            avatar = '/images/avatar/avatar.png';
+        }
+
+        var entity = {
+            avatar: avatar,
+            name: req.body.name,
+            nickname: req.body.nickname,
+            email: req.body.email,
+            DOB: dob,
+            username: req.body.username,
+            password: hash,
+        };
+
+        userModel.add(entity).then(id => {
+            res.redirect('/account/login');
+        }).catch(next);
     })
 })
 
@@ -91,7 +108,7 @@ router.post('/updatepass', auth, (req, res, next) => {
     userModel.update(entity).then(id => {
         req.logOut();
         res.redirect('/account/login');
-    })
+    }).catch(next);
 })
 
 router.get('/profile/:id', auth, (req, res, next) => {
@@ -120,19 +137,34 @@ router.get('/profile/:id', auth, (req, res, next) => {
 })
 
 router.post('/update', auth, (req, res, next) => {
-    var dob = moment(req.body.dob, 'DD/MM/YYYY').format('YYYY-MM-DD');
+    upload.single('avatar')(req, res, err => {
+        if (err) {
+            return res.json({
+                error: err.message
+            });
+        }
+        var dob = moment(req.body.dob, 'DD/MM/YYYY').format('YYYY-MM-DD');
 
-    var entity = {
-        id: req.body.id,
-        name: req.body.name,
-        nickname: req.body.nickname,
-        email: req.body.email,
-        DOB: dob,
-    };
+        var avatar;
+        if (req.file) {
+            avatar = '/images/avatar/' + req.file.filename;
+        } else {
+            avatar = res.locals.avatar;
+        }
 
-    userModel.update(entity).then(id => {
-        res.redirect('/');
-    }).catch(next);
+        var entity = {
+            id: req.body.id,
+            name: req.body.name,
+            nickname: req.body.nickname,
+            email: req.body.email,
+            DOB: dob,
+            avatar: avatar,
+        };
+
+        userModel.update(entity).then(id => {
+            res.redirect('/');
+        }).catch(next);
+    })
 })
 
 router.get('/history/:id', auth, (req, res, next) => {
