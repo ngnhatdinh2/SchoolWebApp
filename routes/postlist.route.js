@@ -19,7 +19,7 @@ router.get('/', (req, res, next) => {
     ]).then(([posts, totalPost]) => {
         var pages = []; // tạo đối tượng pages
         var numbOfPage = Math.ceil(totalPost[0].numb_of_posts / limit); // tính số lượng pages
-        for (var i = 1; i <= numbOfPage; i++) {yield
+        for (var i = 1; i <= numbOfPage; i++) {
             var obj = { value: i, isActive: +page === i }; // tạo obj child của pages
             pages.push(obj);
 
@@ -41,8 +41,9 @@ router.get('/:category_id', (req, res, next) => {
     var limit = 10;
     Promise.all([
         postmodel.allByCate(cate_id, offset, limit),
-        postmodel.countPostByCate(cate_id)
-    ]).then(([posts, totalPost]) => {
+        postmodel.countPostByCate(cate_id),
+        postmodel.getDirect(cate_id),
+    ]).then(([posts, totalPost,direct]) => {
         var pages = []; // tạo đối tượng pages
         var numbOfPage = Math.ceil(totalPost[0].numb_of_posts / limit); // tính số lượng pages
         for (var i = 1; i <= numbOfPage; i++) {
@@ -54,6 +55,7 @@ router.get('/:category_id', (req, res, next) => {
         res.render('postlist', {
             post: posts,
             page: pages,
+            direct: direct,
         })
     }).catch(next);
 })

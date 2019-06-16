@@ -1,7 +1,10 @@
 <div class="container danhsach-container">
     <ol class="breadcrumb">
-        <li class="breadcrumb-item"><a href="#">Home</a></li>
-        <li class="breadcrumb-item active">Library</li>
+        <li class="breadcrumb-item">Home</li>
+        {{#each direct}}
+        <li class="breadcrumb-item active">{{cg_name}}</li>
+        <li class="breadcrumb-item active">{{c_name}}</li>
+        {{/each }}
     </ol>
     {{!-- <div class="row mb-5">
         <div class="col-6 highlight">
@@ -83,7 +86,7 @@
     <!-- /row -->
 
     {{#each post}}
-    <div class="row mb-4 news">
+    <div class="row mb-4 news ">
         <div class="col-4">
             <img class="art img-fluid" src="{{image_url}}" alt="{{title}}">
         </div>
@@ -134,7 +137,7 @@
         <li class="page-item"><a class="page-link" href="#">&gt</a></li>
     </ul>
 
-    <div class="col-12 category">
+    {{!-- <div class="col-12 category">
         <h4>Danh mục</h4>
         <ul class="category-list">
             <li>
@@ -164,6 +167,6 @@
             </li>
 
         </ul>
-    </div>
+    </div> --}}
 
 </div>

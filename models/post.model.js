@@ -30,6 +30,10 @@ module.exports = {
         return db.add('post', entity);
     },
 
+    getDirect: (cateId) => {
+        return db.load(`select DISTINCT cg.name as cg_name, c.name as c_name from categorygroup cg, category c, posts p WHERE c.categorygroup_id = cg.id and c.id = ${cateId}`);
+    },
+
     allByTag: (tagId, offset, limit) => {
         return db.load(`select p.*, t.id as tag_id, t.name as tag_name from posts p, tag t, post_tag WHERE p.id = post_tag.post_id and t.id = post_tag.tag_id and post_tag.tag_id = ${tagId} limit ${offset},${limit}`);
     },
