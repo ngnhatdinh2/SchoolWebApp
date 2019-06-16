@@ -53,6 +53,15 @@ body {
     justify-content: space-between;
 }
 
+a:link {
+    color: black;
+}
+
+
+a:visited {
+    color: black;
+}
+
 a:hover {
     outline: none;
     text-decoration: none;

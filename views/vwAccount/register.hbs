@@ -38,6 +38,9 @@
                 name: {
                     required: true,
                 },
+                nickname: {
+                    required: true,
+                },
                 email: {
                     required: true,
                     email: true
@@ -61,6 +64,9 @@
                 },
                 name: {
                     required: 'Please enter a valid fullname.',
+                },
+                nickname: {
+                    required: 'Please enter a valid nickname.',
                 },
                 email: {
                     required: 'Please enter a valid email address.',
@@ -107,6 +113,10 @@
                             <div class="icon1">
                                 <i class="fa fa-info" aria-hidden="true"></i>
                                 <input type="text" placeholder="Full name" id="txtName" name="name">
+                            </div>
+                            <div class="icon1">
+                                <i class="fa fa-pencil" aria-hidden="true"></i>
+                                <input type="text" placeholder="Nick name" id="txtNickName" name="nickname">
                             </div>
                             <div class="icon1">
                                 <i class="fa fa-envelope" aria-hidden="true"></i>

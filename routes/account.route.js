@@ -29,6 +29,7 @@ router.post('/register', (req, res, next) => {
 
     var entity = {
         name: req.body.name,
+        nickname: req.body.nickname,
         email: req.body.email,
         DOB: dob,
         username: req.body.username,
@@ -95,6 +96,7 @@ router.post('/update', auth, (req, res, next) => {
     var entity = {
         id: req.body.id,
         name: req.body.name,
+        nickname: req.body.nickname,
         email: req.body.email,
         DOB: dob,
     };
