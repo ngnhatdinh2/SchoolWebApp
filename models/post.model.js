@@ -13,6 +13,10 @@ module.exports = {
         return db.load(`select * from posts where category_id = ${idCate} order by id DESC`);
     },
 
+    allByCate: (idCate, offset, limit) => {
+        return db.load(`select p.*, c.name as category_name from(select * from posts where category_id = ${idCate} limit ${offset},${limit}) p, category c where p.category_id = c.id`);
+    },
+
     postLimit: (offset, limit) => {
         return db.load(`select * from posts limit ${offset},${limit} order by id DESC`);
     },
@@ -30,7 +34,9 @@ module.exports = {
         return db.load(`select * from posts limit ${offset},${limit}`);
     },
 
-   
+    mostViewPost: (offset,limit) => {
+        return db.load(`select p.* , c.name as category_name from posts p, category c where p.category_id = c.id ORDER BY p.view DESC LIMIT ${offset},${limit}`);
+    },
 
     getDirect: (cateId) => {
         return db.load(`select DISTINCT cg.name as cg_name, c.name as c_name from categorygroup cg, category c, posts p WHERE c.categorygroup_id = cg.id and c.id = ${cateId}`);
