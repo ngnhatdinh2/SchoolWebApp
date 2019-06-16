@@ -119,8 +119,12 @@ body{
 	display: none;
 }
 
+.dropdown-toggle :hover {
+    display: inline;
+}
+
 .dropdown-menu {
-    background: #7a8086;
+    background: #fff;
     top: 46px;
     border: none;
     border-radius: 0 0 5px 5px;
@@ -135,7 +139,8 @@ body{
     justify-content: space-around;
 }
 .navbar-nav .nav-item{
-	margin-left: 25px;
+    margin-left: 25px;
+    
 }
 
 .danhsach-container .row{

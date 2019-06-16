@@ -1,5 +1,6 @@
 var exphbs = require('express-handlebars');
 var hbs_sections = require('express-handlebars-sections');
+var moment = require('moment');
 
 module.exports = function (app) {
     app.engine('hbs', exphbs({
@@ -23,9 +24,7 @@ module.exports = function (app) {
             },
             //định dạng lại ngày
             formatDate: date => {
-                var dateWithOffset = new Date(date);
-                var dateWithoutOffset = new Date(dateWithOffset.getTime() + dateWithOffset.getTimezoneOffset() * 1000 * 60);
-                return dateWithoutOffset.toLocaleDateString();
+                return moment(date, 'YYYY-MM-DD').format('DD/MM/YYYY');
             },
             section: hbs_sections()
         }
