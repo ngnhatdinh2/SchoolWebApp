@@ -115,18 +115,22 @@
 
     {{/each}}
 
-    {{!-- <div class="row mb-4">
-			<div class="col-4">
-				<img class="art img-fluid" src="{{image_url}}" alt="{{title}}">
-			</div>
-			<div class="col-8">
-				<h4 class="title_news"><a href="#">{{title}}</a></h4>
-				<p>{{publish_date}}</p>
-				<p class="description">{{abstract_body}}</p>
 			</div>
 		</div>
-		 --}}
+        {{#each post}}
+		<div class="row">
+			<div class="col-4">
+				<img class="art img-fluid" src="../public/images/news_image_1.png" alt="Uniben đầu tư xây dựng thêm một nhà máy thực phẩm hiện đại">
+			</div>
+			<div class="col-8">
+				<h4 class="title_news"><a href="#">Uniben đầu tư xây dựng thêm một nhà máy thực phẩm hiện đại</a></h4>
+				<p>13/04/2019</p>
+				<p class="description">Nhà máy mới có vốn đầu tư 1.000 tỷ đồng, sản xuất hai nhãn hàng 3 Miền và Reeva cho thị trường trong nước lẫn xuất khẩu.</p>
+			</div>
+		</div>
+        {{/each}}
 
+		
 
     <ul class="pagination justify-content-end">
         <li class="page-item"><a class="page-link" href="#">&lt</a></li>
@@ -169,4 +173,7 @@
         </ul>
     </div> --}}
 
-</div>
+			</ul>
+		</div>
+		
+	</div>

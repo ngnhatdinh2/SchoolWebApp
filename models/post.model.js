@@ -5,16 +5,20 @@ module.exports = {
         return db.load('select * from posts order by id DESC');
     },
 
+    allWithDetails: () => {
+        return db.load('SELECT p.id, p.title, p.publish_date, p.abstract_body, p.full_body, p.thumbnail_url,p.image_url,p.status,p.view,p.user_id,p.category_id,p.isdeleted, cate.name as topic, user.name as author FROM posts p JOIN category cate ON p.category_id = cate.id JOIN user ON p.user_id = user.id order by p.id DESC');
+    },
+
     allByCate: (idCate) => {
         return db.load(`select * from posts where category_id = ${idCate} order by id DESC`);
     },
 
-    allByCate: (idCate, offset, limit) => {
-        return db.load(`select p.*, c.name as category_name from(select * from posts where category_id = ${idCate} limit ${offset},${limit}) p, category c where p.category_id = c.id`)
+    postLimit: (offset, limit) => {
+        return db.load(`select * from posts limit ${offset},${limit} order by id DESC`);
     },
 
-    mostViewPost: (offset,limit) => {
-        return db.load(`select p.* , c.name as category_name from posts p, category c where p.category_id = c.id ORDER BY p.view DESC LIMIT ${offset},${limit}`);
+    postRelative: (id, idCate) => {
+        return db.load(`SELECT p.id, p.title, p.publish_date, p.abstract_body, p.full_body, p.thumbnail_url,p.image_url,p.status,p.view,p.user_id,p.category_id,p.isdeleted, cate.name as topic, user.name as author FROM posts p JOIN category cate ON p.category_id = cate.id JOIN user ON p.user_id = user.id WHERE p.id != ${id} and cate.id = ${idCate} order by p.id DESC LIMIT 5`);
     },
 
     postLimitWittCategoryName: (offset,limit) => {
@@ -26,9 +30,7 @@ module.exports = {
         return db.load(`select * from posts limit ${offset},${limit}`);
     },
 
-    add: (entity) => {
-        return db.add('post', entity);
-    },
+   
 
     getDirect: (cateId) => {
         return db.load(`select DISTINCT cg.name as cg_name, c.name as c_name from categorygroup cg, category c, posts p WHERE c.categorygroup_id = cg.id and c.id = ${cateId}`);
@@ -50,24 +52,32 @@ module.exports = {
         return db.load(sql);    
     },
 
-    temporaryDelete: (id) => {
-        return db.temporaryDelete('post', 'id', id);
-    },
+   
     
     postLimit: (offset, limit) => {
         return db.load(`select * from posts limit ${offset},${limit} order by id DESC` );
     },
 
+    single: id => {
+        return db.load(`SELECT p.id, p.title, p.publish_date, p.abstract_body, p.full_body, p.thumbnail_url,p.image_url,p.status,p.view,p.user_id,p.category_id,p.isdeleted, cate.name as topic, user.name as author FROM posts p JOIN category cate ON p.category_id = cate.id JOIN user ON p.user_id = user.id WHERE p.id = ${id}`);
+    },
+
+
+    add: (entity) => {
+        return db.add('posts', entity);
+    },
 
     update: (entity) => {
         return db.update('posts', 'id', entity);
     },
 
-   
+    temporaryDelete: (id) => {
+        return db.temporaryDelete('posts', 'id', id);
+    },
 
 
     delete: (id) => {
-        return db.delete('post', 'id', id);
+        return db.delete('posts', 'id', id);
     }
 
 }
