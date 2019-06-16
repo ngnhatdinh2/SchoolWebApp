@@ -2,10 +2,13 @@
     <div class="logo pull-left">
         <a href="/"><span class="logo">@titom?</span></a>
     </div>
-    <div class="search-account">
-        <i class="search-icon fas fa-search"></i>
-        <input class="search-box" type="text" placeholder="search"></input>
-    </div>
+    <form action="/categories/search" method="post">
+        <div class="search-account">
+            {{!-- <i class="search-icon fas fa-search"></i> --}}
+            <input class="search-box" type="text" placeholder="search"></input>
+            <button class="btn" type="submit"><i class="fa fa-search"></i></button>
+        </div>
+    </form>
 </div>
 <nav class="navbar navbar-expand-sm bg-dark navbar-dark sticky-top justify-content-center">
     <ul class="col-md-10 navbar-nav justify-content-center">

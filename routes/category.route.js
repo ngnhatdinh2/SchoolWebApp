@@ -2,44 +2,8 @@ var express = require('express');
 var postModel = require('../models/post.model');
 var commentModel = require('../models/comment.model');
 var postTagModel = require('../models/post_tag.model');
-// var auth = require('../middlewares/auth');
+
 var router = express.Router();
-
-router.get('/:id/posts', (req, res, next) => {
-    var id = req.params.id;
-    var page = req.query.page || 1; //lấy dữ liệu trên URL sau '?'
-    if (page < 1) page = 1;
-
-    var limit = 6;
-    var offset = (page - 1) * limit;
-
-    Promise.all([
-        postModel.pageByArea(id, limit, offset),
-        postModel.countByArea(id),
-        postModel.partOfpostsById(id),
-    ]).then(([rows, count_rows, parts]) => {
-        for (const kv of res.locals.lcAreas) {
-            if (kv.idKhuVuc === +id) {
-                kv.isActive = true;
-            }
-        }
-
-        var total = count_rows[0].total;
-        var nPages = Math.floor(total / limit);//lấy giá trị nhỏ hơn gần nhất
-        if (total % limit > 0) nPages++;
-        var pages = [];
-        for (let i = 1; i <= nPages; i++) {
-            var obj = { value: i, active: i === +page }; //+page = page.parseInt()
-            pages.push(obj);
-        }
-
-        res.render('vwPosts/byCate', {
-            posts: rows,
-            Pages: pages,
-            Parts: parts
-        });
-    }).catch(next);
-});
 
 router.get('/:idCate/posts/:idPost', (req, res, next) => {
     var id = req.params.idPost;

@@ -78,6 +78,12 @@ module.exports = {
 
     delete: (id) => {
         return db.delete('posts', 'id', id);
-    }
+    },
+
+    search: (entity, limit, offset) => {
+        return db.load(`SELECT * FROM posts WHERE MATCH(title, abstract_body, full_body)
+        AGAINST('${entity}' IN NATURAL LANGUAGE MODE) order by idPhong DESC limit ${limit} offset ${offset}
+        `)
+    },
 
 }
