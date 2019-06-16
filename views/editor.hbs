@@ -1,0 +1,20 @@
+{{#section }}
+<script src="https://cloud.tinymce.com/5/tinymce.min.js?apiKey="></script>
+<script>
+    $(function() {
+        tinymce.init({
+            selector: '#txtFullDes'
+        });
+    })
+</script>
+{{/section}}
+
+<div class="card">
+  <div class="card-header">
+    Edit
+  </div>
+  <div class="card-body">
+      <textarea class="form-control" id="txtFullDes" name="FullDes"></textarea>
+    <a href="#" class="btn btn-primary">Save</a>
+  </div>
+</div>
