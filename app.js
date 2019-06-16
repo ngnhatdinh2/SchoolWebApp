@@ -34,6 +34,7 @@ app.set('view engine', 'hbs');
 app.use(require('./middlewares/localCateSmall.mdw'));
 app.use(require('./middlewares/localCategoryGroup.mdw'));
 app.use(require('./middlewares/localPost.mdw'));
+app.use(require('./middlewares/localAdmin.mdw'));
 
 app.get('/partials/', function (req, res) {
     res.render('header.hbs');
@@ -47,9 +48,23 @@ app.get('/', (req, res) => {
     res.render('index.hbs');
 
 });
+app.get('/admin', (req, res) => {
+    res.render('admin/index.hbs');
+});
+app.get('/admin/category', (req, res) => {
+    res.render('admin/category.hbs');
+});
+app.get('/admin/category', (req, res) => {
+    res.render('admin/category.hbs');
+});
+app.get('/admin/tag', (req, res) => {
+    res.render('admin/tag.hbs');
+});
+app.get('/admin/user', (req, res) => {
+    res.render('admin/user.hbs');
+});
 
 
-
-app.listen(4000, () => {
+app.listen(4001, () => {
     console.log("server running! http://localhost:4000/");
 })
