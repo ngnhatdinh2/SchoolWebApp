@@ -4,6 +4,7 @@ var moment = require('moment');
 var userModel = require('../models/user.model');
 var passport = require('passport');
 var auth = require('../middlewares/auth');
+var login = require('../middlewares/login');
 
 var router = express.Router();
 
@@ -18,11 +19,11 @@ router.get('/is-available', (req, res, next) => {
     })
 })
 
-router.get('/register', (req, res, next) => {
+router.get('/register',login, (req, res, next) => {
     res.render('vwAccount/register');
 })
 
-router.post('/register', (req, res, next) => {
+router.post('/register',login, (req, res, next) => {
     var saltRounds = 10; //tạo key ảo để nối vào password => hash
     var hash = bcrypt.hashSync(req.body.password, saltRounds);
     var dob = moment(req.body.dob, 'DD/MM/YYYY').format('YYYY-MM-DD');
@@ -41,11 +42,11 @@ router.post('/register', (req, res, next) => {
     })
 })
 
-router.get('/login', (req, res, next) => {
+router.get('/login', login,(req, res, next) => {
     res.render('vwAccount/login');
 })
 
-router.post('/login', (req, res, next) => {
+router.post('/login',login,(req, res, next) => {
     passport.authenticate('local', (err, user, info) => {
         if (err)
             return next(err);
@@ -63,6 +64,33 @@ router.post('/login', (req, res, next) => {
             return res.redirect('/');
         });
     })(req, res, next);
+})
+
+router.get('/changepass', auth, (req,res,next)=>{
+    res.render('vwAccount/changepass');
+})
+
+router.post('/updatepass', auth, (req,res,next)=>{
+    var user = res.locals.user;
+    var oldpass = req.body.oldpassword; 
+    
+    var ret = bcrypt.compareSync(oldpass, user.password);
+    if (!ret) {
+        return res.render('vwAccount/changepass', {
+            err_message: 'Invalid Password.'
+        })
+    }
+
+    var saltRounds = 10; //tạo key ảo để nối vào password => hash
+    var hash = bcrypt.hashSync(req.body.newpassword, saltRounds);
+    var entity = {
+        id: user.id,
+        password: hash,
+    };
+
+    userModel.update(entity).then(id => {
+        res.redirect('/account/login');
+    })
 })
 
 router.get('/profile/:id', auth, (req, res, next) => {
