@@ -14,8 +14,18 @@ module.exports = {
     },
 
     update: (entity) => {
-        return db.update('post_tag', 'id', entity);
+        return db.update('post_tag', 'post_id', entity);
     },
+
+    deleteByPostID: (postid) => {
+        return db.delete('post_tag', 'post_id', postid);
+    },
+
+    multiAdd: (entities) => {
+        return db.multiAddForPostTag('post_tag', entities);
+    },
+
+
 
     temporaryDelete: (id) => {
         return db.temporaryDelete('post_tag', 'id', id);
@@ -24,5 +34,6 @@ module.exports = {
     delete: (id) => {
         return db.delete('post_tag', 'id', id);
     }
+
 
 }

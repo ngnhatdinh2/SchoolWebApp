@@ -1,0 +1,94 @@
+{{#section 'css'}}
+<script src="/ckeditor/ckeditor.js"></script>
+<script src="/ckeditor/samples/js/sample.js"></script>
+{{/section}}
+
+{{#section 'js'}}
+<script>
+    initSample();
+</script>
+{{/section}}
+
+<div class="container mt-4">
+    <div class="row">
+        <div class="col ">
+            <div class="card" style="width: 15rem;">
+                <div class="card-header">
+                    Chức năng
+                </div>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item "><a href="/writer">Danh sách bài viết</a></li>
+                    <li class="list-group-item active"><a href="/writer/newpost">Đăng bài</a></li>
+                    <li class="list-group-item"><a href="/writer/publishedpost">Bài viết đã duyệt</a></li>
+                    <li class="list-group-item"><a href="/writer/pendingpost">Bài viết chờ duyệt</a></li>
+                    <li class="list-group-item"><a href="/writer/bannedpost">Bài viết không được duyệt</a></li>
+                </ul>
+            </div>
+
+        </div>
+        <div class="col-9">
+
+            <div class="card mb-4">
+                <div class="card-header">
+                    Chỉnh sửa bài viết
+                </div>
+                <div class="card-body">
+                    <form method="post" action="/writer/editpost">
+                        {{#each detailPost}}
+                        <div class="form-group">
+                            <label for="">ID</label>
+                            <input type="text" readonly class="form-control" id="" name="id" placeholder="Enter title" value="{{id}}">
+                        </div>
+                        <div class="form-group">
+                            <label for="">Title</label>
+                            <input type="text" class="form-control" id="" name="title" placeholder="Enter title" value="{{title}}">
+                        </div>
+                        <div class="form-group">
+                            <label for="">Abstract dody</label>
+                            <input type="text" class="form-control" id="" name="abstract_body" placeholder="Enter abstract" value="{{abstract_body}}">
+                        </div>
+                        {{/each}}
+                        <div class="form-group">
+                            <label for="">Category</label>
+                            <select class="custom-select" id="" name="category_id">
+                                {{#forCateInWriter lcCateGroup lcCateSmall select}}
+                                {{this}}
+                                {{/forCateInWriter}}
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="">Tag</label>
+                            <div class="d-flex justify-content-start ">
+                                {{#each lcTags}}
+                                <div class="input-group mb-3">
+                                    <div class="input-group-text">
+                                        <input type="checkbox" name="tags" value="{{id}}" {{#if isCheck}}checked{{/if}}>
+                                    </div>&nbsp
+                                    <label>{{name}}</label>
+                                </div>
+                                {{/each}}
+
+
+
+                            </div>
+                        </div>
+
+                        {{#each detailPost}}
+                        <div class="form-group">
+                            <label for="">Big image</label>
+                            <input type="file" class="form-control-file"  value="{{image_url}}">
+                        </div>
+                        <div class="form-group">
+                            <label for="">Body</label>
+                            <textarea id="editor" name="full_body" >{{full_body}}</textarea>
+                        </div>
+                        {{/each}}
+                        <button type="submit" class="btn btn-primary float-right"><i class="fa fa-cloud-upload"></i> Sửa bài viết</button>
+                    </form>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</div>

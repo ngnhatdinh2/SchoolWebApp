@@ -84,6 +84,12 @@ module.exports = {
 
     delete: (id) => {
         return db.delete('posts', 'id', id);
+    },
+
+    allByUserIdAndStatus: (user_id, status=null) => {
+        var sql = `select p.*, c.name as category_name from (SELECT * from posts where user_id = ${user_id}) p, category c where p.category_id = c.id`;
+        sql += status!=null? ` and status = ${status}`:``;
+        return db.load(sql);
     }
 
 }

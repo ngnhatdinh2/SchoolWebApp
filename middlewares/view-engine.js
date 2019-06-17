@@ -26,7 +26,47 @@ module.exports = function (app) {
             formatDate: date => {
                 return moment(date, 'YYYY-MM-DD').format('DD/MM/YYYY');
             },
-            section: hbs_sections()
+            formatStatus: status => {
+                var rs = '';
+                switch (status) {
+                    case 0:
+                        rs = '<i class="fa fa-clock-o" style="color:gray"></i>';
+                        break;
+                    case 1:
+                        rs = '<i class="fa fa-check " style="color:green"></i>';
+                        break;
+                    case 2:
+                        rs = '<i class="fa fa-times" style="color:red"></i>';
+                }
+                return rs;
+            },
+
+            isPublished: (postid, status) => {
+                if (status == 1)
+                    return '';
+                else
+                    return '<a href="/writer/editpost/' + postid + '" class="btn btn-outline-primary btn-sm" role="button"><i class="fa fa-pencil" aria-hidden="true" style="color: blue"></i></a>';
+            },
+
+
+            forCateInWriter: (group, cate) => {
+                var result = '';
+                group.forEach((gr) => {
+                    result += `<optgroup label="${gr.name}">`;
+                    cate.forEach(cate => {
+                        if (cate.categorygroup_id === gr.id) {
+                            result += `<option value="${cate.id}"`;
+                            if (cate.isSelected)
+                                result +=`selected`;
+                            result += `>${cate.name}</option>`;
+                        }
+                    })
+                    result += `</optgroup>`;
+                })
+                return result;
+            },
+            section: hbs_sections(),
+
         }
     }));
     app.set('view engine', 'hbs');
