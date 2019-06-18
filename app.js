@@ -46,6 +46,7 @@ app.use('/account', require('./routes/account.route'));
 app.use('/categories', require('./routes/category.route'));
 app.use('/writer', auth.isWriter, require('./routes/writer.route'));
 app.use('/subscriber', auth.isSubscriber, require('./routes/subscriber.route'));
+app.use('/editor', auth.isEditor, require('./routes/editor.route'));
 
 app.use((req, res, next) => {
     res.render('404');
