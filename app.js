@@ -43,6 +43,6 @@ app.use('/account', require('./routes/account.route'));
 app.use('/categories', require('./routes/category.route'));
 
 
-app.listen(3000, () => {
+app.listen(4001, () => {
     console.log("server running! http://localhost:3000/");
 })
