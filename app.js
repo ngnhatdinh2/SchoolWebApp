@@ -40,9 +40,7 @@ app.get('/', (req, res) => {
 // });
 //
 //a
-app.use('/admin', auth.isAdmin, require('./routes/admin.route'));
-app.use('/editor', auth.isEditor, require('./routes/editor.route'));
-
+app.use('/admin',auth.isAdmin,  require('./routes/admin.route'));
 app.use('/news', require('./routes/postlist.route'));
 app.use('/account', require('./routes/account.route'));
 app.use('/categories', require('./routes/category.route'));

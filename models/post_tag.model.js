@@ -30,7 +30,9 @@ module.exports = {
     temporaryDelete: (id) => {
         return db.temporaryDelete('post_tag', 'id', id);
     },
-
+    tempDeleteByTag: (tagID) =>{
+        return db.temporaryDelete('post_tag', 'tag_id', tagID);
+    },
     delete: (id) => {
         return db.delete('post_tag', 'id', id);
     }
