@@ -41,7 +41,8 @@ app.get('/', (req, res) => {
 //
 //a
 app.use('/admin', require('./routes/admin.route'));
-app.use('/tin-tuc', require('./routes/postlist.route'));
+app.use('/editor', require('./routes/editor.route'));
+// app.use('/tin-tuc', require('./routes/postlist.route'));
 
 app.use('/news', require('./routes/postlist.route'));
 app.use('/account', require('./routes/account.route'));

@@ -149,5 +149,8 @@ module.exports = {
         return db.load(`
         SELECT * , cate.name as topic, user.name as author FROM posts JOIN category cate ON posts.category_id = cate.id JOIN user ON posts.user_id = user.id WHERE posts.isdeleted = 0 AND posts.status = 1 ORDER BY posts.view DESC LIMIT ${limit}
         `)
+    },
+    allByByCate: (cateID) => {
+        return db.load(`select * from posts where category_id = ${cateID} and isdeleted = 0`);
     }
 }
