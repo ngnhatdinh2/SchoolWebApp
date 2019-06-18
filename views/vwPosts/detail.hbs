@@ -12,7 +12,7 @@
 					{{else}}
 					<div class="blog-leftl">
 						<h6>{{formatDate post.publish_date}}</h6>
-						<a href="#"><h6>{{post.topic}}</h6></a>
+						<a href="/news/{{post.category_id}}"><h6>{{post.topic}}</h6></a>
 					</div>
 					<div class="blog-leftr">
 						<img src="{{post.image_url}}" alt=" " class="img-responsive" />
@@ -93,7 +93,7 @@
 											<img src="{{thumbnail_url}}" alt=" " class="img-responsive" />
 										</div>
 										<div class="tab_list">
-											<span><a href="#">{{topic}}</a><br />{{formatDate publish_date}}
+											<span><a href="/news/{{category_id}}">{{topic}}</a><br />{{formatDate publish_date}}
 											</span>
 											<p><a href="/categories/{{category_id}}/posts/{{id}}">{{title}}</a></p>
 										</div>

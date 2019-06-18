@@ -127,7 +127,7 @@
                                 <img src="{{thumbnail_url}}" alt=" " class="img-responsive" />
                             </div>
                             <div class="tab_list">
-                                <span><a href="#">{{topic}}</a><br />{{formatDate publish_date}}
+                                <span><a href="/news/{{category_id}}">{{topic}}</a><br />{{formatDate publish_date}}
                                 </span>
                                 <p><a href="/categories/{{category_id}}/posts/{{id}}">{{title}}</a></p>
                             </div>
@@ -191,9 +191,9 @@
                         <a class="post-img" href="blog-post.html"><img src="{{image_url}}" alt=""></a>
                         <div class="post-body">
                             <div class="post-category">
-                                <a href="category.html">{{topic}}</a>
+                                <a href="/news/{{category_id}}">{{topic}}</a>
                             </div>
-                            <h3 class="post-title"><a href="blog-post.html">{{title}}</a></h3>
+                            <h3 class="post-title"><a href="/categories/{{category_id}}/posts/{{id}}">{{title}}</a></h3>
                         </div>
                     </div>
                     {{/each}}
@@ -252,9 +252,9 @@
                         <a class="post-img" href="blog-post.html"><img src="{{image_url}}" alt=""></a>
                         <div class="post-body">
                             <div class="post-category">
-                                <a href="category.html">{{topic}}</a>
+                                <a href="/news/{{category_id}}">{{topic}}</a>
                             </div>
-                            <h3 class="post-title"><a href="blog-post.html">{{title}}</a></h3>
+                            <h3 class="post-title"><a href="/categories/{{category_id}}/posts/{{id}}">{{title}}</a></h3>
                         </div>
                     </div>
                     {{/each}}
