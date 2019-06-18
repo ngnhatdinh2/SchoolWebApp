@@ -2,7 +2,6 @@ var express = require('express');
 var userModel = require('../models/user.model');
 var postModel = require('../models/post.model');
 var tagModel = require('../models/tag.model');
-var post_tagModel = require('../models/post_tag.model');
 var categoryModel = require('../models/category.model');
 var cateGroupModel = require('../models/categorygroup.model');
 var moment = require('moment');
@@ -18,8 +17,8 @@ router.get('/', (req, res, next) => {
 });
 router.get('/post', (req, res, next) => {
     Promise.all([
-        postModel.allNotDeleted(),
-        userModel.getWritter(),
+        postModel.all(),
+        userModel.getAllAuthors()
     ]).then(([rows, authors]) => {
         // console.log(authors)
         rows.forEach(r=>{
@@ -107,7 +106,7 @@ router.post('/post', (req, res, next) => {
 
 router.get('/tag', (req, res, next) => {
     Promise.all([
-        tagModel.allNotDeleted(),
+        tagModel.all(),
         postModel.countByTag(),
     ]).then(([rows, posts]) => {
         rows.forEach((r)=>{
@@ -158,7 +157,7 @@ router.post('/tag', (req, res, next) => {
 })
 router.get('/category', (req, res, next) => {
     Promise.all([
-        categoryModel.allNotDeletedCate(),
+        categoryModel.allCateSmall(),
         postModel.countByCate(),
         cateGroupModel.all(),
     ]).then(([rows, postsCount, groups]) => {

@@ -16,7 +16,6 @@
     "url": "https://github.com/ngnhatdinh2/SchoolWebApp/issues"
   },
   "homepage": "https://github.com/ngnhatdinh2/SchoolWebApp#readme",
-
   "dependencies": {
     "orm": "^5.0.4",
   "description": "",
@@ -39,6 +38,5 @@
     "passport-local": "^1.0.0",
 
     "path": "^0.12.7"
-
   }
-}
+}}

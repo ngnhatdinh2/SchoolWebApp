@@ -4,9 +4,7 @@ module.exports = {
     all: () => {
         return db.load('select * from tag');
     },
-    allNotDeleted: () =>{
-        return db.load('select * from tag where isdeleted = 0');
-    },
+
     add:(entity)=> {
         return db.add('tag', entity);
     },

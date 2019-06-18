@@ -56,7 +56,7 @@
                                     </button>
                                 </div>
                                 <div class="card-body ">
-                                   
+                                    <form action="category" method="POST">
                                     <table class="table table-hover table-in-card">
                                         <thead>
                                             <tr>
@@ -70,10 +70,8 @@
                                         <tbody>
                                             {{#each categories}}
                                             <tr>
-                                                <form action="category" method="post">
-                                                <input type="hidden" name="id" value={{id}}>
                                                 <th scope="row">{{id}}</th>
-                                                <td><input type="text" name="name" value="{{name}}"/></td>
+                                                <td><input type="text" name="name-{{id}}" value="{{name}}"/></td>
                                                 <td>{{group}}</td>
                                                 <td>{{posts}}</td>
                                                 <td>
@@ -87,7 +85,8 @@
                                             {{/each}}
                                         </tbody>
                                     </table>
-                                    {{!-- <input type="submit" class="btn btn-primary mt-5 float-right" value="submit"> --}}
+                                    <input type="submit" class="btn btn-primary mt-5 float-right" value="submit">
+                                    </form>
                                 </div>
                                 <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
                                     <div class="modal-dialog modal-dialog-centered" role="document">

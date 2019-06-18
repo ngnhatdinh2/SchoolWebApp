@@ -33,16 +33,16 @@ module.exports = {
         return db.temporaryDelete('user', 'id', id);
     },
     getSubscriber: ()=>{
-        return db.load(`select * from user where role = 1 and isdeleted = 0`); //order by id limit '${limit}' offset '${offset}
+        return db.load(`select * from user where role = 1`); //order by id limit '${limit}' offset '${offset}
     },
     getEditor: ()=>{
-        return db.load(`select * from user where role = 2 and isdeleted = 0`);
+        return db.load(`select * from user where role = 2`);
     },
     getWritter: ()=>{
-        return db.load(`select * from user where role = 3 and isdeleted = 0`);
+        return db.load(`select * from user where role = 3`);
     },
     getGuest: () => {
-        return db.load(`select * from user where role = 5 and isdeleted = 0`);
+        return db.load(`select * from user where role = 5`);
     },
     delete: (id) => {
         return db.delete('user', 'id', id);
