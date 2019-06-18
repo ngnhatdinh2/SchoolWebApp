@@ -41,7 +41,7 @@ body {
 
 #h {
     grid-area: h;
-    height: 100px;
+    height: auto;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -78,7 +78,7 @@ a {
     transition: 300ms;
 }
 
-.logo {
+.logo-titom {
     font-family: 'Dokdo', cursive;
     font-size: 3.5rem;
     letter-spacing: 1px;

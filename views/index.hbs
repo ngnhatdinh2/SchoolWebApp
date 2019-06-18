@@ -1,3 +1,7 @@
+{{#section 'css'}}
+<link rel="stylesheet" type="text/css" href="/css/style1.css">
+{{/section}}
+
 <div class="container">
     <!-- Breaking new -->
     <div id="part2">
@@ -21,6 +25,11 @@
     </div>
 
     <div id="part1">
+        <div>
+            <div class="section-title-part4">
+                <h2 style="font-size: 20px; color: #EDBB99" class="title-part4">Top chuyên mục</h2>
+            </div>
+        </div>
         {{#each lcPart1}}
         <div class="arrange-news">
             <div class="display-new">
@@ -28,7 +37,7 @@
                 <div class="title-pos">
                     <div class="title">
                         <ul>
-                            <li><a href="#">{{topic}}</a></li>
+                            <li><a href="#">{{name}}</a></li>
                             <li>{{formatDate publish_date}}</li>
                         </ul>
                     </div>
@@ -43,9 +52,15 @@
         <div class="clearfix">
         </div>
     </div>
+    <div class="clearfix"></div>
 
     <!-- Flexisel -->
     <div id="part3">
+        <div>
+            <div class="section-title-part4">
+                <h2 style="font-size: 20px; color: #EDBB99" class="title-part4">Tin tức nổi bật</h2>
+            </div>
+        </div>
         <div class="col-left new-grids-left">
             <div class="new-grids-left1">
                 <img src="{{lcLeft1.image_url}}" alt=" " class="img-responsive" />
@@ -102,7 +117,7 @@
         <div class="col-right new-grids-right">
             <div>
                 <div id="horizontalTab">
-                    <div class="tab-most-view heading">Xem nhiều nhất</div>
+                    <div style="font-size: 20px; color: #EDBB99" class="tab-most-view heading">Xem nhiều nhất</div>
                 </div>
                 <div class="tabs-container">
                     <div class="tab-content">
@@ -125,28 +140,132 @@
         </div>
         <div class="clearfix"></div>
     </div>
+    <div class="clearfix"></div>
 
-    <div id="part4">
-        <div class="list-by-title">
-            {{#each lcPart4}}
-            <div class="arrange-news">
-                <div class="grid-title">
-                    <div class="grid-title-before">
-                        <img src="{{image_url}}" alt=" " class="img-responsive" />
-                        <div class="grid-title-pos">
-                            <p>{{name}}</p>
-                        </div>
-                    </div>
-                    <div class="grid-title-news">
-                        {{#each posts as |item|}}
-                        <p><a href="/categories/{{category_id}}/posts/{{id}}">{{title}}</a></p>
-                        {{/each}}
-                    </div>
+    {{!-- part 4_1 --}}
+    <div class="section">
+        <!-- container -->
+        <div class="container">
+            <!-- row -->
+            <div class="col-md-16">
+                <div class="section-title-part4">
+                    <h2 style="font-size: 20px; color: #EDBB99" class="title-part4">Bài viết mới nhất</h2>
                 </div>
             </div>
-            {{/each}}
-            <div class="clearfix"> </div>
+            <div class="row">
+                <div class="clearfix"></div>
+                {{#each lcPart4_1}}
+                <div class="col-md-4">
+                    <div class="section-title-part4">
+                        <h2 class="title-part4">{{name}}</h2>
+                    </div>
+                    <!-- post -->
+                    <div class="post">
+                        <a class="post-img" href="/categories/{{id}}/posts/{{postModel.id}}"><img
+                                src="{{postModel.image_url}}" alt=""></a>
+                        <div class="post-body">
+                            <div class="post-category">
+                                <a href="/tin-tuc/{{id}}">{{name}}</a>
+                            </div>
+                            <h3 class="post-title"><a
+                                    href="/categories/{{id}}/posts/{{postModel.id}}">{{postModel.title}}</a></h3>
+                            <ul class="post-meta">
+                                <li><a href="#">{{postModel.author}}</a></li>
+                                <li>{{formatDate postModel.publish_date}}</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <!-- /post -->
+                </div>
+                {{/each}}
+            </div>
+            <!-- /row -->
+
+            <!-- row -->
+            <div class="row">
+                {{#each lcPart4_1}}
+                <div class="col-md-4">
+                    <!-- post -->
+                    {{#each posts as |item|}}
+                    <div class="post post-widget">
+                        <a class="post-img" href="blog-post.html"><img src="{{image_url}}" alt=""></a>
+                        <div class="post-body">
+                            <div class="post-category">
+                                <a href="category.html">{{topic}}</a>
+                            </div>
+                            <h3 class="post-title"><a href="blog-post.html">{{title}}</a></h3>
+                        </div>
+                    </div>
+                    {{/each}}
+                    <!-- /post -->
+                </div>
+                {{/each}}
+                <!-- /row -->
+            </div>
+            <!-- /container -->
         </div>
+        <!-- /SECTION -->
+    </div>
+    <div class="clearfix"></div>
+
+    {{!-- part 4_2 --}}
+    <div class="section">
+        <!-- container -->
+        <div class="container">
+            <!-- row -->
+            <div class="row">
+                {{#each lcPart4_2}}
+                <div class="col-md-4">
+                    <div class="section-title-part4">
+                        <h2 class="title-part4">{{name}}</h2>
+                    </div>
+                    <!-- post -->
+                    <div class="post">
+                        <a class="post-img" href="/categories/{{id}}/posts/{{postModel.id}}"><img
+                                src="{{postModel.image_url}}" alt=""></a>
+                        <div class="post-body">
+                            <div class="post-category">
+                                <a href="/tin-tuc/{{id}}">{{name}}</a>
+                            </div>
+                            <h3 class="post-title"><a
+                                    href="/categories/{{id}}/posts/{{postModel.id}}">{{postModel.title}}</a></h3>
+                            <ul class="post-meta">
+                                <li><a href="#">{{postModel.author}}</a></li>
+                                <li>{{formatDate postModel.publish_date}}</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <!-- /post -->
+                </div>
+                {{/each}}
+            </div>
+            <!-- /row -->
+            <div class="clearfix"></div>
+
+            <!-- row -->
+            <div class="row">
+                {{#each lcPart4_2}}
+                <div class="col-md-4">
+                    <!-- post -->
+                    {{#each posts as |item|}}
+                    <div class="post post-widget">
+                        <a class="post-img" href="blog-post.html"><img src="{{image_url}}" alt=""></a>
+                        <div class="post-body">
+                            <div class="post-category">
+                                <a href="category.html">{{topic}}</a>
+                            </div>
+                            <h3 class="post-title"><a href="blog-post.html">{{title}}</a></h3>
+                        </div>
+                    </div>
+                    {{/each}}
+                    <!-- /post -->
+                </div>
+                {{/each}}
+                <!-- /row -->
+            </div>
+            <!-- /container -->
+        </div>
+        <!-- /SECTION -->
     </div>
 
     <!-- news-and-events -->

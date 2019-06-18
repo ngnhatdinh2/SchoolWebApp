@@ -1,83 +1,118 @@
-<div id="a" class="container-fluid">
-    <div class="logo pull-left">
-        <a href="/"><span class="logo">@titom?</span></a>
-    </div>
-    <form action="/categories/search" method="post">
-        <div class="search-account">
-            {{!-- <i class="search-icon fas fa-search"></i> --}}
-            <input class="search-box" type="text" name="search" id="txtSearch" placeholder="search"></input>
-            <button class="btn" type="submit"><i class="fa fa-search"></i></button>
-        </div>
-    </form>
-</div>
+<!-- HEADER -->
+<div id="a">
+    <!-- NAV -->
+    <div class="container-fluid">
+        <div id="nav">
+            <!-- Top Nav -->
+            <div id="nav-top">
+                <div class="container">
+                    <!-- social -->
+                    <ul class="nav-social">
+                        <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                        <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                        <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+                        <li><a href="#"><i class="fa fa-instagram"></i></a></li>
+                    </ul>
+                    <!-- /social -->
 
-<nav class="navbar navbar-expand-sm bg-dark navbar-dark sticky-top justify-content-center">
-    <ul class="col-md-10 navbar-nav justify-content-center">
-        {{#forCate lcCateGroup lcCateSmall}}
-        {{this}}
-        {{/forCate}}
-    </ul>
-    <form id="frmSignout" action="/account/logout" method="POST"></form>
-    <ul class="col-md-2 navbar-nav justify-content-center">
-        {{#if isAuthenticated}}
-        <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
-                aria-haspopup="true" aria-expanded="false">
-                Hi, <b>{{user.name}}</b>
-            </a>
-            <div class="dropdown-menu dropdown-menu-left" aria-labelledby="navbarDropdown">
-                <a class="dropdown-item" href="/account/profile/{{user.id}}">
-                    <i class="fa fa-user" aria-hidden="true"></i>
-                    Profile
-                </a>
-                <a class="dropdown-item" href="/account/changepass">
-                    <i class="fa fa-key" aria-hidden="true"></i>
-                    Change Password
-                </a>
-                {{#ifEq user.role 1}}
-                <a class="dropdown-item" href="/subscriber/renewal">
-                    <i class="fa fa-cc-visa" aria-hidden="true"></i>
-                    Account renewal
-                </a>
-                {{/ifEq}}
-                {{#ifEq user.role 2}}
-                <a class="dropdown-item" href="/editor">
-                    <i class="fa fa-lock" aria-hidden="true"></i>
-                    Editor
-                </a>
-                {{/ifEq}}
-                {{#ifEq user.role 3}}
-                <a class="dropdown-item" href="/writer">
-                    <i class="fa fa-lock" aria-hidden="true"></i>
-                    Writer
-                </a>
-                {{/ifEq}}
-                {{#ifEq user.role 4}}
-                <a class="dropdown-item" href="/admin">
-                    <i class="fa fa-lock" aria-hidden="true"></i>
-                    Admin
-                </a>
-                {{/ifEq}}
-                <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="javascript: $('#frmSignout').submit();">
-                    <i class="fa fa-sign-out" aria-hidden="true"></i>
-                    Sign Out
-                </a>
+                    <!-- logo -->
+                    <div class="nav-logo">
+                        <a href="/" class="logo"><span class="logo-titom">@titom?</span></a>
+                    </div>
+                    <!-- /logo -->
+
+                    <!-- search & aside toggle -->
+                    <div class="nav-btns">
+                        <form action="/categories/search" method="post">
+                            <div class="search-account">
+                                {{!-- <i class="search-icon fas fa-search"></i> --}}
+                                <input class="search-box" type="text" name="search" id="txtSearch"
+                                    placeholder="search"></input>
+                                <button class="btn" type="submit"><i class="fa fa-search"></i></button>
+                            </div>
+                        </form>
+                    </div>
+                    <!-- /search & aside toggle -->
+                </div>
             </div>
-        </li>
-        {{else}}
-        <li class="nav-item">
-            <a class="nav-link" href="/account/register">
-                <i class="fa fa-user-plus" aria-hidden="true"></i>
-                Regiter
-            </a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="/account/login">
-                <i class="fa fa-sign-in" aria-hidden="true"></i>
-                Sign In
-            </a>
-        </li>
-        {{/if}}
-    </ul>
-</nav>
+            <!-- /Top Nav -->
+
+            <!-- Main Nav -->
+
+        </div>
+    </div>
+</div>
+<div id="nav-bottom" style="height: 60px;" class="sticky-top">
+    <!-- nav -->
+    <div class="row">
+        <ul class="col-md-9 nav-menu justify-content-center">
+            {{#forCate lcCateGroup lcCateSmall}}
+            {{this}}
+            {{/forCate}}
+        </ul>
+        <form id="frmSignout" action="/account/logout" method="POST"></form>
+        <ul class="col-md-3 nav-menu">
+            {{#if isAuthenticated}}
+            <li class="has-dropdown">
+                <a href="#">Hi, <b>{{user.name}}</b></a>
+                <div class="dropdown">
+                    <div class="dropdown-body">
+                        <ul class="dropdown-list">
+                            <li><a href="/account/profile/{{user.id}}">
+                                    <i class="fa fa-user" aria-hidden="true"></i>
+                                    Profile
+                                </a></li>
+                            <li><a href="/account/changepass">
+                                    <i class="fa fa-key" aria-hidden="true"></i>
+                                    Change Password
+                                </a></li>
+                            {{#ifEq user.role 1}}
+                            <li><a href="/subscriber/renewal">
+                                    <i class="fa fa-cc-visa" aria-hidden="true"></i>
+                                    Account renewal
+                                </a></li>
+                            {{/ifEq}}
+                            {{#ifEq user.role 2}}
+                            <li><a href="/editor">
+                                    <i class="fa fa-lock" aria-hidden="true"></i>
+                                    Editor
+                                </a></li>
+                            {{/ifEq}}
+                            {{#ifEq user.role 3}}
+                            <li></li><a href="/writer">
+                                <i class="fa fa-lock" aria-hidden="true"></i>
+                                Writer
+                            </a>
+                            {{/ifEq}}
+                            {{#ifEq user.role 4}}
+                            <li><a href="/admin">
+                                    <i class="fa fa-lock" aria-hidden="true"></i>
+                                    Admin
+                                </a></li>
+                            {{/ifEq}}
+                            <div class="dropdown-divider"></div>
+                            <li><a href="javascript: $('#frmSignout').submit();">
+                                    <i class="fa fa-sign-out" aria-hidden="true"></i>
+                                    Sign Out
+                                </a></li>
+                        </ul>
+                    </div>
+                </div>
+            </li>
+            {{else}}
+            <li class="nav-item">
+                <a class="nav-link" href="/account/register">
+                    <i class="fa fa-user-plus" aria-hidden="true"></i>
+                    Regiter
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/account/login">
+                    <i class="fa fa-sign-in" aria-hidden="true"></i>
+                    Sign In
+                </a>
+            </li>
+            {{/if}}
+        </ul>
+    </div>
+</div>
