@@ -38,7 +38,12 @@ module.exports = {
         return db.temporaryDelete('posts', 'id', id);
     },
 
-
+    countByTag: () => {
+        return db.load(`select tag_id as tag, count(post_id) as total from post_tag group by tag_id`)
+    },
+    countByCate: () => {
+        return db.load(`select category_id as cate, count(id) as total from posts group by category_id`)
+    },
     delete: (id) => {
         return db.delete('posts', 'id', id);
     }

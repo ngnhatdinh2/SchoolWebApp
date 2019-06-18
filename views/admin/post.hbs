@@ -34,7 +34,11 @@
                                                 <td>{{status}}</td>
                                                 <td>{{view}}</td>
                                                 <td>
-                                                    <button  onclick="{{onPublish}}"  type="button" class="btn">pubblish</button>
+                                                    {{#if disabled}}
+                                                    <button disabled=true onclick="function(){console.log("ngu")}" type="button" class="btn btn-primary">publish</button>
+                                                    {{else}}
+                                                    <button type="button" class="btn btn-primary">publish</button>
+                                                    {{/if}}
                                                 </td>
                                             </tr>
                                             {{/each}}
