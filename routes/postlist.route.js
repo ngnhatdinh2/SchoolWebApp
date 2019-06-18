@@ -20,6 +20,7 @@ router.get('/', (req, res, next) => {
     ]).then(([posts, totalPost]) => {
         var pages = []; // tạo đối tượng pages
         var numbOfPage = Math.ceil(totalPost[0].numb_of_posts / limit); // tính số lượng pages
+        numbOfPage = numbOfPage==0?1:numbOfPage;
         for (var i = 1; i <= numbOfPage; i++) {
             var obj = { value: i, isActive: +page === i }; // tạo obj child của pages
             pages.push(obj);
@@ -48,6 +49,7 @@ router.get('/:category_id', (req, res, next) => {
     ]).then(([posts, totalPost,direct]) => {
         var pages = []; // tạo đối tượng pages
         var numbOfPage = Math.ceil(totalPost[0].numb_of_posts / limit); // tính số lượng pages
+        numbOfPage = numbOfPage==0?1:numbOfPage;
         for (var i = 1; i <= numbOfPage; i++) {
             var obj = { value: i, isActive: +page === i }; // tạo obj child của pages
             pages.push(obj);
@@ -75,6 +77,7 @@ router.get('/tags/:tag_id', (req, res, next) => {
     ]).then(([posts, totalPost]) => {
         var pages = []; // tạo đối tượng pages
         var numbOfPage = Math.ceil(totalPost[0].numb_of_posts / limit); // tính số lượng pages
+        numbOfPage = numbOfPage==0?1:numbOfPage;
         for (var i = 1; i <= numbOfPage; i++) {
             var obj = { value: i, isActive: +page === i }; // tạo obj child của pages
             pages.push(obj);

@@ -33,19 +33,22 @@
                     Chỉnh sửa bài viết
                 </div>
                 <div class="card-body">
-                    <form method="post" action="/writer/editpost">
+                    <form method="post" action="/writer/editpost" enctype="multipart/form-data">
                         {{#each detailPost}}
                         <div class="form-group">
                             <label for="">ID</label>
-                            <input type="text" readonly class="form-control" id="" name="id" placeholder="Enter title" value="{{id}}">
+                            <input type="text" readonly class="form-control" id="" name="id" placeholder="Enter title"
+                                value="{{id}}">
                         </div>
                         <div class="form-group">
                             <label for="">Title</label>
-                            <input type="text" class="form-control" id="" name="title" placeholder="Enter title" value="{{title}}">
+                            <input type="text" class="form-control" id="" name="title" placeholder="Enter title"
+                                value="{{title}}">
                         </div>
                         <div class="form-group">
                             <label for="">Abstract dody</label>
-                            <input type="text" class="form-control" id="" name="abstract_body" placeholder="Enter abstract" value="{{abstract_body}}">
+                            <input type="text" class="form-control" id="" name="abstract_body"
+                                placeholder="Enter abstract" value="{{abstract_body}}">
                         </div>
                         {{/each}}
                         <div class="form-group">
@@ -58,9 +61,9 @@
                         </div>
                         <div class="form-group">
                             <label for="">Tag</label>
-                            <div class="d-flex justify-content-start ">
+                            <div class="d-flex flex-wrap justify-content-start ">
                                 {{#each lcTags}}
-                                <div class="input-group mb-3">
+                                <div class="input-group mb-3" style="width: 25%">
                                     <div class="input-group-text">
                                         <input type="checkbox" name="tags" value="{{id}}" {{#if isCheck}}checked{{/if}}>
                                     </div>&nbsp
@@ -76,14 +79,22 @@
                         {{#each detailPost}}
                         <div class="form-group">
                             <label for="">Big image</label>
-                            <input type="file" class="form-control-file"  value="{{image_url}}">
+                            <input type="file" class="form-control-file" name="image_url">
                         </div>
                         <div class="form-group">
                             <label for="">Body</label>
-                            <textarea id="editor" name="full_body" >{{full_body}}</textarea>
+                            <textarea id="editor" name="full_body">{{full_body}}</textarea>
                         </div>
+                        <input type="hidden" id="" name="publish_date" value="{{publish_date}}">
+                        <input type="hidden" id="" name="thumbnail_url" value="">
+                        <input type="hidden" id="" name="status" value="{{status}}">
+                        <input type="hidden" id="" name="view" value="{{view}}">
+                        <input type="hidden" id="" name="user_id" value="{{user_id}}">
+                        <input type="hidden" id="" name="isdeleted" value="{{isdeleted}}">
+                        <input type="hidden" id="" name="ispremium" value="{{ispremium}}">
                         {{/each}}
-                        <button type="submit" class="btn btn-primary float-right"><i class="fa fa-cloud-upload"></i> Sửa bài viết</button>
+                        <button type="submit" class="btn btn-primary float-right"><i class="fa fa-cloud-upload"></i> Sửa
+                            bài viết</button>
                     </form>
                 </div>
             </div>

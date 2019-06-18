@@ -6,31 +6,31 @@
 {{/section}}
 
 <div class="container danhsach-container">
+    
     <ol class="breadcrumb">
-        <li class="breadcrumb-item">Home</li>
+        <li class="breadcrumb-item"><a href="/news" style="text-decoration: underline;">Toàn bộ</a></li>
         {{#each direct}}
         <li class="breadcrumb-item active">{{cg_name}}</li>
-        <li class="breadcrumb-item active">{{c_name}}</li>
+        <li class="breadcrumb-item active"><a href="/news/{{c_id}}" style="text-decoration: underline;">{{c_name}}</a></li>
         {{/each }}
     </ol>
-    
 
     <div id="hot-post" class="row hot-post">
         <div class="col-md-8 hot-post-left">
             <!-- post -->
             {{#each lcMost1}}
             <div class="post post-thumb">
-                <a class="post-img" href=""><img src="{{image_url}}" alt=""></a>
+                <a class="post-img" href="/categories/{{category_id}}/posts/{{id}}"><img src="{{image_url}}" alt=""></a>
                 <div class="post-body">
                     <div class="post-category">
-                        <a href="">{{category_name}}</a>
+                        <a href="/news/{{category_id}}">{{category_name}}</a>
                     </div>
-                    <p class="post-title title-lg"><a href="">{{title}}</a></p>
+                    <p class="post-title title-lg"><a href="/categories/{{category_id}}/posts/{{id}}">{{title}}</a></p>
                     <div class="entry-meta post-meta">
                         <span class="entry-date"><i class="fa fa-calendar"
                                 aria-hidden="true">&nbsp</i>{{formatDate publish_date}}</span>
                         &nbsp
-                        <span class="comment-link"><i class="fa fa-eye" aria-hidden="true">&nbsp</i>{{view}} lượt
+                        <span class="comment-link"><i  class="fa fa-eye" aria-hidden="true">&nbsp</i>{{view}} lượt
                             xem</span>
                     </div>
 
@@ -43,12 +43,12 @@
             <!-- post -->
             {{#each lcMost2}}
             <div class="post post-thumb">
-                <a class="post-img" href=""><img src="{{image_url}}" alt=""></a>
+                <a class="post-img" href="/categories/{{category_id}}/posts/{{id}}"><img src="{{image_url}}" alt=""></a>
                 <div class="post-body">
                     <div class="post-category">
-                        <a href="">{{category_name}}</a>
+                        <a href="/news/{{category_id}}">{{category_name}}</a>
                     </div>
-                    <p class="post-title title-lg"><a href="">{{title}}</a></p>
+                    <p class="post-title title-lg"><a href="/categories/{{category_id}}/posts/{{id}}">{{title}}</a></p>
                     <div class="entry-meta post-meta">
                         <span class="entry-date"><i class="fa fa-calendar"
                                 aria-hidden="true">&nbsp</i>{{formatDate publish_date}}</span>
@@ -77,8 +77,8 @@
             <div class="news-body">
                 <div class="news-header">
                     <div class="post-cat">
-                        <a href="">{{category_name}}</a></div>
-                    <h3 class="news-heading"><a href="">{{title}} {{#if ispremium}}<i class="fa fa-star"></i>{{/if}}</a></h3>
+                        <a href="/news/{{category_id}}">{{category_name}}</a></div>
+                    <h3 class="news-heading"><a href="/categories/{{category_id}}/posts/{{id}}">{{title}} {{#if ispremium}}<i class="fa fa-star"></i>{{/if}}</a></h3>
                     <div class="entry-meta">
                         <span class="entry-date"><i class="fa fa-calendar"
                                 aria-hidden="true">&nbsp</i>{{formatDate publish_date}}</span>
@@ -90,7 +90,7 @@
                 </div>
                 <p>{{abstract_body}}</p>
                 <div class="">
-                    <a href="" class="btn link-btn btn-outline btn-rounded">Xem thêm ⇾</a>
+                    <a href="/categories/{{category_id}}/posts/{{id}}" class="btn link-btn btn-outline btn-rounded">Xem thêm ⇾</a>
                 </div>
             </div>
         </div>

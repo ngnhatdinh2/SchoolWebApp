@@ -74,6 +74,7 @@ router.post('/register', auth.inLogin, (req, res, next) => {
         var dob = moment(req.body.dob, 'DD/MM/YYYY').format('YYYY-MM-DD');
 
         var avatar;
+        console.log(req.file);
         if (req.file) {
             avatar = '/images/avatar/' + req.file.filename;
         } else {

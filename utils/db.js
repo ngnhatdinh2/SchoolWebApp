@@ -43,10 +43,11 @@ module.exports = {
         return new Promise((resolve, reject) => {
             var connection = createConnection();
             connection.connect();
+            delete entity['tags'];
             var sql = `INSERT INTO ${tableName} SET ?`;
             connection.query(sql, entity, (error, results, fields) => {
                 if (error) throw reject(error);
-                else resolve(results.id);//resolve(value.insertID) tự động tăng ID
+                else resolve(results.insertId);//resolve(value.insertID) tự động tăng ID
                 connection.end();
             });
         });
@@ -111,7 +112,6 @@ module.exports = {
             var sql = `delete from ${tableName} where ${idField} = ${contentField}`;
             connection.query(sql, (error, value) => {
                 if (error) {
-                    console.log(error);
                     throw reject(error);
                 }
                 else resolve(value.affectedRows);//resolve(value.insertID) tự động tăng ID

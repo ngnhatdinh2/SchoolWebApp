@@ -17,6 +17,7 @@
 {{/section}}
 
 <div class="container mt-4">
+    <h1 class="display-1 text-center mb-4">QUẢN LÝ BÀI VIẾT</h1>
     <div class="row">
         <div class="col ">
             <div class="card" style="width: 15rem;">
@@ -40,7 +41,7 @@
                     Viết bài
                 </div>
                 <div class="card-body">
-                    <form action="/writer/newpmost" method="post">
+                    <form action="/writer/newpmost" method="post" enctype="multipart/form-data">
                         <div class="form-group">
                             <label for="">Title</label>
                             <input type="text" class="form-control" name="title" id="" required="required"
@@ -61,9 +62,9 @@
                         </div>
                         <div class="form-group">
                             <label for="">Tag</label>
-                            <div class="d-flex justify-content-start ">
+                            <div class="d-flex flex-wrap justify-content-start">
                                 {{#each lcTags}}
-                                <div class="input-group mb-3">
+                                <div class="input-group mb-3" style="width: 25%">
                                     <div class="input-group-text">
                                         <input type="checkbox" name="tags" value="{{id}}">
                                     </div>&nbsp
@@ -90,6 +91,7 @@
                         <input type="hidden" id="" name="view" value="0">
                         <input type="hidden" id="" name="user_id" value="0">
                         <input type="hidden" id="" name="isdeleted" value="0">
+                        <input type="hidden" id="" name="ispremium" value="0">
                         <button type="submit" class="btn btn-primary float-right"><i class="fa fa-cloud-upload"></i>
                             Đăng bài</button>
                     </form>

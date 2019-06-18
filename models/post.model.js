@@ -14,8 +14,8 @@ module.exports = {
     },
 
     allByCate: (idCate, offset, limit, ispremium) => {
-        var sql = `select p.*, c.name as category_name from(select * from posts where status = 1 and isdeleted = 0 category_id = ${idCate}`;
-        sql += ispremium == false ? `and ispremium=0` : ``;
+        var sql = `select p.*, c.name as category_name from(select * from posts where status = 1 and isdeleted = 0 and category_id = ${idCate} `;
+        sql += ispremium == false ? `and ispremium=0 ` : ``;
         sql += `limit ${offset},${limit}) p, category c where p.category_id = c.id`;
         return db.load(sql);
     },
@@ -44,7 +44,7 @@ module.exports = {
     },
 
     getDirect: (cateId) => {
-        return db.load(`select DISTINCT cg.name as cg_name, c.name as c_name from categorygroup cg, category c, posts p WHERE c.categorygroup_id = cg.id and c.id = ${cateId}`);
+        return db.load(`select DISTINCT cg.name as cg_name, c.name as c_name, c.id as c_id from categorygroup cg, category c, posts p WHERE c.categorygroup_id = cg.id and c.id = ${cateId}`);
     },
 
     allByTag: (tagId, offset, limit, ispremium) => {

@@ -1,6 +1,8 @@
 var express = require('express');
 var auth = require('../middlewares/auth_full');
 var router = express.Router();
+var upload = require('../middlewares/uploadPost');
+
 
 router.use(require('../middlewares/localWriterAction.mdw').actionList);
 
@@ -31,26 +33,36 @@ router.get('/newpost', auth.login, auth.isWriter, (req, res, next) => {
     res.render('newpost');
 });
 
-router.post('/newpmost',auth.login, auth.isWriter, (req, res, next) => {
+router.post('/newpmost', auth.login, auth.isWriter, (req, res, next) => {
     var postmodel = require('../models/post.model');
     var post_tag_model = require('../models/post_tag.model');
-
-    var entities = [];
     var length = req.body.tags == null ? 0 : req.body.tags.length;
+    var tags = req.body.tags;
 
-    req.body.user_id= res.locals.user.id;
-    req.body.publish_date = new Date();
-    console.log(req.body);
-
-    postmodel.add(req.body).then((id) => {
-        for (var i = 0; i < length; i++) {
-            var obj = { post_id: id, tag_id: req.body.tags[i] };
-            entities.push(obj);
+    upload.single('image_url')(req, res, err => {
+        if (err) {
+            return res.json({
+                error: err.message
+            });
         }
-        post_tag_model.multiAdd(entities)
-        res.render('writer');
-    }).catch(next);
+        var image_url;
+        if (req.file)
+            image_url = '/images/post/' + req.file.filename;
 
+        req.body.user_id = res.locals.user.id;
+        req.body.publish_date = new Date();
+        req.body.image_url = image_url;
+        postmodel.add(req.body).then((id) => {
+            var entities = [];
+            for (var i = 0; i < length; i++) {
+                var obj = { post_id: id, tag_id: tags[i] };
+                entities.push(obj);
+            }
+            post_tag_model.multiAdd(entities)
+            res.render('writer');
+        }).catch(next);
+
+    })
 })
 
 router.get('/publishedpost', auth.login, auth.isWriter, (req, res, next) => {
@@ -137,23 +149,36 @@ router.get('/editpost/:id', auth.login, auth.isWriter, (req, res) => {
 router.post('/editpost', auth.login, auth.isWriter, (req, res, next) => {
     var postmodel = require('../models/post.model');
     var post_tag_model = require('../models/post_tag.model');
-    var postid = req.body.id;
     var entities = [];
     var length = req.body.tags == null ? 0 : req.body.tags.length;
     for (var i = 0; i < length; i++) {
-        var obj = { post_id: postid, tag_id: req.body.tags[i] };
+        var obj = { post_id: req.body.id, tag_id: req.body.tags[i] };
         entities.push(obj);
     }
-    Promise.all([
-        postmodel.update(req.body),
-        post_tag_model.deleteByPostID(postid).then(() => {
-            post_tag_model.multiAdd(entities)
-        })
 
-    ]).then(() => {
-        res.render('writer');
-    }).catch(next);
+    upload.single('image_url')(req, res, err => {
+        if (err) {
+            return res.json({
+                error: err.message
+            });
+        }
+        var image_url;
+        if (req.file)
+            image_url = '/images/post/' + req.file.filename;
 
+        req.body.image_url = image_url;
+        var postid = req.body.id;
+        console.log(req.body);
+        Promise.all([
+            postmodel.update(req.body),
+            post_tag_model.deleteByPostID(postid).then(() => {
+                post_tag_model.multiAdd(entities)
+            })
+
+        ]).then(() => {
+            res.render('writer');
+        }).catch(next);
+    })
 
 });
 
