@@ -29,7 +29,6 @@ module.exports = {
         return new Promise((resolve, reject) => {
             var connection = createConnection();
             connection.connect();
-            console.log(entity);
             var sql = `INSERT INTO ${tableName} SET ?`;
             connection.query(sql, entity, (error, results, fields) => {
                 if (error) throw reject(error);
