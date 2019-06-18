@@ -12,7 +12,9 @@ var auth = require('../middlewares/auth');
 var router = express.Router();
 
 router.get('/', (req, res, next) => {
-    res.redirect('/admin/post')
+    res.render('admin/index', {
+        layout: false
+    })
 });
 router.get('/post', (req, res, next) => {
     Promise.all([
@@ -30,7 +32,8 @@ router.get('/post', (req, res, next) => {
             // r.disable
         });
         res.render('admin/post',{
-            posts: rows
+            posts: rows,
+            layout: false
         });
     })
 });
@@ -115,7 +118,8 @@ router.get('/tag', (req, res, next) => {
         })
         // console.log(rows)
         res.render('admin/tag',{
-            tags: rows
+            tags: rows,
+            layout: false
         });
     })
 });
@@ -167,7 +171,8 @@ router.get('/category', (req, res, next) => {
         })
         res.render('admin/category',{
             categories: rows,
-            options: groups
+            options: groups,
+            layout: false
         });
     })
 });
@@ -252,6 +257,7 @@ router.get('/user/:role', (req, res, next) => {
                 res.render('admin/user',{
                     role: 'subscriber',
                     users: rows,
+                    layout: false
                 });
             })
             break;
@@ -262,7 +268,8 @@ router.get('/user/:role', (req, res, next) => {
                 res.render('admin/user',{
                     role: 'editor',
                     users: rows,
-                    editor: true
+                    editor: true,
+                    layout: false
                 });
             })
             break;
@@ -273,7 +280,7 @@ router.get('/user/:role', (req, res, next) => {
                 res.render('admin/user',{
                     role: 'writer',
                     users: rows,
-
+                    layout: false
                 });
             })
             break;
@@ -284,7 +291,8 @@ router.get('/user/:role', (req, res, next) => {
                 // console.log(rows)
                 res.render('admin/user',{
                     role: 'guest',
-                    users: rows
+                    users: rows,
+                    layout: false
                 });
             }).catch(console.log)
             break;
