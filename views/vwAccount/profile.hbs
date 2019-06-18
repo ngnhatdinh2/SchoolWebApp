@@ -24,6 +24,9 @@
                 name: {
                     required: true,
                 },
+                nickname: {
+                    required: true,
+                },
                 email: {
                     required: true,
                     email: true
@@ -35,6 +38,9 @@
             messages: {
                 name: {
                     required: 'Please enter a valid fullname.',
+                },
+                nickname: {
+                    required: 'Please enter a valid nickname.',
                 },
                 email: {
                     required: 'Please enter a valid email address.',
@@ -65,7 +71,8 @@
             <div class="header-bottom">
                 <div class="header-right w3agile">
                     <div class="header-left-bottom agileinfo">
-                        <form novalidate action="/account/update" method="POST" id="updateForm">
+                        <form novalidate action="/account/update" method="POST" id="updateForm"
+                            enctype="multipart/form-data">
                             <div style="display: none;" class="icon1">
                                 <i class="fa fa-info" aria-hidden="true"></i>
                                 <input type="text" readonly id="txtId" name="id" value="{{this.cus.id}}">
@@ -80,12 +87,26 @@
                                 <input type="email" placeholder="Email@gmail.com" id="txtEmail" name="email"
                                     value="{{this.cus.email}}">
                             </div>
+                            {{#ifEq this.cus.role 3}}
+                            <div class="icon1">
+                                <i class="fa fa-pencil" aria-hidden="true"></i>
+                                <input type="text" placeholder="Nick name" id="txtNickName" name="nickname"
+                                    value="{{this.cus.nickname}}">
+                            </div>
+                            <div class="icon1">
+                                <i class="fa fa-calendar" aria-hidden="true"></i>
+                                <input readonly type="text" placeholder="Date of birth" id="txtExpdate" name="expDate"
+                                    value="{{this.cus.expiredDate}}">
+                            </div>
+                            {{/ifEq}}
                             <div class="icon1">
                                 <i class="fa fa-calendar" aria-hidden="true"></i>
                                 <input type="text" placeholder="Date of birth" id="txtDOB" name="dob"
                                     value="{{this.cus.DOB}}">
                             </div>
-
+                            <div class="icon1">
+                                <input type="file" id="avatar" value="{{this.cus.avatar}}" name="avatar">
+                            </div>
                             <div class="bottom">
                                 <input type="submit" value="Update" />
                             </div>

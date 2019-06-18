@@ -14,7 +14,9 @@ module.exports = {
     update: (entity) => {
         return db.update('tag','id',entity);
     },
-
+    single: (id)=>{
+        return db.load(`select * from tag where id = ${id}`)
+    },
     temporaryDelete: (id) => {
         return db.temporaryDelete('tag', 'id', id);
     },
