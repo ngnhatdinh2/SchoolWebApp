@@ -57,7 +57,6 @@ a:link {
     color: black;
 }
 
-
 a:visited {
     color: black;
 }
@@ -265,6 +264,16 @@ a {
     margin: 1em 0px 1em 4em;
 }
 
+/* .avatar{
+    width: 64px;
+    height: 64px;
+} */
+
+.media-object {
+    max-width: 80%;
+    max-height: 80%;
+}
+
 .response {
     margin-bottom: 5em;
 }
@@ -332,7 +341,7 @@ a {
     width: initial;
 }
 
-.coment-form input[type="text"], .coment-form textarea, .coment-form input[type="email"] {
+.coment-form input[type="text"], .coment-form textarea, .coment-form input[type="email"], .coment-form input[type="file"] {
     display: block;
     background: none;
     color: #999;
@@ -343,7 +352,7 @@ a {
     padding: 13px 10px;
 }
 
-.coment-form input[type="email"] {
+.coment-form input[type="email"], .coment-form input[type="file"] {
     margin: 1em 0;
 }
 

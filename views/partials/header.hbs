@@ -2,10 +2,13 @@
     <div class="logo pull-left">
         <a href="/"><span class="logo">@titom?</span></a>
     </div>
-    <div class="search-account">
-        <i class="search-icon fas fa-search"></i>
-        <input class="search-box" type="text" placeholder="search"></input>
-    </div>
+    <form action="/categories/search" method="post">
+        <div class="search-account">
+            {{!-- <i class="search-icon fas fa-search"></i> --}}
+            <input class="search-box" type="text" name="search" id="txtSearch" placeholder="search"></input>
+            <button class="btn" type="submit"><i class="fa fa-search"></i></button>
+        </div>
+    </form>
 </div>
 
 <nav class="navbar navbar-expand-sm bg-dark navbar-dark sticky-top justify-content-center">
@@ -27,6 +30,34 @@
                     <i class="fa fa-user" aria-hidden="true"></i>
                     Profile
                 </a>
+                <a class="dropdown-item" href="/account/changepass">
+                    <i class="fa fa-key" aria-hidden="true"></i>
+                    Change Password
+                </a>
+                {{#ifEq user.role 1}}
+                <a class="dropdown-item" href="/subscriber/renewal">
+                    <i class="fa fa-cc-visa" aria-hidden="true"></i>
+                    Account renewal
+                </a>
+                {{/ifEq}}
+                {{#ifEq user.role 2}}
+                <a class="dropdown-item" href="/editor">
+                    <i class="fa fa-lock" aria-hidden="true"></i>
+                    Editor
+                </a>
+                {{/ifEq}}
+                {{#ifEq user.role 3}}
+                <a class="dropdown-item" href="/writer">
+                    <i class="fa fa-lock" aria-hidden="true"></i>
+                    Writer
+                </a>
+                {{/ifEq}}
+                {{#ifEq user.role 4}}
+                <a class="dropdown-item" href="/admin">
+                    <i class="fa fa-lock" aria-hidden="true"></i>
+                    Admin
+                </a>
+                {{/ifEq}}
                 <div class="dropdown-divider"></div>
                 <a class="dropdown-item" href="javascript: $('#frmSignout').submit();">
                     <i class="fa fa-sign-out" aria-hidden="true"></i>

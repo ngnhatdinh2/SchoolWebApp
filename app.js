@@ -1,5 +1,6 @@
 var express = require('express');
 var morgan = require('morgan');
+var auth = require('./middlewares/auth');
 
 var app = express();
 
@@ -26,6 +27,19 @@ app.use('/news', require('./routes/postlist.route'));
 app.use('/account', require('./routes/account.route'));
 app.use('/categories', require('./routes/category.route'));
 app.use('/writer', require('./routes/writer.route'));
+app.use('/subscriber', auth.isSubscriber, require('./routes/subscriber.route'));
+
+app.use((req, res, next) => {
+    res.render('404');
+});
+
+app.use((error, req, res, next) => {
+    res.render('error', {
+        message: error.message,
+        error
+    })
+});
+
 
 app.listen(4000, () => {
     console.log("server running! http://localhost:4000/");

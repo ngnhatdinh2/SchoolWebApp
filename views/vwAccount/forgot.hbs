@@ -1,0 +1,81 @@
+{{#section 'css'}}
+<link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/jquery-datetimepicker/2.5.20/jquery.datetimepicker.min.css">
+{{/section}}
+
+{{#section 'js'}}
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<script
+    type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+<script
+    src="https://cdnjs.cloudflare.com/ajax/libs/jquery-datetimepicker/2.5.20/jquery.datetimepicker.full.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.1/jquery.validate.min.js"></script>
+<script>
+    $(function () {
+
+        $('#confirmForm').validate({
+            rules: {
+                username: {
+                    required: true,
+                    remote: {
+                        url: '/account/is-username'
+                    }
+                },
+                email: {
+                    required: true,
+                    email: true,
+                    remote: {
+                        url: '/account/is-email'
+                    }
+                },
+            },
+            messages: {
+                username: {
+                    required: 'Please enter a valid username.',
+                    remote: 'Your username does not exist.'
+                },
+                email: {
+                    required: 'Please enter a valid email address.',
+                    email: 'Please enter a valid email address.',
+                    remote: 'Your email does not exist.'
+                },
+            },
+            errorElement: 'small',
+            errorClass: 'help-block text-danger',
+            highlight: function (e) {
+                $(e).removeClass('is-valid').addClass('is-invalid');
+            },
+            unhighlight: function (e) {
+                $(e).removeClass('is-invalid').addClass('is-valid');
+            }
+        });
+    })
+</script>
+{{/section}}
+
+<div class="body_main">
+    <div class="wrap">
+        <div class="header-main">
+            <h2>Forgot Password</h2>
+            <div class="header-bottom">
+                <div class="header-right w3agile">
+                    <div class="header-left-bottom agileinfo">
+                        <form novalidate action="/account/sendmail" method="POST" id="confirmForm">
+                            <div class="icon1">
+                                <i class="fa fa-user" aria-hidden="true"></i>
+                                <input type="text" placeholder="Username" id="txtUsername" name="username" autofocus>
+                            </div>
+                            <div class="icon1">
+                                <i class="fa fa-envelope" aria-hidden="true"></i>
+                                <input type="email" placeholder="Email@gmail.com" id="txtEmail" name="email">
+                            </div>
+                            <div class="bottom">
+                                <input type="submit" value="Commit" />
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

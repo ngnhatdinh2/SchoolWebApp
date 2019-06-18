@@ -1,5 +1,5 @@
 var postmodel = require('../models/post.model');
-module.exports = (req,res,next) => {
+module.exports = (req, res, next) => {
     Promise.all([
         postmodel.mostViewPost(0,1),
         postmodel.mostViewPost(1,2),

@@ -63,7 +63,11 @@
         </div>
     </div>
     <!-- /row -->
-
+    {{#if this.error}}
+    <div class="alert alert-danger" role="alert">
+        Invalid Information. <a href="/" class="alert-link">Go back home</a>.
+    </div>
+    {{else}}
     {{#each post}}
     <div class="row mb-4 news ">
         <div class="col-4">
@@ -102,6 +106,7 @@
         {{/each}}
         <li class="page-item"><a class="page-link" href="#">&gt</a></li>
     </ul>
+    {{/if}}
 </div>
 
 
@@ -140,4 +145,3 @@
 
         </ul>
     </div> --}}
-

@@ -65,8 +65,11 @@ module.exports = function (app) {
                 })
                 return result;
             },
-            section: hbs_sections(),
-
+            //hàm so sánh
+            ifEq: (arg1, arg2, options) => {
+                return (arg1 === arg2) ? options.fn(this) : options.inverse(this);
+            },
+            section: hbs_sections()
         }
     }));
     app.set('view engine', 'hbs');

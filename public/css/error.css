@@ -1,0 +1,108 @@
+.clear {
+    clear: both;
+}
+
+.agileits-main {
+    font-family: 'Open Sans', sans-serif;
+    background: url(/images/index/bgError.jpg)no-repeat center 0px;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    background-size: cover;
+    background-attachment: fixed;
+    padding: 2em 0em;
+}
+
+.agileinfo-row {
+    width: 65%;
+    margin: 0 auto;
+}
+
+@media(max-width:1080px) {
+    .agileinfo-row {
+        width: 75%;
+    }
+}
+
+@media(max-width:900px) {
+    .agileinfo-row {
+        width: 85%;
+    }
+}
+
+.w3top-nav {
+    padding-top: 1em;
+    text-align: center;
+}
+
+.w3top-nav-left h1 {
+    font-size: 3em;
+    font-weight: 100;
+    line-height: .9em;
+}
+
+.w3top-nav-left h1 a {
+    color: #fff;
+}
+
+.w3layouts-errortext {
+    padding-top: 6em;
+    text-align: center;
+}
+
+.w3layouts-errortext img{
+    background-image: none;
+}
+
+h2 {
+    font-size: 1.2em;
+    color: #fff;
+    font-weight: 900;
+    line-height: 1.8em;
+}
+
+p.w3lstext {
+    font-size: 0.9em;
+    color: #fff;
+    line-height: 1.8em;
+    font-weight: 400;
+    width: 65%;
+    margin: 1.5em auto;
+}
+
+.agile-search a button {
+    outline: none;
+    box-shadow: none;
+    background: #4CAF50;
+    border: 1px solid #4CAF50;
+    padding: .8em 2em;
+    color: #fff;
+    cursor: pointer;
+    font-size: 1em;
+    margin-left: 0.5em;
+    -webkit-transition: 0.5s all;
+    -moz-transition: 0.5s all;
+    transition: 0.5s all;
+}
+
+.agile-search a button:hover {
+    color: #4caf50;
+    background: transparent;
+}
+
+::-webkit-input-placeholder {
+    color: #fff !important;
+}
+
+:-moz-placeholder {
+    /* Firefox 18- */
+    color: #fff !important;
+}
+
+::-moz-placeholder {
+    /* Firefox 19+ */
+    color: #fff !important;
+}
+
+:-ms-input-placeholder {
+    color: #fff !important;
+}
