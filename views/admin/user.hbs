@@ -1,0 +1,70 @@
+
+  <div class="dash">
+          <main class="dash-content">
+             <main class="dash-content">
+                <div class="container-fluid">
+                    <h1 class="dash-title">USERS</h1>
+                    <div class="row">
+                        <div class="dropdown">
+                        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Roles
+                        </button>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                            <a class="dropdown-item" href="/admin/user/guest">Guest</a>
+                            <a class="dropdown-item" href="/admin/user/subscriber">Subscriber</a>
+                            <a class="dropdown-item" href="/admin/user/writer">Writer</a>
+                            <a class="dropdown-item" href="/admin/user/editor">Editor</a>
+                        </div>
+                    </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg">
+                            <div class="card spur-card">
+                                <div class="card-header bg-info text-white">
+                                    <div class="spur-card-icon">
+                                        <i class="fas fa-table"></i>
+                                    </div>
+                                    <div class="spur-card-title">{{role}}</div>
+                                </div>
+                                <div class="card-body container-fluid">
+                                    <table class="table table-hover table-in-card">
+                                        <thead>
+                                            <tr>
+                                                <th scope="col">#</th>
+                                                <th scope="col">username</th>
+                                                <th scope="col">name</th>
+                                                <th scope="col">dob</th>
+                                                <th scope="col">exp</th>
+                                                <th scope="col">email</th>
+                                                <th scope="col">nickname</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            {{#each users}}
+                                            <tr>
+                                                <th scope="row">{{id}}</th>
+                                                <td><input name="username" value="{{username}}"></td>
+                                                <td><input name="name" value="{{name}}"></td>
+                                                <td><input name="dob" value="{{DOB}}"></td>
+                                                <td><input name="exp" value="{{expiredDate}}"></td>
+                                                <td><input name="email" value="{{email}}"></td>
+                                                <td><input name="nickname" value="{{nickname}}"></td>
+                                                <td>
+                                                    <button  disabled={{ status }} type="button" class="btn">publish</button>
+                                                </td>
+                                            </tr>
+                                            {{/each}}
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+          </main>
+  </div>
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  <script src="../js/spur.js"></script>

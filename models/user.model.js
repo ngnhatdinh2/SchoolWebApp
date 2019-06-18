@@ -32,8 +32,18 @@ module.exports = {
     temporaryDelete: (id) => {
         return db.temporaryDelete('user', 'id', id);
     },
-
-
+    getSubscriber: ()=>{
+        return db.load(`select * from user where role = 1`); //order by id limit '${limit}' offset '${offset}
+    },
+    getEditor: ()=>{
+        return db.load(`select * from user where role = 2`);
+    },
+    getWritter: ()=>{
+        return db.load(`select * from user where role = 3`);
+    },
+    getGuest: () => {
+        return db.load(`select * from user where role = 5`);
+    },
     delete: (id) => {
         return db.delete('user', 'id', id);
     },
