@@ -1,36 +1,3 @@
-/*
-Template Name: Callie HTML Template
-Author: yaminncco
-
-Colors:
-	Body 		  : #505050
-	Headers 	: #11151c
-	Primary 	: #ee4266
-	Dark 		  : #1b1c1e
-	Grey 		  : #e8eaed #97989b #323335
-
-Fonts: Montserrat & Muli
-
-Table OF Contents
-------------------------------------
-GENERAL
-NAVIGATION
-PAGE HEADER
-POST
-POST PAGE
-ASIDE
-FOOTER
-RESPONSIVE
-------------------------------------*/
-
-/*=========================================================
-	GENERAL
-===========================================================*/
-
-/*----------------------------*\
-	typography
-\*----------------------------*/
-
 body {
     font-family: 'Muli', sans-serif;
     font-size: 16px;
@@ -320,7 +287,7 @@ textarea.input {
 
 #nav-bottom {
     border-top: 1px solid #e8eaed;
-    background-color: white;
+    background-color: #eee;
 }
 
 /*----------------------------*\

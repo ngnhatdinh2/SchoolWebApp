@@ -29,7 +29,7 @@ body {
 #a {
   display: flex;
   justify-content: space-between;
-  background-color: #fff;
+  background-color: #eee;
 }
 
 #logo {

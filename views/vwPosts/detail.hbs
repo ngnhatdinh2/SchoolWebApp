@@ -67,7 +67,7 @@
 					<h3>Tags</h3>
 					<ul class="tag2">
 						{{#each post_tag}}
-						<li><a href="#">{{nametag}}</a></li>
+						<li><a href="/news/tags/{{tag_id}}">{{nametag}}</a></li>
 						{{/each}}
 					</ul>
 				</div>
@@ -75,7 +75,7 @@
 				<h3>Categories</h3>
 				<ul>
 					{{#each lcCateSmall}}
-					<li><a href="#">{{name}}</a></li>
+					<li><a href="/news/{{id}}">{{name}}</a></li>
 					{{/each}}
 				</ul>
 				<div class="clearfix"> </div>
