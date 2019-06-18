@@ -104,6 +104,7 @@
                                                 <th scope="col">author</th>
                                                 <th scope="col">status</th>
                                                 <th scope="col">view</th>
+                                                <th scope="col">publish</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -114,7 +115,9 @@
                                                 <td>{{author}}</td>
                                                 <td>{{status}}</td>
                                                 <td>{{view}}</td>
-
+                                                <td>
+                                                    <button  disabled={{ status }} type="button" class="btn">pubblish</button>
+                                                </td>
                                             </tr>
                                             {{/each}}
                                         </tbody>

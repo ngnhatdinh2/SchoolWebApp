@@ -1,0 +1,56 @@
+
+  <div class="dash">
+          <main class="dash-content">
+             <main class="dash-content">
+                <div class="container-fluid">
+                    <h1 class="dash-title">TAG</h1>
+                    <div class="row">
+                        <div class="col-lg">
+                            <div class="card spur-card">
+                                <div class="card-header bg-success text-white">
+                                    <div class="spur-card-icon">
+                                        <i class="fas fa-table"></i>
+                                    </div>
+                                    <div class="spur-card-title">DATA</div>
+                                </div>
+                                <div class="card-body ">
+                                    <table class="table table-hover table-in-card">
+                                        <thead>
+                                            <tr>
+                                                <th scope="col">#</th>
+                                                <th scope="col">name</th>
+                                                <th scope="col">total posts</th>
+                                                <th scope="col">delete</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            {{#each tags}}
+                                            <tr>
+                                                <form action="tag" method="post">
+                                                    <th scope="row">{{id}}</th>
+                                                    <input type="hidden" name="id" value={{id}}>
+                                                    <td><input type="text" name="name" value="{{name}}"/></td>
+                                                    <td>{{posts}}</td>
+                                                    <td>
+                                                        <input name="method" value="Delete" class="form-check-input btn btn-danger" type="submit">
+                                                    </td>
+                                                    <td>
+                                                        <input name="method" value="Update" class="form-check-input btn btn-primary" type="submit">
+                                                    </td>
+                                                </form>
+                                            </tr>
+                                            {{/each}}
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+          </main>
+  </div>
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  <script src="../js/spur.js"></script>
