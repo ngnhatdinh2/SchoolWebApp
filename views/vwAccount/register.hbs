@@ -43,7 +43,10 @@
                 },
                 email: {
                     required: true,
-                    email: true
+                    email: true,
+                    remote: {
+                        url: '/account/is-available-email'
+                    }
                 },
                 dob: {
                     required: true,
@@ -70,7 +73,8 @@
                 },
                 email: {
                     required: 'Please enter a valid email address.',
-                    email: 'Please enter a valid email address.'
+                    email: 'Please enter a valid email address.',
+                    remote: 'Your email has been taken, please take another.'
                 },
                 dob: {
                     required: 'Please enter a valid date of birth.',

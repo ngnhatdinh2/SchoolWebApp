@@ -13,12 +13,20 @@ module.exports = {
         return db.load(`select * from user where username = '${username}'`);
     },
 
+    singleByEmail: (email) => {
+        return db.load(`select * from user where email = '${email}'`);
+    },
+
     add: (entity) => {
         return db.add('user', entity);
     },
 
     update: (entity) => {
         return db.update('user', 'id', entity);
+    },
+
+    updateByUsername: (entity) => {
+        return db.update('user', 'username', entity);
     },
 
     temporaryDelete: (id) => {

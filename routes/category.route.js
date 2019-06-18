@@ -50,6 +50,23 @@ router.get('/:idCate/posts/:idPost', (req, res, next) => {
     }).catch(next);
 });
 
+router.post('/:idCate/posts/:idPost', require('../middlewares/auth').notLogin, (req, res, next) => {
+    var idPost = req.params.idPost;
+    var idCate = req.params.idCate;
+
+    var today = new Date();
+    var entity = {
+        content: req.body.comment,
+        user_id: req.user.id,
+        post_id: idPost,
+        date: today,
+    };
+
+    commentModel.add(entity).then(id => {
+        res.redirect(`/categories/${idCate}/posts/${idPost}`);
+    }).catch(next);
+});
+
 router.post('/search', (req, res, next) => {
     var entity = req.body.search;
 

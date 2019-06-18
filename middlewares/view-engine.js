@@ -26,6 +26,10 @@ module.exports = function (app) {
             formatDate: date => {
                 return moment(date, 'YYYY-MM-DD').format('DD/MM/YYYY');
             },
+            //hàm so sánh
+            ifEq: (arg1, arg2, options) => {
+                return (arg1 === arg2) ? options.fn(this) : options.inverse(this);
+            },
             section: hbs_sections()
         }
     }));

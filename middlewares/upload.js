@@ -7,11 +7,15 @@ var storage = multer.diskStorage({
         cb(null, './public/images/avatar');
     },
     filename: function (req, file, cb) {
-        userModel.nextId().then(id => {
-            var string = JSON.stringify(id);
-            var rs = JSON.parse(string);
-            cb(null, rs[0].AUTO_INCREMENT + path.extname(file.originalname));
-        });
+        if (!req.user) {
+            userModel.nextId().then(id => {
+                var string = JSON.stringify(id);
+                var rs = JSON.parse(string);
+                cb(null, rs[0].AUTO_INCREMENT + path.extname(file.originalname));
+            });
+        } else {
+            cb(null, req.user.id + path.extname(file.originalname));
+        }
     }
 })
 

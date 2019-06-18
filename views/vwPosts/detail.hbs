@@ -34,7 +34,7 @@
 						{{#each comments}}
 						<div class="media response-info">
 							<div class="media-left response-text-left">
-								<a href="#">
+								<a class="avatar" href="#">
 									<img class="media-object" src="{{avatar}}" alt="" />
 								</a>
 								<h5><a>{{name}}</a></h5>
@@ -42,7 +42,7 @@
 							<div class="media-body response-text-right">
 								<p>{{content}}</p>
 								<ul>
-									<li>{{date}}</li>
+									<li>{{formatDate date}}</li>
 								</ul>
 							</div>
 							<div class="clearfix"> </div>
@@ -51,8 +51,8 @@
 					</div>
 					<div class="coment-form">
 						<h4>Leave your comment</h4>
-						<form>
-							<textarea type="text" onfocus="this.value = '';"
+						<form method="POST" action="">
+							<textarea type="text" name="comment" id="txtComment" onfocus="this.value = '';"
 								onblur="if (this.value == '') {this.value = 'Your Comment...';}"
 								required="">Your Comment...</textarea>
 							<input type="submit" value="Submit Comment">

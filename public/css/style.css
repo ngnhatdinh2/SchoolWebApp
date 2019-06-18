@@ -264,6 +264,16 @@ a {
     margin: 1em 0px 1em 4em;
 }
 
+/* .avatar{
+    width: 64px;
+    height: 64px;
+} */
+
+.media-object {
+    max-width: 80%;
+    max-height: 80%;
+}
+
 .response {
     margin-bottom: 5em;
 }

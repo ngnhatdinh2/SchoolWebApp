@@ -25,6 +25,17 @@ app.use('/tin-tuc', require('./routes/postlist.route'));
 app.use('/account', require('./routes/account.route'));
 app.use('/categories', require('./routes/category.route'));
 
+app.use((req, res, next) => {
+    res.render('404');
+});
+
+app.use((error, req, res, next) => {
+    res.render('error', {
+        message: error.message,
+        error
+    })
+});
+
 
 app.listen(4000, () => {
     console.log("server running! http://localhost:4000/");
