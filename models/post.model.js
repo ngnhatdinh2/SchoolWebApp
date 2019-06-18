@@ -13,9 +13,8 @@ module.exports = {
         return db.load(`select * from posts where category_id = ${idCate} order by posts.publish_date DESC`);
     },
 
-
     allByCate: (idCate, offset, limit, ispremium) => {
-        var sql = `select p.*, c.name as category_name from(select * from posts where category_id = ${idCate}`;
+        var sql = `select p.*, c.name as category_name from(select * from posts where status = 1 and isdeleted = 0 category_id = ${idCate}`;
         sql += ispremium == false ? `and ispremium=0` : ``;
         sql += `limit ${offset},${limit}) p, category c where p.category_id = c.id`;
         return db.load(sql);
@@ -30,12 +29,11 @@ module.exports = {
     },
 
     postLimitWittCategoryName: (offset, limit, ispremium) => {
-        var sql = `select p.* , c.name as category_name from (SELECT * FROM posts where ispremium=0 ORDER BY posts.publish_date desc limit ${offset},${limit}) p, category c where p.category_id = c.id`;
+        var sql = `select p.* , c.name as category_name from (SELECT * FROM posts where ispremium=0 and status=1 and isdeleted=0 ORDER BY posts.publish_date desc limit ${offset},${limit}) p, category c where p.category_id = c.id`;
         if (ispremium == true)
-            sql = `select p.* , c.name as category_name from (SELECT * FROM posts ORDER BY posts.ispremium desc, posts.publish_date desc limit ${offset},${limit}) p, category c where p.category_id = c.id`;
+            sql = `select p.* , c.name as category_name from (SELECT * FROM posts where status=1 and isdeleted=0 ORDER BY posts.ispremium desc, posts.publish_date desc limit ${offset},${limit}) p, category c where p.category_id = c.id`;
         return db.load(sql);
     },
-
 
     postLimit: (offset, limit) => {
         return db.load(`select * from posts limit ${offset},${limit}`);
@@ -50,7 +48,7 @@ module.exports = {
     },
 
     allByTag: (tagId, offset, limit, ispremium) => {
-        var sql = `select p.*, t.id as tag_id, t.name as tag_name from posts p, tag t, post_tag WHERE p.id = post_tag.post_id and t.id = post_tag.tag_id and post_tag.tag_id = ${tagId} `;
+        var sql = `select p.*, t.id as tag_id, t.name as tag_name from posts p, tag t, post_tag WHERE p.status = 1 and p.isdeleted = 0 p.id = post_tag.post_id and t.id = post_tag.tag_id and post_tag.tag_id = ${tagId} `;
         sql+= ispremium==false? ` and ispremium=0 `:``;
         sql+=`ORDER BY p.ispremium desc, p.publish_date desc limit ${offset},${limit}`;
         console.log(sql);
@@ -67,14 +65,14 @@ module.exports = {
     },
 
     countPostByCate: (cateID = null) => {
-        var sql = `select count(*) as numb_of_posts from posts`;
-        sql += cateID != null ? ` where posts.category_id = ${cateID}` : ``;
+        var sql = `select count(*) as numb_of_posts from posts where status = 1 and isdeleted = 0 `;
+        sql += cateID != null ? ` and posts.category_id = ${cateID}` : ``;
         return db.load(sql);
     },
 
     countPostByTag: (tagID = null) => {
-        var sql = `SELECT count(post_id) as numb_of_posts from post_tag`;
-        sql += tagID != null ? ` WHERE post_tag.tag_id=${tagID}` : ``;
+        var sql = `SELECT count(post_id) as numb_of_posts from post_tag where status = 1 and isdeleted = 0 `;
+        sql += tagID != null ? `and post_tag.tag_id=${tagID}` : ``;
         return db.load(sql);
     },
 

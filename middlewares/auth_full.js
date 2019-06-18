@@ -11,5 +11,5 @@ module.exports = {
             console.log('vo dc k');
             res.redirect('/');
         } else next();
-    }
+    },
 }
