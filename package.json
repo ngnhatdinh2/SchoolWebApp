@@ -1,25 +1,21 @@
 {
-  "name": "SchoolWebApp",
+  "name": "schoolwebapp",
   "version": "1.0.0",
-  "description": "",
-  "main": "node.js",
+  "main": "DanhSachBaiViet.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/ngnhatdinh2/SchoolWebApp.git"
   },
-  "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/ngnhatdinh2/SchoolWebApp/issues"
   },
   "homepage": "https://github.com/ngnhatdinh2/SchoolWebApp#readme",
-
-  "dependencies": {
-    "orm": "^5.0.4",
   "keywords": [],
   "description": "",
   "dependencies": {
@@ -39,5 +35,5 @@
     "passport": "^0.4.0",
     "passport-local": "^1.0.0",
     "path": "^0.12.7"
-
+  }
 }

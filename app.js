@@ -40,7 +40,7 @@ app.get('/', (req, res) => {
 // });
 //
 app.use('/admin', require('./routes/admin.route'));
-app.use('/tin-tuc', require('./routes/postlist.route'));
+app.use('/news', require('./routes/postlist.route'));
 app.use('/account', require('./routes/account.route'));
 app.use('/categories', require('./routes/category.route'));
 app.use('/writer', require('./routes/writer.route'));
@@ -58,6 +58,6 @@ app.use((error, req, res, next) => {
 });
 
 
-app.listen(4001, () => {
-    console.log("server running! http://localhost:3000/");
+app.listen(4000, () => {
+    console.log("server running! http://localhost:4000/");
 })
