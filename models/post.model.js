@@ -155,5 +155,11 @@ module.exports = {
 
     viewUp: (postid) =>{
         return db.load(`update posts set view=view+1 where id = ${postid}`);
+    },
+
+    allByByCate: (cateID) => {
+        return db.load(`select * from posts where category_id = ${cateID} and isdeleted = 0`);
     }
+
+
 }

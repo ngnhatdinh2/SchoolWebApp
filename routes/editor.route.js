@@ -19,7 +19,7 @@ router.get('/', (req, res, next)=>{
 })
 router.get('/draft', (req, res, next)=>{
     editorModel.selectByEditor(res.locals.user.id)
-    .then(editor=>{return editor[0]}).then(editor=>{
+    .then(editor=>{ return editor[0]}).then(editor=>{
         Promise.all([    
             postModel.allByByCate(editor.category_id),
             userModel.getWritter(),
@@ -47,7 +47,13 @@ router.get('/draft', (req, res, next)=>{
                 layout: false
             })
         })
-    })
+    }).catch(()=>{
+        res.render('editor/index', {
+            posts: null,
+            category: null,
+            layout: false
+        })
+    });
 })
 router.post('/draft', (req, res, next) => {
 

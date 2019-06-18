@@ -32,9 +32,10 @@
                   <span  class="dash-nav-item dash-nav-dropdown-toggle">
                       <i class="fas fa-cube"></i> User </span>
                   <div class="dash-nav-dropdown-menu">
-                      <a href="user/suscriber" class="dash-nav-dropdown-item">Subscriber</a>
-                      <a href="user/writer" class="dash-nav-dropdown-item">Writer</a>
-                      <a href="user/editor" class="dash-nav-dropdown-item">Editor</a>
+                      <a href="/admin/user/allusers" class="dash-nav-dropdown-item">All users</a>
+                      <a href="/admin/user/suscriber" class="dash-nav-dropdown-item">Subscriber</a>
+                      <a href="/admin/user/writer" class="dash-nav-dropdown-item">Writer</a>
+                      <a href="/admin/user/editor" class="dash-nav-dropdown-item">Editor</a>
                   </div>
                 </div>
           </nav>
@@ -52,6 +53,7 @@
                         Roles
                     </button>
                     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                        <a class="dropdown-item" href="/admin/user/allusers">All users</a>
                         <a class="dropdown-item" href="/admin/user/subscriber">Subscriber</a>
                         <a class="dropdown-item" href="/admin/user/writer">Writer</a>
                         <a class="dropdown-item" href="/admin/user/editor">Editor</a>
@@ -79,6 +81,7 @@
                                             <th scope="col">email</th>
                                             {{!-- {{#if editor}}<th scope="col">Category</th>{{/if}} --}}
                                             <th scope="col">nickname</th>
+                                            <th scope="col">role</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -98,6 +101,7 @@
                                                     
                                                 {{/if}} --}}
                                                 <td><input name="nickname"value="{{nickname}}" size="8" ></td>
+                                                <td><input name="role" value="{{role}}" size="2"></td>
                                                 <td>
                                                     <div class="btn-group">
                                                         <input name="method" value="Update" type="submit" class="btn btn-primary">

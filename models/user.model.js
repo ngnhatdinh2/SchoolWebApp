@@ -51,4 +51,11 @@ module.exports = {
     nextId: () => {
         return db.nextId('user');
     },
+
+    getAllUsers: () => {
+        console.log("aasdasdsad");
+        var rs = db.load(`select * from user where isdeleted = 0`); 
+        console.log(rs);
+        return rs;
+    }
 }
