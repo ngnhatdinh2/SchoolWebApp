@@ -2,6 +2,7 @@ var express = require('express');
 var userModel = require('../models/user.model');
 var postModel = require('../models/post.model');
 var tagModel = require('../models/tag.model');
+var post_tagModel = require('../models/post_tag.model');
 var categoryModel = require('../models/category.model');
 var cateGroupModel = require('../models/categorygroup.model');
 var passport = require('passport');
@@ -18,8 +19,8 @@ router.get('/', (req, res, next) => {
 });
 router.get('/post', (req, res, next) => {
     Promise.all([
-        postModel.all(),
-        userModel.getAllAuthors()
+        postModel.allNotDeleted(),
+        userModel.getWritter(),
     ]).then(([rows, authors]) => {
         rows.forEach(r=>{
             r.disabled = r.status == 0 ? false : true;
@@ -34,20 +35,17 @@ router.get('/post', (req, res, next) => {
     })
 });
 // router.delete('/')
-router.post('/category', (req, res, next) => {
-    console.log(req.body)
-    res.redirect('category')
-})
+
 router.get('/tag', (req, res, next) => {
     Promise.all([
-        tagModel.all(),
+        tagModel.allNotDeleted(),
         postModel.countByTag(),
     ]).then(([rows, posts]) => {
         rows.forEach((r)=>{
             // console.log('data', posts)
             data = posts.filter(p=>p.tag === r.id)
             r.posts = data === undefined || data == null ? 0 : data[0].total
-            
+
         })
         // console.log(rows)
         res.render('admin/tag',{
@@ -55,9 +53,39 @@ router.get('/tag', (req, res, next) => {
         });
     })
 });
+router.post('/tag', (req, res, next) => {
+    console.log(req.body.method)
+    switch(req.body.method){
+        case 'Delete':
+            Promise.all([
+                // console.log(req.body)
+                tagModel.temporaryDelete(req.body.id),
+                post_tagModel.tempDeleteByTag(req.body.id)
+                // postModel.tempDeleteByCategory(req.body.id)
+            ]).then(()=>{
+                res.redirect('/admin/tag')            
+            })
+            break;
+        case 'Update':
+            tagModel.single(req.body.id)
+            .then(tag=>tag[0])
+                .then(tag=>{
+                    // console.log('single', cate)
+                    tag.name = req.body.name
+                    return tag
+                })
+                .then(tag=>{
+                    // console.log(cate)
+                    categoryModel.update(tag)
+                })
+                .then(()=>{
+                res.redirect('/admin/tag')})
+            break;
+    }
+})
 router.get('/category', (req, res, next) => {
     Promise.all([
-        categoryModel.allCateSmall(),
+        categoryModel.allNotDeletedCate(),
         postModel.countByCate(),
         cateGroupModel.all(),
     ]).then(([rows, postsCount, groups]) => {
@@ -69,11 +97,39 @@ router.get('/category', (req, res, next) => {
             r.group = data === undefined || data == null || data.length ===0 ? 0 : data[0].name 
         })
         res.render('admin/category',{
-            categories: rows
+            categories: rows,
+
         });
     })
 });
-
+router.post('/category', (req, res, next) => {
+    // console.log(req.body.method)
+    switch(req.body.method){
+        case 'Delete':
+            Promise.all([
+                categoryModel.temporaryDelete(req.body.id),
+                postModel.tempDeleteByCategory(req.body.id)
+            ]).then(()=>{
+                res.redirect('/admin/category')            
+            })
+            break;
+        case 'Update':
+            categoryModel.single(req.body.id)
+            .then(cate=>cate[0])
+                .then(cate=>{
+                    console.log('single', cate)
+                    cate.name = req.body.name
+                    return cate
+                })
+                .then(cate=>{
+                    // console.log(cate)
+                    categoryModel.update(cate)
+                })
+                .then(()=>{
+                res.redirect('/admin/category')})
+            break;
+    }
+})
 router.get('/user', (req, res, next) => {
     res.redirect('user/guest')
 })

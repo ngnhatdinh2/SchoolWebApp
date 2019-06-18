@@ -8,13 +8,15 @@ module.exports = {
     allCateSmall: () => {
         return db.load('select * from category');
     },
-
+    allNotDeletedCate: () =>{
+        return db.load('select * from category where isdeleted = 0');
+    },
     cateLimit: (limit) => {
         return db.load(`select * from category limit ${limit}`);
     },
 
     single: (id) => {
-        return db.load(`select * from category where id = '${id}'`);
+        return db.load(`select * from category where id = ${id}`);
     },
 
     add: (entity) => {

@@ -14,7 +14,7 @@
                                     <div class="spur-card-title">Posts</div>
                                 </div>
                                 <div class="card-body ">
-                                    <form action="category" method="POST">
+                                   
                                     <table class="table table-hover table-in-card">
                                         <thead>
                                             <tr>
@@ -28,19 +28,24 @@
                                         <tbody>
                                             {{#each categories}}
                                             <tr>
+                                                <form action="category" method="post">
+                                                <input type="hidden" name="id" value={{id}}>
                                                 <th scope="row">{{id}}</th>
-                                                <td><input type="text" name="name-{{id}}" value="{{name}}"/></td>
+                                                <td><input type="text" name="name" value="{{name}}"/></td>
                                                 <td>{{group}}</td>
                                                 <td>{{posts}}</td>
                                                 <td>
-                                                    <input name="delete-{{id}}" class="form-check-input" type="checkbox">
+                                                    <input name="method" value="Delete" class="form-check-input btn btn-danger" type="submit">
                                                 </td>
+                                                <td>
+                                                    <input name="method" value="Update" class="form-check-input btn btn-primary" type="submit">
+                                                </td>
+                                                </form>
                                             </tr>
                                             {{/each}}
                                         </tbody>
                                     </table>
-                                    <input type="submit" class="btn btn-primary mt-5 float-right" value="submit">
-                                    </form>
+                                    {{!-- <input type="submit" class="btn btn-primary mt-5 float-right" value="submit"> --}}
                                 </div>
                             </div>
                         </div>

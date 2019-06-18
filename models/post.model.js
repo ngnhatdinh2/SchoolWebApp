@@ -4,7 +4,9 @@ module.exports = {
     all: () => {
         return db.load('select * from posts order by id DESC');
     },
-
+    allNotDeleted: () => {
+        return db.load('select * from posts where isdeleted = 0 order by id DESC');
+    },
     allWithDetails: () => {
         return db.load('SELECT p.id, p.title, p.publish_date, p.abstract_body, p.full_body, p.thumbnail_url,p.image_url,p.status,p.view,p.user_id,p.category_id,p.isdeleted, cate.name as topic, user.name as author FROM posts p JOIN category cate ON p.category_id = cate.id JOIN user ON p.user_id = user.id order by p.id DESC');
     },
@@ -37,7 +39,9 @@ module.exports = {
     temporaryDelete: (id) => {
         return db.temporaryDelete('posts', 'id', id);
     },
-
+    tempDeleteByCategory: (cateID) =>{
+        return db.temporaryDelete('posts', 'category_id', cateID);
+    },
     countByTag: () => {
         return db.load(`select tag_id as tag, count(post_id) as total from post_tag group by tag_id`)
     },
