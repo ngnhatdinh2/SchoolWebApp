@@ -77,7 +77,7 @@
                                             <th scope="col">dob</th>
                                             <th scope="col">exp</th>
                                             <th scope="col">email</th>
-                                            {{#if editor}}<th scope="col">Category</th>{{/if}}
+                                            {{!-- {{#if editor}}<th scope="col">Category</th>{{/if}} --}}
                                             <th scope="col">nickname</th>
                                         </tr>
                                     </thead>
@@ -93,7 +93,10 @@
                                                 <td><input name="DOB" value="{{formatDate DOB}}" size="8" ></td>
                                                 <td><input name="expiredDate" value="{{formatDate expiredDate}}" size="8" ></td>
                                                 <td><input name="email" value="{{email}}" size="20" ></td>
-                                                {{#if editor}}<td>{{editor_category_id}}</td>{{/if}}
+                                                {{!-- {{#if editor}}
+                                                    <td><input name="email" value="123" size="20" ></td>
+                                                    
+                                                {{/if}} --}}
                                                 <td><input name="nickname"value="{{nickname}}" size="8" ></td>
                                                 <td>
                                                     <div class="btn-group">
