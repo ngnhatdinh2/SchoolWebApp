@@ -117,7 +117,7 @@ router.post('/login', auth.inLogin, (req, res, next) => {
                 return next(err);
             switch (user.role) {
                 case 1:
-                    if (user.expiredDate.getTime() < Date.now())
+                    if (new Date(user.expiredDate) < new Date)
                         return res.redirect('/subscriber/renewal');
                     return res.redirect('/');
                 case 2:
@@ -176,6 +176,7 @@ router.get('/profile/:id', auth.notLogin, (req, res, next) => {
             var cus = rows[0];
             cus.DOB = moment(cus.DOB, 'YYYY-MM-DD').format('DD/MM/YYYY');
             cus.expiredDate = moment(cus.expiredDate, 'YYYY-MM-DD').format('DD/MM/YYYY');
+            console.log(cus);
             res.render('vwAccount/profile', {
                 error: false,
                 cus: cus

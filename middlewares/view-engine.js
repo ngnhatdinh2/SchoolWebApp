@@ -15,7 +15,7 @@ module.exports = function (app) {
                     rs += '<div class="dropdown"> <div class="dropdown-body"> <ul class="dropdown-list">';
                     arg2.forEach(item => {
                         if (item.categorygroup_id === gr.id) {
-                            rs += '<li><a href="category.html">' + options.fn(item.name) +'</a></li>';
+                            rs += '<li><a href="/news/'+item.id+'">' + options.fn(item.name) + '</a></li>';
                         }
                     });
                     rs += '</ul> </div> </div> </li>'
@@ -57,7 +57,7 @@ module.exports = function (app) {
                         if (cate.categorygroup_id === gr.id) {
                             result += `<option value="${cate.id}"`;
                             if (cate.isSelected)
-                                result +=`selected`;
+                                result += `selected`;
                             result += `>${cate.name}</option>`;
                         }
                     })
@@ -69,7 +69,16 @@ module.exports = function (app) {
             ifEq: (arg1, arg2, options) => {
                 return (arg1 === arg2) ? options.fn(this) : options.inverse(this);
             },
-            formatFullBody: (body) =>{
+            forProfile: (arg1) => {
+                var rs = `<div class="icon1">`
+                if (arg1.role === 1)
+                    rs += `<i class="fa fa-clock-o" aria-hidden="true"></i><input  type="text" readonly placeholder="Expired Date" id="txtExpdate" name="expDate" value="` + arg1.expiredDate + `"></div>`;
+                else if (arg1.role === 3)
+                    rs += `<i class="fa fa-info" aria-hidden="true"></i><input type="text" placeholder="Nick name" id="txtNickName" name="nickname" value="` + arg1.nickname + `"></div>`;
+                return rs;
+            },
+
+            formatFullBody: (body) => {
                 return body;
             },
             section: hbs_sections()

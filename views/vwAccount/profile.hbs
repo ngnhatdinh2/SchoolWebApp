@@ -61,6 +61,7 @@
         });
     })
 </script>
+
 {{/section}}
 
 
@@ -87,18 +88,9 @@
                                 <input type="email" placeholder="Email@gmail.com" id="txtEmail" name="email"
                                     value="{{this.cus.email}}">
                             </div>
-                            {{#ifEq this.cus.role 3}}
-                            <div class="icon1">
-                                <i class="fa fa-pencil" aria-hidden="true"></i>
-                                <input type="text" placeholder="Nick name" id="txtNickName" name="nickname"
-                                    value="{{this.cus.nickname}}">
-                            </div>
-                            <div class="icon1">
-                                <i class="fa fa-calendar" aria-hidden="true"></i>
-                                <input readonly type="text" placeholder="Date of birth" id="txtExpdate" name="expDate"
-                                    value="{{this.cus.expiredDate}}">
-                            </div>
-                            {{/ifEq}}
+                            {{#forProfile this.cus}}
+                            {{this}}
+                            {{/forProfile}}
                             <div class="icon1">
                                 <i class="fa fa-calendar" aria-hidden="true"></i>
                                 <input type="text" placeholder="Date of birth" id="txtDOB" name="dob"

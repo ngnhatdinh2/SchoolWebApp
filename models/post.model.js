@@ -19,6 +19,7 @@ module.exports = {
         var sql = `select p.*, c.name as category_name from(select * from posts where status = 1 and isdeleted = 0 and category_id = ${idCate} `;
         sql += ispremium == false ? `and ispremium=0 ` : ``;
         sql += `limit ${offset},${limit}) p, category c where p.category_id = c.id`;
+        console.log(sql);
         return db.load(sql);
     },
 
@@ -50,7 +51,7 @@ module.exports = {
     },
 
     allByTag: (tagId, offset, limit, ispremium) => {
-        var sql = `select p.*, t.id as tag_id, t.name as tag_name from posts p, tag t, post_tag WHERE p.status = 1 and p.isdeleted = 0 p.id = post_tag.post_id and t.id = post_tag.tag_id and post_tag.tag_id = ${tagId} `;
+        var sql = `select p.*, t.id as tag_id, t.name as tag_name from posts p, tag t, post_tag WHERE p.status = 1 and p.isdeleted = 0 and p.id = post_tag.post_id and t.id = post_tag.tag_id and post_tag.tag_id = ${tagId} `;
         sql+= ispremium==false? ` and ispremium=0 `:``;
         sql+=`ORDER BY p.ispremium desc, p.publish_date desc limit ${offset},${limit}`;
         console.log(sql);
@@ -72,9 +73,10 @@ module.exports = {
         return db.load(sql);
     },
 
-    countPostByTag: (tagID = null) => {
-        var sql = `SELECT count(post_id) as numb_of_posts from post_tag where status = 1 and isdeleted = 0 `;
-        sql += tagID != null ? `and post_tag.tag_id=${tagID}` : ``;
+    countPostByTag: (ispremium, tagID = null) => {
+        var sql = `SELECT count(*) as numb_of_posts from (SELECT posts.*, post_tag.tag_id from posts JOIN post_tag on posts.id = post_tag.post_id and post_tag.tag_id=${tagID} where posts.status = 1 and posts.isdeleted = 0 `;
+        sql+= ispremium==0? `and ispremium=0`:``;
+        sql+=`) abc`;
         return db.load(sql);
     },
 

@@ -2,14 +2,7 @@
 <script src="/ckeditor/ckeditor.js"></script>
 <script src="/ckeditor/samples/js/sample.js"></script>
 {{/section}}
-<script>
-    n = new Date();
-    y = n.getFullYear();
-    m = n.getMonth() + 1;
-    d = n.getDate();
-    rs = y + "/" + m + "/" + d;
-    document.getElementById("publish_date").value = rs;
-</script>
+
 {{#section 'js'}}
 <script>
     initSample();
@@ -17,12 +10,12 @@
 {{/section}}
 
 <div class="container mt-4">
-    <h1 class="display-1 text-center mb-4">QUẢN LÝ BÀI VIẾT</h1>
+    <h1 class="display-1 text-center mb-4 mt-5" style="color: gray; font-size:4rem;">QUẢN LÝ BÀI VIẾT</h1>
     <div class="row">
         <div class="col ">
             <div class="card" style="width: 15rem;">
                 <div class="card-header">
-                    Chức năng
+                    <h3>Chức năng</h3>
                 </div>
                 <ul class="list-group list-group-flush">
                     <li class="list-group-item "><a href="/writer">Danh sách bài viết</a></li>
@@ -38,7 +31,7 @@
 
             <div class="card mb-4">
                 <div class="card-header">
-                    Viết bài
+                    <h3>Viết bài</h3>
                 </div>
                 <div class="card-body">
                     <form action="/writer/newpmost" method="post" enctype="multipart/form-data">

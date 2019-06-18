@@ -45,7 +45,8 @@
 <div id="nav-bottom" style="height: 60px;" class="sticky-top">
     <!-- nav -->
     <div class="row">
-        <ul class="col-md-9 nav-menu justify-content-center">
+        <ul class="col-md-3"></ul>
+        <ul class="col-md-6 nav-menu justify-content-center">
             {{#forCate lcCateGroup lcCateSmall}}
             {{this}}
             {{/forCate}}
@@ -54,7 +55,7 @@
         <ul class="col-md-3 nav-menu">
             {{#if isAuthenticated}}
             <li class="has-dropdown">
-                <a href="#">Hi, <b>{{user.name}}</b></a>
+                <a href="#">Hi, {{user.name}}</a>
                 <div class="dropdown">
                     <div class="dropdown-body">
                         <ul class="dropdown-list">
@@ -74,19 +75,19 @@
                             {{/ifEq}}
                             {{#ifEq user.role 2}}
                             <li><a href="/editor">
-                                    <i class="fa fa-lock" aria-hidden="true"></i>
+                                    <i class="fa fa-check-square-o" aria-hidden="true"></i>
                                     Editor
                                 </a></li>
                             {{/ifEq}}
                             {{#ifEq user.role 3}}
                             <li><a href="/writer">
-                                <i class="fa fa-lock" aria-hidden="true"></i>
+                                <i class="fa fa-pencil" aria-hidden="true"></i>
                                 Writer
                             </a></li>
                             {{/ifEq}}
                             {{#ifEq user.role 4}}
                             <li><a href="/admin">
-                                    <i class="fa fa-lock" aria-hidden="true"></i>
+                                    <i class="fa fa-cog" aria-hidden="true"></i>
                                     Admin
                                 </a></li>
                             {{/ifEq}}
