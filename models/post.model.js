@@ -126,4 +126,17 @@ module.exports = {
         return db.nextId('posts');
     },
 
+
+    //làm trang chủ
+    topCate: (limit) => {
+        return db.load(`
+        SELECT cate_view.name, cate_view.sum, post_date.*, user.name as author FROM (SELECT p.category_id, c.name, SUM(p.view) as sum FROM posts p JOIN category c ON p.category_id = c.id GROUP BY p.category_id ORDER BY sum DESC LIMIT ${limit}) AS cate_view JOIN (SELECT *, MAX(p.publish_date) FROM posts p WHERE p.isdeleted = 0 AND status = 1 GROUP BY p.category_id) AS post_date ON cate_view.category_id = post_date.category_id JOIN user ON post_date.user_id = user.id
+        `);
+    },
+
+    topPost: (limit) => {
+        return db.load(`
+        SELECT * , cate.name as topic, user.name as author FROM posts JOIN category cate ON posts.category_id = cate.id JOIN user ON posts.user_id = user.id WHERE posts.isdeleted = 0 AND posts.status = 1 ORDER BY posts.view DESC LIMIT ${limit}
+        `)
+    }
 }

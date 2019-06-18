@@ -11,14 +11,14 @@ module.exports = function (app) {
             forCate: function (arg1, arg2, options) {
                 var rs = ''
                 arg1.forEach(gr => {
-                    rs += '<li class="nav-item dropdown"> <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">' + options.fn(gr.name) + '</a>';
-                    rs += '<div class="dropdown-menu">';
+                    rs += '<li class="has-dropdown"> <a href="#">' + options.fn(gr.name) + '</a>';
+                    rs += '<div class="dropdown"> <div class="dropdown-body"> <ul class="dropdown-list">';
                     arg2.forEach(item => {
                         if (item.categorygroup_id === gr.id) {
-                            rs += '<a class="dropdown-item" href="#">' + options.fn(item.name) + '</a>';
+                            rs += '<li><a href="category.html">' + options.fn(item.name) +'</a></li>';
                         }
                     });
-                    rs += '</div> </li>'
+                    rs += '</ul> </div> </div> </li>'
                 });
                 return rs;
             },

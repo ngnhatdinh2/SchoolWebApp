@@ -5,260 +5,260 @@ body{
 }
 
 
-.danhsach-container .row{
-	margin-top: 15px;
-	border-bottom: 1px dotted #e2e2e3;
-
+.navbar-nav .nav-item {
+  margin-left: 25px;
 }
 
-.breadcrumb{
-	background-color: transparent;
+.danhsach-container .row {
+  margin-top: 15px;
+  border-bottom: 1px dotted #e2e2e3;
+}
+
+.breadcrumb {
+  background-color: transparent;
 }
 
 
 .card-title {
-    color: #FFF;
+  color: #FFF;
 }
 
 .card-text {
-    color: #FFF;
+  color: #FFF;
 }
 
-
-
-.entry-meta{
-    display: inline-block;
-    position: relative;
-    font-weight: 500;
-    margin-right: 8px;
-    color: rgba(72, 72, 72, 0.5);
+.entry-meta {
+  display: inline-block;
+  position: relative;
+  font-weight: 500;
+  margin-right: 8px;
+  color: rgba(72, 72, 72, 0.5);
 }
-
 
 /*=========================================================
 	POST
 =========================================================*/
 
 .post {
-    position: relative;
-    margin-bottom: 30px;
-  }
-  
-  .post .post-body {
-    position: relative;
-    margin: -50px 0px 0px 3%;
-    padding: 5%;
-    background: #fff;
-    z-index: 10;
-  }
-  
-  .post .post-img {
-    display: block;
-    overflow: hidden;
-  }
-  
-  .post-img>img {
-    width: 100%;
-    -webkit-transition: 1.6s -webkit-transform;
-    transition: 1.6s -webkit-transform;
-    transition: 1.6s transform;
-    transition: 1.6s transform, 1.6s -webkit-transform;
-  }
-  
-  .post-img:hover>img {
-    -webkit-transform: scale(1.2);
-    -ms-transform: scale(1.2);
-    transform: scale(1.2);
-  }
-  
-  .post .post-title {
-    font-size: 14px;
-  }
-  
-  .post .post-title.title-sm {
-    font-size: 12px;
-  }
-  
-  .post .post-title.title-lg {
-    font-size: 21.629px;
-  }
-  
-  .post .post-category {
-    margin-bottom: 10px;
-  }
-  
-  .post-category a {
-    color: #ffffff;
-    font-weight: 700;
-    font-size: 12px;
-    text-transform: uppercase;
-  }
-  
-  .post-category a:after {
-    content: ',';
-    display: inline-block;
-  }
-  
-  .post-category a:last-child:after {
-    display: none;
-  }
-  
-  .post .post-meta {
-    margin-bottom: 10px;
-  }
-  
-  .post-meta  {
-    display: inline-block;
-    color: #97989b;
-    font-size: 12px;
-    text-transform: uppercase;
-  }
-  
-  .post-meta a {
-    color: #97989b;
-    font-weight: 700;
-  }
-  
-  .post-meta a:hover, .post-meta a:focus {
-    color: #ee4266;
-    text-decoration: none;
-  }
-  
-  .post-meta :after {
-    content: '•';
-    display: inline-block;
-    padding-left: 5px;
-    padding-right: 5px;
-  }
-  
-  .post-meta :last-child:after {
-    display: none;
-  }
-  
-  /*----------------------------*\
+  position: relative;
+  margin-bottom: 30px;
+}
+
+.post .post-body {
+  position: relative;
+  margin: -50px 0px 0px 3%;
+  padding: 5%;
+  background: #fff;
+  z-index: 10;
+}
+
+.post .post-img {
+  display: block;
+  overflow: hidden;
+}
+
+.post-img>img {
+  width: 100%;
+  -webkit-transition: 1.6s -webkit-transform;
+  transition: 1.6s -webkit-transform;
+  transition: 1.6s transform;
+  transition: 1.6s transform, 1.6s -webkit-transform;
+}
+
+.post-img:hover>img {
+  -webkit-transform: scale(1.2);
+  -ms-transform: scale(1.2);
+  transform: scale(1.2);
+}
+
+.post .post-title {
+  font-size: 14px;
+}
+
+.post .post-title.title-sm {
+  font-size: 12px;
+}
+
+.post .post-title.title-lg {
+  font-size: 21.629px;
+}
+
+.post .post-category {
+  margin-bottom: 10px;
+}
+
+.post-category a {
+  color: #ffffff;
+  font-weight: 700;
+  font-size: 12px;
+  text-transform: uppercase;
+}
+
+.post-category a:after {
+  content: ',';
+  display: inline-block;
+}
+
+.post-category a:last-child:after {
+  display: none;
+}
+
+.post .post-meta {
+  margin-bottom: 10px;
+}
+
+.post-meta {
+  display: inline-block;
+  color: #97989b;
+  font-size: 12px;
+  text-transform: uppercase;
+}
+
+.post-meta a {
+  color: #97989b;
+  font-weight: 700;
+}
+
+.post-meta a:hover, .post-meta a:focus {
+  color: #ee4266;
+  text-decoration: none;
+}
+
+.post-meta :after {
+  content: '•';
+  display: inline-block;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+.post-meta :last-child:after {
+  display: none;
+}
+
+/*----------------------------*\
       hot post
   \*----------------------------*/
-  
-  .hot-post {
-    padding: 0 15px;
-  }
-  
-  .hot-post .hot-post-left {
-    padding-right: 0px;
-    padding-left: 0px;
-  }
-  
-  .hot-post .hot-post-right {
-    padding-right: 0;
-    padding-left: 5px;
-  }
-  
-  .hot-post .post {
-    margin-bottom: 7px;
-  }
-  
-  .hot-post {
-    margin-bottom: 25px;
-  }
-  
-  /*----------------------------*\
+
+.hot-post {
+  padding: 0 15px;
+}
+
+.hot-post .hot-post-left {
+  padding-right: 0px;
+  padding-left: 0px;
+}
+
+.hot-post .hot-post-right {
+  padding-right: 0;
+  padding-left: 5px;
+}
+
+.hot-post .post {
+  margin-bottom: 7px;
+}
+
+.hot-post {
+  margin-bottom: 25px;
+}
+
+/*----------------------------*\
       post thumb
   \*----------------------------*/
-  
-  .post.post-thumb .post-img:after {
-    content: "";
-    position: absolute;
-    left: 0;
-    right: 0;
-    top: 0;
-    bottom: 0;
-    background: -webkit-gradient(linear, left top, left bottom, from(rgba(27, 28, 30, 0)), color-stop(90%, rgba(27, 28, 30, 0.8)));
-    background: linear-gradient(180deg, rgba(27, 28, 30, 0) 0%, rgba(27, 28, 30, 0.8) 90%);
-  }
-  
-  .post.post-thumb .post-body {
-    position: absolute;
-    margin: 0px;
-    padding: 0px 5%;
-    z-index: 20;
-    bottom: 5%;
-    background-color: transparent;
-  }
-  
-  .post.post-thumb .post-title a {
-    color: #fff;
-  }
-  
-  .post.post-thumb .post-title a:hover, .post.post-thumb .post-title a:focus {
-    color: #f56b10;
-    text-decoration: none;
-  }
-  
-  .post.post-thumb .post-meta li {
-    color: #fff;
-  }
-  
-  .post.post-thumb .post-meta li a {
-    color: #fff;
-  }
-  
-  .post.post-thumb .post-meta li a:hover, .post.post-thumb .post-meta li a:focus {
-    color: #f56b10;
-  }
-  
-  /*----------------------------*\
+
+.post.post-thumb .post-img:after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  background: -webkit-gradient(linear, left top, left bottom, from(rgba(27, 28, 30, 0)), color-stop(90%, rgba(27, 28, 30, 0.8)));
+  background: linear-gradient(180deg, rgba(27, 28, 30, 0) 0%, rgba(27, 28, 30, 0.8) 90%);
+}
+
+.post.post-thumb .post-body {
+  position: absolute;
+  margin: 0px;
+  padding: 0px 5%;
+  z-index: 20;
+  bottom: 5%;
+  background-color: transparent;
+}
+
+.post.post-thumb .post-title a {
+  color: #fff;
+}
+
+.post.post-thumb .post-title a:hover, .post.post-thumb .post-title a:focus {
+  color: #f56b10;
+  text-decoration: none;
+}
+
+.post.post-thumb .post-meta li {
+  color: #fff;
+}
+
+.post.post-thumb .post-meta li a {
+  color: #fff;
+}
+
+.post.post-thumb .post-meta li a:hover, .post.post-thumb .post-meta li a:focus {
+  color: #f56b10;
+}
+
+/*----------------------------*\
       post small
   \*----------------------------*/
-  
-  .post.post-sm .post-body {
-    margin: 15px 0px 0px;
-    background: transparent;
-    padding: 0;
-  }
-  
-  /*----------------------------*\
+
+.post.post-sm .post-body {
+  margin: 15px 0px 0px;
+  background: transparent;
+  padding: 0;
+}
+
+/*----------------------------*\
       post widget
   \*----------------------------*/
-  
-  .post.post-widget:after {
-    content: "";
-    display: table;
-    clear: both;
-  }
-  
-  .post.post-widget .post-img {
-    float: left;
-    width: 130px;
-  }
-  
-  .post.post-widget .post-body {
-    position: relative;
-    background: transparent;
-    margin: 0px 0px 0px 150px;
-    padding: 0;
-  }
-  
-  .post.post-widget .post-title {
-    font-size: 16px;
-    margin-bottom: 0px;
-  }
-  
-  /*----------------------------*\
+
+.post.post-widget:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.post.post-widget .post-img {
+  float: left;
+  width: 130px;
+}
+
+.post.post-widget .post-body {
+  position: relative;
+  background: transparent;
+  margin: 0px 0px 0px 150px;
+  padding: 0;
+}
+
+.post.post-widget .post-title {
+  font-size: 16px;
+  margin-bottom: 0px;
+}
+
+/*----------------------------*\
       post row
   \*----------------------------*/
-  
-  .post.post-row:after {
-    content: '';
-    display: table;
-    clear: both;
-  }
-  
-  .post.post-row .post-img {
-    width: 40%;
-    float: left;
-  }
-  
-  .post.post-row .post-body {
-    margin: 0px 0px 0px calc(40% + 30px);
-    padding: 0;
-  }
+
+.post.post-row:after {
+  content: '';
+  display: table;
+  clear: both;
+}
+
+.post.post-row .post-img {
+  width: 40%;
+  float: left;
+}
+
+.post.post-row .post-body {
+  margin: 0px 0px 0px calc(40% + 30px);
+  padding: 0;
+}
