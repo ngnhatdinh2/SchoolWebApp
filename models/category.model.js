@@ -2,19 +2,19 @@ var db = require('../utils/db');
 
 module.exports = {
     allCateGroup: () => {
-        return db.load('select * from categorygroup');
+        return db.load('select * from categorygroup where isdeleted = 0');
     },
 
     allCateSmall: () => {
-        return db.load('select * from category');
+        return db.load('select * from category where isdeleted = 0');
     },
 
     cateLimit: (limit) => {
-        return db.load(`select * from category limit ${limit}`);
+        return db.load(`select * from category where isdeleted = 0 limit ${limit}`);
     },
 
     single: (id) => {
-        return db.load(`select * from category where id = '${id}'`);
+        return db.load(`select * from category where id = ${id} and isdeleted = 0`);
     },
 
     add: (entity) => {

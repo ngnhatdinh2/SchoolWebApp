@@ -2,44 +2,10 @@ var express = require('express');
 var postModel = require('../models/post.model');
 var commentModel = require('../models/comment.model');
 var postTagModel = require('../models/post_tag.model');
-// var auth = require('../middlewares/auth');
+
 var router = express.Router();
 
-router.get('/:id/posts', (req, res, next) => {
-    var id = req.params.id;
-    var page = req.query.page || 1; //lấy dữ liệu trên URL sau '?'
-    if (page < 1) page = 1;
-
-    var limit = 6;
-    var offset = (page - 1) * limit;
-
-    Promise.all([
-        postModel.pageByArea(id, limit, offset),
-        postModel.countByArea(id),
-        postModel.partOfpostsById(id),
-    ]).then(([rows, count_rows, parts]) => {
-        for (const kv of res.locals.lcAreas) {
-            if (kv.idKhuVuc === +id) {
-                kv.isActive = true;
-            }
-        }
-
-        var total = count_rows[0].total;
-        var nPages = Math.floor(total / limit);//lấy giá trị nhỏ hơn gần nhất
-        if (total % limit > 0) nPages++;
-        var pages = [];
-        for (let i = 1; i <= nPages; i++) {
-            var obj = { value: i, active: i === +page }; //+page = page.parseInt()
-            pages.push(obj);
-        }
-
-        res.render('vwPosts/byCate', {
-            posts: rows,
-            Pages: pages,
-            Parts: parts
-        });
-    }).catch(next);
-});
+router.use(require('../middlewares/localMostViewPost.mdw'));
 
 router.get('/:idCate/posts/:idPost', (req, res, next) => {
     var id = req.params.idPost;
@@ -84,14 +50,31 @@ router.get('/:idCate/posts/:idPost', (req, res, next) => {
     }).catch(next);
 });
 
+router.post('/:idCate/posts/:idPost', require('../middlewares/auth').notLogin, (req, res, next) => {
+    var idPost = req.params.idPost;
+    var idCate = req.params.idCate;
+
+    var today = new Date();
+    var entity = {
+        content: req.body.comment,
+        user_id: req.user.id,
+        post_id: idPost,
+        date: today,
+    };
+
+    commentModel.add(entity).then(id => {
+        res.redirect(`/categories/${idCate}/posts/${idPost}`);
+    }).catch(next);
+});
+
 router.post('/search', (req, res, next) => {
     var entity = req.body.search;
 
     var page = req.query.page || 1; //lấy dữ liệu trên URL sau '?'
     if (page < 1) page = 1;
 
-    var limit = 6;
-    var offset = (page - 1) * limit;
+    var offset = (page - 1) * 10;
+    var limit = 10;
 
     Promise.all([
         postModel.search(entity, limit, offset),
@@ -100,21 +83,20 @@ router.post('/search', (req, res, next) => {
         if (rows.length > 0) {
 
             var total = count_rows[0].total;
-            var nPages = Math.floor(total / limit);//lấy giá trị nhỏ hơn gần nhất
-            if (total % limit > 0) nPages++;
+            var nPages = Math.ceil(total / limit);//lấy giá trị nhỏ hơn gần nhất
             var pages = [];
             for (let i = 1; i <= nPages; i++) {
                 var obj = { value: i, active: i === +page }; //+page = page.parseInt()
                 pages.push(obj);
             }
 
-            res.render('vwPosts/search', {
-                posts: rows,
-                pages: pages,
+            res.render('postlist', {
+                post: rows,
+                page: pages,
                 error: false
             });
         } else {
-            res.render('vwPosts/search', {
+            res.render('postlist', {
                 error: true
             });
         }

@@ -5,26 +5,26 @@ var userModel = require('../models/user.model');
 module.exports = (req, res, next) => {
     Promise.all([
         postModel.allWithDetails(),
-        cateModel.cateLimit(8),
-    ]).then(([rows, cate]) => {
+        postModel.topCate(8),
+        postModel.topPost(10),
+        cateModel.cateLimit(6),
+    ]).then(([rows, topCate, topPost, cate]) => {
         //tách các phần trong index
         //part1, part3_left1, part3_left2, part3_right, part5
-        var part1 = [];
         var part3_left2 = [];
         var part3_right = [];
+        var part4_1 = [];
+        var part4_2 = [];
         var part5 = [];
 
-        for (let i = 0; i < 8; i++) {
-            part1.push(rows[i]);
+        var part3_left1 = topPost[0];
+        for (let i = 1; i < 4; i++) {
+            part3_left2.push(topPost[i]);
         }
-        var part3_left1 = rows[8];
-        for (let i = 9; i < 12; i++) {
-            part3_left2.push(rows[i]);
+        for (let i = 4; i < 10; i++) {
+            part3_right.push(topPost[i]);
         }
-        for (let i = 12; i < 16; i++) {
-            part3_right.push(rows[i]);
-        }
-        for (let i = 16; i < 21; i++) {
+        for (let i = rows.length - 6; i < rows.length; i++) {
             part5.push(rows[i]);
         }
 
@@ -36,23 +36,32 @@ module.exports = (req, res, next) => {
             for (let i = 0; i < rows.length; i++) {
                 if (rows[i].category_id === item.id) {
                     flag++;
-                    item.image_url = rows[i].image_url;
+                    item.postModel = rows[i];
                     posts.push(rows[i]);
                 }
-                if (flag === 3) {
-                    item.image_url = rows[i].image_url;
+                if (flag === 6) {
+                    item.postModel = rows[i];
                     break;
                 }
             }
             item.posts = posts;
         });
 
+        for (let i = 0; i < 3; i++) {
+            part4_1.push(cate[i]);
+        }
+
+        for (let i = 3; i < 6; i++) {
+            part4_2.push(cate[i]);
+        }
+
         res.locals.lcPosts = rows;
-        res.locals.lcPart1 = part1;
+        res.locals.lcPart1 = topCate;
         res.locals.lcLeft1 = part3_left1;
         res.locals.lcLeft2 = part3_left2;
         res.locals.lcRight = part3_right;
-        res.locals.lcPart4 = cate;
+        res.locals.lcPart4_1 = part4_1;
+        res.locals.lcPart4_2 = part4_2;
         res.locals.lcPart5 = part5;
         next();
     }).catch(next);

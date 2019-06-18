@@ -1,8 +1,52 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Nunito:400,600|Open+Sans:400,600,700" rel="stylesheet">
+    <link rel="stylesheet" href="../../public/css/spur.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/spur.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/spur.css">
+    
+    <title>titom news</title>
+</head>
 
   <div class="dash">
+      <div class="dash-nav dash-nav-dark">
+          <header>
+              <a href="#!" class="menu-toggle">
+                  <i class="fas fa-bars"></i>
+              </a>
+              <a href="/" class="spur-logo"><i class="fas fa-bolt"></i> <span>TITOM</span></a>
+          </header>
+          <nav class="dash-nav-list">
+                <a href="post" class="dash-nav-item">
+                    <i class="fas fa-table"></i> Post </a>
+                <a href="tag" class="dash-nav-item">
+                <i class="fas fa-table"></i> Tag </a>
+                <a href="category" class="dash-nav-item">
+                <i class="fas fa-table"></i> Category </a>
+                <div class="dash-nav-dropdown ">
+                  <span  class="dash-nav-item dash-nav-dropdown-toggle">
+                      <i class="fas fa-cube"></i> User </span>
+                  <div class="dash-nav-dropdown-menu">
+                      <a href="user/suscriber" class="dash-nav-dropdown-item">Subscriber</a>
+                      <a href="user/writer" class="dash-nav-dropdown-item">Writer</a>
+                      <a href="user/editor" class="dash-nav-dropdown-item">Editor</a>
+                  </div>
+                </div>
+          </nav>
+      </div>
+        <div class="dash-app">
+             
           <main class="dash-content">
              <main class="dash-content">
                 <div class="container-fluid">
+                    <a href="#!" class="menu-toggle">
+                        <i class="fas fa-bars"></i>
+                    </a>
                     <h1 class="dash-title">POSTS</h1>
                     <div class="row">
                         <div class="col-lg ">
@@ -22,24 +66,34 @@
                                                 <th scope="col">author</th>
                                                 <th scope="col">status</th>
                                                 <th scope="col">view</th>
-                                                <th scope="col">publish</th>
+                                                <th scope="col"></th>
                                             </tr>
                                         </thead>
                                         <tbody>
                                             {{#each posts}}
                                             <tr>
-                                                <th scope="row">{{id}}</th>
-                                                <td>{{title}}</td>
-                                                <td>{{author}}</td>
-                                                <td>{{status}}</td>
-                                                <td>{{view}}</td>
-                                                <td>
-                                                    {{#if disabled}}
-                                                    <button disabled=true onclick="function(){console.log("ngu")}" type="button" class="btn btn-primary">publish</button>
-                                                    {{else}}
-                                                    <button type="button" class="btn btn-primary">publish</button>
-                                                    {{/if}}
-                                                </td>
+                                                <form action="post" method="post">
+                                                    <input type="hidden" name="id" value={{id}}>
+                                                    <th scope="row">{{id}}</th>
+                                                    <td>{{title}}</td>
+                                                    <td>{{author}}</td>
+                                                    <td>
+                                                        {{status}}
+                                                    </td>
+                                                    <td>{{view}}</td>
+                                                    <td>
+                                                        {{!-- {{#if disabled}}
+                                                        <button disabled=true onclick="function(){console.log("ngu")}" type="button" class="btn btn-primary">publish</button>
+                                                        {{else}}
+                                                        <button type="button" class="btn btn-primary">publish</button>
+                                                        {{/if}} --}}
+                                                        <div class="btn-group" role="group" aria-label="Basic example">
+                                                            <input name="method" value="{{#if banned }}Unban{{else}}Ban{{/if}}" type="submit" class="btn btn-warning">
+                                                            <input name="method" value="Publish" type="submit" class="btn btn-primary" {{#if disabled}} disabled {{/if}}>
+                                                            <input name="method" value="Delete" type="submit" class="btn btn-danger">
+                                                        </div>
+                                                    </td>
+                                                </form>
                                             </tr>
                                             {{/each}}
                                         </tbody>
@@ -51,7 +105,8 @@
                 </div>
             </main>
           </main>
-  </div>
+        </div>
+    </div>
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>

@@ -1,70 +1,120 @@
+<!doctype html>
+<html lang="en">
 
-  <div class="dash">
-          <main class="dash-content">
-             <main class="dash-content">
-                <div class="container-fluid">
-                    <h1 class="dash-title">USERS</h1>
-                    <div class="row">
-                        <div class="dropdown">
-                        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Roles
-                        </button>
-                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                            <a class="dropdown-item" href="/admin/user/guest">Guest</a>
-                            <a class="dropdown-item" href="/admin/user/subscriber">Subscriber</a>
-                            <a class="dropdown-item" href="/admin/user/writer">Writer</a>
-                            <a class="dropdown-item" href="/admin/user/editor">Editor</a>
-                        </div>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Nunito:400,600|Open+Sans:400,600,700" rel="stylesheet">
+    <link rel="stylesheet" href="../../public/css/spur.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/spur.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/spur.css">
+    
+    <title>titom news</title>
+</head>
+
+ <div class="dash container-fluid">
+      <div class="dash-nav dash-nav-dark">
+          <header>
+              <a href="#!" class="menu-toggle">
+                  <i class="fas fa-bars"></i>
+              </a>
+              <a href="/" class="spur-logo"><i class="fas fa-bolt"></i> <span>TITOM</span></a>
+          </header>
+          <nav class="dash-nav-list">
+                <a href="/admin/post" class="dash-nav-item">
+                    <i class="fas fa-table"></i> Post </a>
+                <a href="/admin/tag" class="dash-nav-item">
+                <i class="fas fa-table"></i> Tag </a>
+                <a href="/admin/category" class="dash-nav-item">
+                <i class="fas fa-table"></i> Category </a>
+                <div class="dash-nav-dropdown ">
+                  <span  class="dash-nav-item dash-nav-dropdown-toggle">
+                      <i class="fas fa-cube"></i> User </span>
+                  <div class="dash-nav-dropdown-menu">
+                      <a href="user/suscriber" class="dash-nav-dropdown-item">Subscriber</a>
+                      <a href="user/writer" class="dash-nav-dropdown-item">Writer</a>
+                      <a href="user/editor" class="dash-nav-dropdown-item">Editor</a>
+                  </div>
+                </div>
+          </nav>
+      </div>
+      <div class="dash-app" >
+        <main class="dash-content">
+            <div class="container-fluid">
+                <a href="/admin" class="menu-toggle">
+                    <i class="fas fa-home"></i>
+                </a>
+                <h1 class="dash-title">USERS</h1>
+                <div class="row">
+                    <div class="dropdown">
+                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Roles
+                    </button>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                        <a class="dropdown-item" href="/admin/user/subscriber">Subscriber</a>
+                        <a class="dropdown-item" href="/admin/user/writer">Writer</a>
+                        <a class="dropdown-item" href="/admin/user/editor">Editor</a>
                     </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-lg">
-                            <div class="card spur-card">
-                                <div class="card-header bg-info text-white">
-                                    <div class="spur-card-icon">
-                                        <i class="fas fa-table"></i>
-                                    </div>
-                                    <div class="spur-card-title">{{role}}</div>
+                </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg">
+                        <div class="card spur-card">
+                            <div class="card-header bg-info text-white">
+                                <div class="spur-card-icon">
+                                    <i class="fas fa-table"></i>
                                 </div>
-                                <div class="card-body container-fluid">
-                                    <table class="table table-hover table-in-card">
-                                        <thead>
-                                            <tr>
-                                                <th scope="col">#</th>
-                                                <th scope="col">username</th>
-                                                <th scope="col">name</th>
-                                                <th scope="col">dob</th>
-                                                <th scope="col">exp</th>
-                                                <th scope="col">email</th>
-                                                <th scope="col">nickname</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            {{#each users}}
-                                            <tr>
+                                <div class="spur-card-title">{{role}}</div>
+                            </div>
+                            <div class="card-body container-fluid">
+                                <table class="table table-hover table-in-card">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col">#</th>
+                                            <th scope="col">username</th>
+                                            <th scope="col">name</th>
+                                            <th scope="col">dob</th>
+                                            <th scope="col">exp</th>
+                                            <th scope="col">email</th>
+                                            {{#if editor}}<th scope="col">Category</th>{{/if}}
+                                            <th scope="col">nickname</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        {{#each users}}
+                                        <tr>
+                                            <form action="/admin/user" method="POST">
+                                            <input type="hidden" name="id" value={{id}}>
+                                            {{!-- <input type="hidden" name="role" value=> --}}
                                                 <th scope="row">{{id}}</th>
-                                                <td><input name="username" value="{{username}}"></td>
-                                                <td><input name="name" value="{{name}}"></td>
-                                                <td><input name="dob" value="{{DOB}}"></td>
-                                                <td><input name="exp" value="{{expiredDate}}"></td>
-                                                <td><input name="email" value="{{email}}"></td>
-                                                <td><input name="nickname" value="{{nickname}}"></td>
+                                                <td><input name="username" value="{{username}}" size="8" ></td>
+                                                <td><input name="name" value="{{name}}" size="15" ></td>
+                                                <td><input name="DOB" value="{{formatDate DOB}}" size="8" ></td>
+                                                <td><input name="expiredDate" value="{{formatDate expiredDate}}" size="8" ></td>
+                                                <td><input name="email" value="{{email}}" size="20" ></td>
+                                                {{#if editor}}<td>{{editor_category_id}}</td>{{/if}}
+                                                <td><input name="nickname"value="{{nickname}}" size="8" ></td>
                                                 <td>
-                                                    <button  disabled={{ status }} type="button" class="btn">publish</button>
+                                                    <div class="btn-group">
+                                                        <input name="method" value="Update" type="submit" class="btn btn-primary">
+                                                        <input name="method" value="Delete" type="submit" class="btn btn-danger">
+                                                    </div>    
                                                 </td>
-                                            </tr>
-                                            {{/each}}
-                                        </tbody>
-                                    </table>
-                                </div>
+                                            </form> 
+                                        </tr>
+                                        {{/each}}
+                                    </tbody>
+                                </table>
                             </div>
                         </div>
                     </div>
                 </div>
-            </main>
-          </main>
-  </div>
-  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-  <script src="../js/spur.js"></script>
+            </div>
+        </main>
+      </div>
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+<script src="../../public/js/spur.js"></script>

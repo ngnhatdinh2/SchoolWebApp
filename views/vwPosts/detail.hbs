@@ -12,7 +12,7 @@
 					{{else}}
 					<div class="blog-leftl">
 						<h6>{{formatDate post.publish_date}}</h6>
-						<a href="#"><h6>{{post.topic}}</h6></a>
+						<a href="/news/{{post.category_id}}"><h6>{{post.topic}}</h6></a>
 					</div>
 					<div class="blog-leftr">
 						<img src="{{post.image_url}}" alt=" " class="img-responsive" />
@@ -34,15 +34,15 @@
 						{{#each comments}}
 						<div class="media response-info">
 							<div class="media-left response-text-left">
-								<a href="#">
-									<img class="media-object" src="images/icon1.png" alt="" />
+								<a class="avatar" href="#">
+									<img class="media-object" src="{{avatar}}" alt="" />
 								</a>
-								<h5><a>{{reader}}</a></h5>
+								<h5><a>{{name}}</a></h5>
 							</div>
 							<div class="media-body response-text-right">
 								<p>{{content}}</p>
 								<ul>
-									<li>{{date}}</li>
+									<li>{{formatDate date}}</li>
 								</ul>
 							</div>
 							<div class="clearfix"> </div>
@@ -51,8 +51,8 @@
 					</div>
 					<div class="coment-form">
 						<h4>Leave your comment</h4>
-						<form>
-							<textarea type="text" onfocus="this.value = '';"
+						<form method="POST" action="">
+							<textarea type="text" name="comment" id="txtComment" onfocus="this.value = '';"
 								onblur="if (this.value == '') {this.value = 'Your Comment...';}"
 								required="">Your Comment...</textarea>
 							<input type="submit" value="Submit Comment">
@@ -67,7 +67,7 @@
 					<h3>Tags</h3>
 					<ul class="tag2">
 						{{#each post_tag}}
-						<li><a href="#">{{nametag}}</a></li>
+						<li><a href="/news/tags/{{tag_id}}">{{nametag}}</a></li>
 						{{/each}}
 					</ul>
 				</div>
@@ -75,7 +75,7 @@
 				<h3>Categories</h3>
 				<ul>
 					{{#each lcCateSmall}}
-					<li><a href="#">{{name}}</a></li>
+					<li><a href="/news/{{id}}">{{name}}</a></li>
 					{{/each}}
 				</ul>
 				<div class="clearfix"> </div>
@@ -93,7 +93,7 @@
 											<img src="{{thumbnail_url}}" alt=" " class="img-responsive" />
 										</div>
 										<div class="tab_list">
-											<span><a href="#">{{topic}}</a><br />{{formatDate publish_date}}
+											<span><a href="/news/{{category_id}}">{{topic}}</a><br />{{formatDate publish_date}}
 											</span>
 											<p><a href="/categories/{{category_id}}/posts/{{id}}">{{title}}</a></p>
 										</div>

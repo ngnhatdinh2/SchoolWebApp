@@ -14,7 +14,7 @@ module.exports = {
     },
 
     allWithPost: id => {
-        return db.load(`SELECT cm.id, cm.content, cm.user_id, cm.post_id, user.name as reader FROM comment cm JOIN user ON cm.user_id = user.id WHERE cm.post_id = ${id} order by id DESC`);
+        return db.load(`SELECT cm.id, cm.content, cm.date, cm.post_id, user.* FROM comment cm JOIN user ON cm.user_id = user.id WHERE cm.post_id = ${id} order by cm.date DESC`);
     },
 
     add: (entity) => {
