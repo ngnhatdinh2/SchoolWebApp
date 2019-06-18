@@ -99,4 +99,8 @@ module.exports = {
         `)
     },
 
+    nextId: () => {
+        return db.nextId('posts');
+    },
+
 }

@@ -116,6 +116,8 @@ router.post('/login', auth.inLogin, (req, res, next) => {
                 return next(err);
             switch (user.role) {
                 case 1:
+                    if (user.expiredDate.getTime() < Date.now())
+                        return res.redirect('/subscriber/renewal');
                     return res.redirect('/');
                 case 2:
                     return res.redirect('/editor');
@@ -172,7 +174,7 @@ router.get('/profile/:id', auth.notLogin, (req, res, next) => {
         if (rows.length > 0) {
             var cus = rows[0];
             cus.DOB = moment(cus.DOB, 'YYYY-MM-DD').format('DD/MM/YYYY');
-
+            cus.expiredDate = moment(cus.expiredDate, 'YYYY-MM-DD').format('DD/MM/YYYY');
             res.render('vwAccount/profile', {
                 error: false,
                 cus: cus
@@ -221,8 +223,7 @@ router.post('/logout', auth.notLogin, (req, res, next) => {
     res.redirect('/account/login');
 })
 
-
-//forgot password
+/* Forget Password */
 router.get('/forgotpass', auth.inLogin, (req, res, next) => {
     res.render('vwAccount/forgot');
 })
@@ -249,7 +250,7 @@ router.post('/sendmail', auth.inLogin, (req, res, next) => {
         to: email,
         subject: 'Confirm password',
         html: '<h1>Welcome</h1><p>TiTom!</p>'
-            + '<p>Your default password is <b>123456<b><p>'
+            + '<p>Your default password is <b>123456</b><p>'
             + '<p>Please access this site to confirm password: <a href=http://localhost:4000/account/confirm/' + hash + '>'
             + 'titom.com</a>'
             + '<p>Have a nice day!</p>'

@@ -7,6 +7,8 @@ var storage = multer.diskStorage({
         cb(null, './public/images/avatar');
     },
     filename: function (req, file, cb) {
+        //kiểm tra: nếu là register thì sẽ lấy id mới
+        //nếu là sửa thông tin thì sẽ lấy lại id của nó
         if (!req.user) {
             userModel.nextId().then(id => {
                 var string = JSON.stringify(id);

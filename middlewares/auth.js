@@ -11,22 +11,22 @@ module.exports = {
     },
     isWriter: (req, res, next) => {
         if (!(req.user.role === 3)) {
-            res.redirect('/');
+            res.redirect('/pagenotfound');
         } else next();
     },
     isSubscriber: (req, res, next) => {
         if (!(req.user.role === 1)) {
-            res.redirect('/');
+            res.redirect('/pagenotfound');
         } else next();
     },
     isEditor: (req, res, next) => {
         if (!(req.user.role === 2)) {
-            res.redirect('/');
+            res.redirect('/pagenotfound');
         } else next();
     },
     isAdmin: (req, res, next) => {
         if (!(req.user.role === 4)) {
-            res.redirect('/');
+            res.redirect('/pagenotfound');
         } else next();
     },
 }

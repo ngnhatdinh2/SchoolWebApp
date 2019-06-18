@@ -1,5 +1,6 @@
 var express = require('express');
 var morgan = require('morgan');
+var auth = require('./middlewares/auth');
 
 var app = express();
 
@@ -24,6 +25,7 @@ app.get('/', (req, res) => {
 app.use('/tin-tuc', require('./routes/postlist.route'));
 app.use('/account', require('./routes/account.route'));
 app.use('/categories', require('./routes/category.route'));
+app.use('/subscriber', auth.isSubscriber, require('./routes/subscriber.route'));
 
 app.use((req, res, next) => {
     res.render('404');
