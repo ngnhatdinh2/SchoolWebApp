@@ -38,9 +38,15 @@
                 name: {
                     required: true,
                 },
+                nickname: {
+                    required: true,
+                },
                 email: {
                     required: true,
-                    email: true
+                    email: true,
+                    remote: {
+                        url: '/account/is-available-email'
+                    }
                 },
                 dob: {
                     required: true,
@@ -62,9 +68,13 @@
                 name: {
                     required: 'Please enter a valid fullname.',
                 },
+                nickname: {
+                    required: 'Please enter a valid nickname.',
+                },
                 email: {
                     required: 'Please enter a valid email address.',
-                    email: 'Please enter a valid email address.'
+                    email: 'Please enter a valid email address.',
+                    remote: 'Your email has been taken, please take another.'
                 },
                 dob: {
                     required: 'Please enter a valid date of birth.',
@@ -91,7 +101,7 @@
             <div class="header-bottom">
                 <div class="header-right w3agile">
                     <div class="header-left-bottom agileinfo">
-                        <form novalidate action="" method="POST" id="registerForm">
+                        <form novalidate action="" method="POST" id="registerForm" enctype="multipart/form-data">
                             <div class="icon1">
                                 <i class="fa fa-user" aria-hidden="true"></i>
                                 <input type="text" placeholder="Username" id="txtUsername" name="username" autofocus>
@@ -109,16 +119,8 @@
                                 <input type="text" placeholder="Full name" id="txtName" name="name">
                             </div>
                             <div class="icon1">
-                                <i class="fa fa-info" aria-hidden="true"></i>
-                                <input type="text" placeholder="Full name" id="txtName" name="name">
-                            </div>
-                            <div class="icon1">
-                                <i class="fa fa-info" aria-hidden="true"></i>
-                                <input type="text" placeholder="Full name" id="txtName" name="name">
-                            </div>
-                            <div class="icon1">
-                                <i class="fa fa-info" aria-hidden="true"></i>
-                                <input type="text" placeholder="Full name" id="txtName" name="name">
+                                <i class="fa fa-pencil" aria-hidden="true"></i>
+                                <input type="text" placeholder="Nick name" id="txtNickName" name="nickname">
                             </div>
                             <div class="icon1">
                                 <i class="fa fa-envelope" aria-hidden="true"></i>
@@ -128,7 +130,9 @@
                                 <i class="fa fa-calendar" aria-hidden="true"></i>
                                 <input type="text" placeholder="Date of birth" id="txtDOB" name="dob">
                             </div>
-
+                            <div class="icon1">
+                                <input type="file" id="avatar" name="avatar">
+                            </div>
                             <div class="bottom">
                                 <input type="submit" value="Register" />
                             </div>

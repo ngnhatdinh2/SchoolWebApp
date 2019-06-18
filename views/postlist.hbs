@@ -1,110 +1,147 @@
+{{#section 'css'}}
+    <link rel="stylesheet" type="text/css" href="/css/DanhSachBaiViet.css">
+{{/section}}
+
+{{#section 'js'}}
+{{/section}}
+
 <div class="container danhsach-container">
-		<ol class="breadcrumb">
-			<li class="breadcrumb-item"><a href="#">Home</a></li>
-			<li class="breadcrumb-item active">Library</li>
-		</ol>
+    
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="/news" style="text-decoration: underline;">Toàn bộ</a></li>
+        {{#each direct}}
+        <li class="breadcrumb-item active">{{cg_name}}</li>
+        <li class="breadcrumb-item active"><a href="/news/{{c_id}}" style="text-decoration: underline;">{{c_name}}</a></li>
+        {{/each }}
+    </ol>
 
-		<div class="row ">
-			<div class="col-6">
-				<div class="row highlight" style="padding-left: 15px;">					
-					<img  id="img1" class="art img-fluid" src="../public/../public/images/news_image_1.png" alt="Uniben đầu tư xây dựng thêm một nhà máy thực phẩm hiện đại">
-					<div class="card-img-overlay" style="height: 33%">
-						<h4 class="card-title">John Doe</h4>
-						<p class="card-text">Some example text.</p>
-					</div>
-				</div>
-			</div>
-			<div class="col-6">
-				<div class="row">
-					<div class="col-6 highlight">
-						<img  class="art img-fluid" src="../public/images/news_image_1.png" alt="Uniben đầu tư xây dựng thêm một nhà máy thực phẩm hiện đại">
-						<div class="card-img-overlay">
-						<h4 class="card-title">John Doe</h4>
-						<p class="card-text">Some example text.</p>
-					</div>
-					</div>
-					<div class="col-6 highlight">
-						<img class="art img-fluid" src="../public/images/news_image_1.png" alt="Uniben đầu tư xây dựng thêm một nhà máy thực phẩm hiện đại">
-						<div class="card-img-overlay">
-						<h4 class="card-title">John Doe</h4>
-						<p class="card-text">Some example text.</p>
-					</div>
-					</div>
-				</div>
-				<div class="row" >
-					<div class="col-6 highlight">
-						<img class="art img-fluid" src="../public/images/news_image_1.png" alt="Uniben đầu tư xây dựng thêm một nhà máy thực phẩm hiện đại">
-						<div class="card-img-overlay">
-						<h4 class="card-title">John Doe</h4>
-						<p class="card-text">Some example text.</p>
-					</div>
-					</div>
-					<div class="col-6 highlight">
-						<img class="art img-fluid" src="../public/images/news_image_1.png" alt="Uniben đầu tư xây dựng thêm một nhà máy thực phẩm hiện đại">
-						<div class="card-img-overlay">
-						<h4 class="card-title">John Doe</h4>
-						<p class="card-text">Some example text.</p>
-					</div>
-					</div>
-				</div>
-				
+    <div id="hot-post" class="row hot-post">
+        <div class="col-md-8 hot-post-left">
+            <!-- post -->
+            {{#each lcMost1}}
+            <div class="post post-thumb">
+                <a class="post-img" href="/categories/{{category_id}}/posts/{{id}}"><img src="{{image_url}}" alt=""></a>
+                <div class="post-body">
+                    <div class="post-category">
+                        <a href="/news/{{category_id}}">{{category_name}}</a>
+                    </div>
+                    <p class="post-title title-lg"><a href="/categories/{{category_id}}/posts/{{id}}">{{title}}</a></p>
+                    <div class="entry-meta post-meta">
+                        <span class="entry-date"><i class="fa fa-calendar"
+                                aria-hidden="true">&nbsp</i>{{formatDate publish_date}}</span>
+                        &nbsp
+                        <span class="comment-link"><i  class="fa fa-eye" aria-hidden="true">&nbsp</i>{{view}} lượt
+                            xem</span>
+                    </div>
 
-			</div>
-		</div>
-        {{#each post}}
-		<div class="row">
-			<div class="col-4">
-				<img class="art img-fluid" src="../public/images/news_image_1.png" alt="Uniben đầu tư xây dựng thêm một nhà máy thực phẩm hiện đại">
-			</div>
-			<div class="col-8">
-				<h4 class="title_news"><a href="#">Uniben đầu tư xây dựng thêm một nhà máy thực phẩm hiện đại</a></h4>
-				<p>13/04/2019</p>
-				<p class="description">Nhà máy mới có vốn đầu tư 1.000 tỷ đồng, sản xuất hai nhãn hàng 3 Miền và Reeva cho thị trường trong nước lẫn xuất khẩu.</p>
-			</div>
-		</div>
+                </div>
+            </div>
+            {{/each}}
+            <!-- /post -->
+        </div>
+        <div class="col-md-4 hot-post-right">
+            <!-- post -->
+            {{#each lcMost2}}
+            <div class="post post-thumb">
+                <a class="post-img" href="/categories/{{category_id}}/posts/{{id}}"><img src="{{image_url}}" alt=""></a>
+                <div class="post-body">
+                    <div class="post-category">
+                        <a href="/news/{{category_id}}">{{category_name}}</a>
+                    </div>
+                    <p class="post-title title-lg"><a href="/categories/{{category_id}}/posts/{{id}}">{{title}}</a></p>
+                    <div class="entry-meta post-meta">
+                        <span class="entry-date"><i class="fa fa-calendar"
+                                aria-hidden="true">&nbsp</i>{{formatDate publish_date}}</span>
+                        &nbsp
+                        <span class="comment-link"><i class="fa fa-eye" aria-hidden="true">&nbsp</i>{{view}} lượt
+                            xem</span>
+                    </div>
+                </div>
+            </div>
+            {{/each}}
+            <!-- /post -->
+        </div>
+    </div>
+    <!-- /row -->
+    {{#if this.error}}
+    <div class="alert alert-danger" role="alert">
+        Invalid Information. <a href="/" class="alert-link">Go back home</a>.
+    </div>
+    {{else}}
+    {{#each post}}
+    <div class="row mb-4 news ">
+        <div class="col-4">
+            <img class="art img-fluid" src="{{image_url}}" alt="{{title}}">
+        </div>
+        <div class="col-8">
+            <div class="news-body">
+                <div class="news-header">
+                    <div class="post-cat">
+                        <a href="/news/{{category_id}}">{{category_name}}</a></div>
+                    <h3 class="news-heading"><a href="/categories/{{category_id}}/posts/{{id}}">{{title}} {{#if ispremium}}<i class="fa fa-star"></i>{{/if}}</a></h3>
+                    <div class="entry-meta">
+                        <span class="entry-date"><i class="fa fa-calendar"
+                                aria-hidden="true">&nbsp</i>{{formatDate publish_date}}</span>
+                        &nbsp
+                        <span class="comment-link"><i class="fa fa-eye" aria-hidden="true">&nbsp</i>{{view}} lượt
+                            xem</span>
+                    </div>
+
+                </div>
+                <p>{{abstract_body}}</p>
+                <div class="">
+                    <a href="/categories/{{category_id}}/posts/{{id}}" class="btn link-btn btn-outline btn-rounded">Xem thêm ⇾</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    {{/each}}
+
+    <ul class="pagination justify-content-end">
+        <li class="page-item"><a class="page-link" href="#">&lt</a></li>
+        {{#each page}}
+        <li class="page-item {{#if isActive}}active{{/if}}"><a class="page-link" href="?page={{value}}">{{value}}</a>
+        </li>
         {{/each}}
+        <li class="page-item"><a class="page-link" href="#">&gt</a></li>
+    </ul>
+    {{/if}}
+</div>
 
-		
 
 
-		<ul class="pagination justify-content-end">
-			<li class="page-item"><a class="page-link" href="#"><</a></li>
-			<li class="page-item"><a class="page-link" href="#">1</a></li>
-			<li class="page-item"><a class="page-link" href="#">2</a></li>
-			<li class="page-item"><a class="page-link" href="#">3</a></li>
-			<li class="page-item"><a class="page-link" href="#">></a></li>
-		</ul>
 
-		<div class="col-12 category">
-			<h4>Danh mục</h4>
-			<ul class="category-list">
-				<li>
-					<a href="#">Travel
-						<span class="ts-orange-bg">10</span>
-					</a>
-				</li>
-				<li>
-					<a href="#">Sports
-						<span class="ts-green-bg">25</span>
-					</a>
-				</li>
-				<li>
-					<a href="#">Travel
-						<span class="ts-orange-bg">10</span>
-					</a>
-				</li>
-				<li>
-					<a href="#">Fashion
-						<span class="ts-pink-bg">10</span>
-					</a>
-				</li>
-				<li>
-					<a href="#">Technology
-						<span class="ts-blue-bg">10</span>
-					</a>
-				</li>
 
-			</ul>
-		</div>
-		
-	</div>
+
+{{!-- <div class="col-12 category">
+        <h4>Danh mục</h4>
+        <ul class="category-list">
+            <li>
+                <a href="#">Travel
+                    <span class="ts-orange-bg">10</span>
+                </a>
+            </li>
+            <li>
+                <a href="#">Sports
+                    <span class="ts-green-bg">25</span>
+                </a>
+            </li>
+            <li>
+                <a href="#">Travel
+                    <span class="ts-orange-bg">10</span>
+                </a>
+            </li>
+            <li>
+                <a href="#">Fashion
+                    <span class="ts-pink-bg">10</span>
+                </a>
+            </li>
+            <li>
+                <a href="#">Technology
+                    <span class="ts-blue-bg">10</span>
+                </a>
+            </li>
+
+        </ul>
+    </div> --}}

@@ -1,8 +1,10 @@
 var postModel = require('../models/post.model');
+var userModel = require('../models/user.model');
 module.exports = (req, res, next) => {
     Promise.all([
         postModel.all(),
-    ]).then(([rows, posts]) => {
+        // userModel
+    ]).then(([rows]) => {
         // console.log(rows);
         // res.locals.posts=[{
         //     id:1,
@@ -10,6 +12,7 @@ module.exports = (req, res, next) => {
         //     date: "2019-06-12",
         //     status: "pending"
         // }]
+        
         res.locals.posts = rows
         next();
     })

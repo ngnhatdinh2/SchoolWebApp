@@ -1,0 +1,119 @@
+
+  <div class="dash">
+       <div class="dash-nav dash-nav-dark">
+          <header>
+              <a href="#!" class="menu-toggle">
+                  <i class="fas fa-bars"></i>
+              </a>
+              <a href="/" class="spur-logo"><i class="fas fa-bolt"></i> <span>TITOM</span></a>
+          </header>
+          <nav class="dash-nav-list">
+                <a href="post" class="dash-nav-item">
+                    <i class="fas fa-table"></i> Post </a>
+                <a href="tag" class="dash-nav-item">
+                <i class="fas fa-table"></i> Tag </a>
+                <a href="category" class="dash-nav-item">
+                <i class="fas fa-table"></i> Category </a>
+                <div class="dash-nav-dropdown ">
+                  <span  class="dash-nav-item dash-nav-dropdown-toggle">
+                      <i class="fas fa-cube"></i> User </span>
+                  <div class="dash-nav-dropdown-menu">
+                      <a href="user/suscriber" class="dash-nav-dropdown-item">Subscriber</a>
+                      <a href="user/writer" class="dash-nav-dropdown-item">Writer</a>
+                      <a href="user/editor" class="dash-nav-dropdown-item">Editor</a>
+                  </div>
+                </div>
+          </nav>
+      </div>
+      <div class="dash-app">
+          <main class="dash-content">
+             <main class="dash-content">
+                <div class="container-fluid">
+                    <h1 class="dash-title">CATEGORIES</h1>
+                    <div class="row">
+                        <div class="col-lg">
+                            <div class="card spur-card">
+                                <div class="card-header bg-info text-white">
+                                    <div class="spur-card-icon">
+                                        <i class="fas fa-table"></i>
+                                    </div>
+                                    <button type="button" class="btn btn-primary float-right" data-toggle="modal" data-target="#exampleModalCenter">
+                                        Add tag
+                                    </button>
+                                </div>
+                                <div class="card-body ">
+                                   
+                                    <table class="table table-hover table-in-card">
+                                        <thead>
+                                            <tr>
+                                                <th scope="col">#</th>
+                                                <th scope="col">name</th>
+                                                <th scope="col">group</th>
+                                                <th scope="col">total posts</th>
+                                                <th>delete</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            {{#each categories}}
+                                            <tr>
+                                                <form action="category" method="post">
+                                                <input type="hidden" name="id" value={{id}}>
+                                                <th scope="row">{{id}}</th>
+                                                <td><input type="text" name="name" value="{{name}}"/></td>
+                                                <td>{{group}}</td>
+                                                <td>{{posts}}</td>
+                                                <td>
+                                                    <div class="btn-group">
+                                                        <input name="method" value="Update" class="form-check-input btn btn-primary" type="submit">
+                                                        <input name="method" value="Delete" class="form-check-input btn btn-danger" type="submit">
+                                                    </div>    
+                                                </td>
+                                                </form>
+                                            </tr>
+                                            {{/each}}
+                                        </tbody>
+                                    </table>
+                                    {{!-- <input type="submit" class="btn btn-primary mt-5 float-right" value="submit"> --}}
+                                </div>
+                                <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                                    <div class="modal-dialog modal-dialog-centered" role="document">
+                                        <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="exampleModalLongTitle">Add tag</h5>
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                            </button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <form action="category" method="POST">
+                                                <label for="name">Name: </label>
+                                                <input name="name" type="text" value="" autofocus="true">
+                                                <label>Group</label>
+                                                <select name="group">
+                                                    {{#each options}}
+                                                        <option value="{{id}}">{{name}}</option>
+                                                    {{/each}}
+                                                </select>
+
+                                             <div class="modal-footer">
+                                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                                <input class="btn btn-primary" type="submit" name="method" value="Add">
+                                            </div>
+                                            </form>
+                                        </div>
+                                       
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+          </main>
+        </div>
+  </div>
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  <script src="../js/spur.js"></script>
