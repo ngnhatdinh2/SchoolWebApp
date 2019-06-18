@@ -69,6 +69,9 @@ module.exports = function (app) {
             ifEq: (arg1, arg2, options) => {
                 return (arg1 === arg2) ? options.fn(this) : options.inverse(this);
             },
+            formatFullBody: (body) =>{
+                return body;
+            },
             section: hbs_sections()
         }
     }));

@@ -17,11 +17,12 @@ router.get('/:idCate/posts/:idPost', (req, res, next) => {
     }
 
     Promise.all([
+        postModel.viewUp(id),
         postModel.single(id),
         postModel.postRelative(1, idCate),
         commentModel.allWithPost(id),
         postTagModel.allWithPost(id),
-    ]).then(([rows, postRelative, comments, post_tag]) => {
+    ]).then(([tmp, rows, postRelative, comments, post_tag]) => {
         if (comments.length > 0) {
             var isComment = true;
         }

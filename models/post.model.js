@@ -149,5 +149,9 @@ module.exports = {
         return db.load(`
         SELECT * , cate.name as topic, user.name as author FROM posts JOIN category cate ON posts.category_id = cate.id JOIN user ON posts.user_id = user.id WHERE posts.isdeleted = 0 AND posts.status = 1 ORDER BY posts.view DESC LIMIT ${limit}
         `)
+    },
+
+    viewUp: (postid) =>{
+        return db.load(`update posts set view=view+1 where id = ${postid}`);
     }
 }
