@@ -19,6 +19,12 @@
             mask: true,
         });
 
+        $('#txtExpDate').datetimepicker({
+            format: 'd/m/Y',
+            timepicker: false,
+            mask: true,
+        });
+
         $('#updateForm').validate({
             rules: {
                 name: {
@@ -93,11 +99,6 @@
                                 <input type="text" placeholder="Nick name" id="txtNickName" name="nickname"
                                     value="{{this.cus.nickname}}">
                             </div>
-                            <div class="icon1">
-                                <i class="fa fa-calendar" aria-hidden="true"></i>
-                                <input readonly type="text" placeholder="Date of birth" id="txtExpdate" name="expDate"
-                                    value="{{this.cus.expiredDate}}">
-                            </div>
                             {{/ifEq}}
                             <div class="icon1">
                                 <i class="fa fa-calendar" aria-hidden="true"></i>
@@ -107,6 +108,13 @@
                             <div class="icon1">
                                 <input type="file" id="avatar" value="{{this.cus.avatar}}" name="avatar">
                             </div>
+                            {{#ifEq this.cus.role 1}}
+                            <div class="icon1">
+                                <i class="fa fa-calendar" aria-hidden="true"></i>
+                                <input readonly type="text" placeholder="Expired of Date" id="txtExpdate" name="expDate"
+                                    value="{{this.cus.expiredDate}}">
+                            </div>
+                            {{/ifEq}}
                             <div class="bottom">
                                 <input type="submit" value="Update" />
                             </div>
